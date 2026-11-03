@@ -1,32 +1,58 @@
 {
   "date": "2026-11-03",
-  "generated_at": "2026-11-03T08:19:56+00:00",
-  "articles": 188,
+  "generated_at": "2026-11-03T08:30:39+00:00",
+  "articles": 131,
   "clusters": [
     {
-      "title": "인천도서관, 앤 카슨 문학 세계 특별 강연 연다",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1vRWhWaWlkXzM0dzBsaWJhT3FiQWhDamE3bWF4Yk5tUmtTSjVLaTJKN2hzSEU2dDN0LTgzVS1OUHRkNDc4bG5FLW5CVUdWTVgwbmpKTUtUSTdHa0NPZ25ON05NeG10ZnJf?oc=5",
-      "lead_source": "일간경기",
+      "title": "대전테미문학관, 문학·커피·MBTI 결합 체험 프로그램 운영",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1DaWJLZGpCd2YzeVQ1RDN0T1dOTlBXR0FneklJRWt0TWRWTlpudVlqODM1RDdpaXI0cmJjX0xUc0N0WS1PMk5STmt3WnJOU3NEYl9ZSlFoSVNWTDJaWXFSbDVVUDV3ZVFFakM3dnVXOVFyMDQ?oc=5",
+      "lead_source": "충남일보",
       "count": 6,
       "sources": [
-        "경인매일",
-        "디스커버리뉴스(DISCOVERYNEWS)",
-        "경기도민일보 미디어",
-        "투어코리아",
-        "일간경기",
-        "여성종합뉴스"
+        "충청헤럴드",
+        "중부매일",
+        "충청매일",
+        "충남일보",
+        "아시아뉴스통신",
+        "뉴스티앤티"
       ],
       "locales": [
         "국내"
       ],
       "keywords": [
-        "현대시"
+        "문학교육"
       ],
       "tags": [
-        "인천도서관",
-        "카슨",
+        "대전테미문학관",
         "문학",
-        "세계"
+        "커피",
+        "운영"
+      ]
+    },
+    {
+      "title": "충남교육청, 다문화 교육 연구학교 운영 성과 공유",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBQQlh0eGZqRzhPejlwSlB4YlprYVdjSkwweEtMSmVpNFdhNFBUSjRtVkM1RV9ndXB3bl9kQ1BTN3lzVXVUYXN3MjdFdWRFRkFtNVJtMFdaLTJmOHRBd24yTWNYU0o1eFFQUFVKSW13?oc=5",
+      "lead_source": "뉴스홈(newshome)",
+      "count": 6,
+      "sources": [
+        "경남도민뉴스",
+        "뉴스충청인",
+        "세종충청뉴스",
+        "뉴스홈(newshome)",
+        "누리일보"
+      ],
+      "locales": [
+        "국내"
+      ],
+      "keywords": [
+        "다문화 학생 교육",
+        "다문화교육"
+      ],
+      "tags": [
+        "교육",
+        "충남교육청",
+        "다문화",
+        "연구학교"
       ]
     },
     {
@@ -56,53 +82,28 @@
       ]
     },
     {
-      "title": "강원교육청·민주평통, 청소년 평화·통일·민주시민교육 협약",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFAzb0pHQXZ0VkR2aWExTThqUzJQd1ZnOVk1eHhuaDNuMmFLVmZjUnhPck93YWdMaWduLXJPd1BhRG1xWk9FanAtRjJJTmRuU0h3YV90VkNWM08welnSAWBBVV95cUxPdjBtNzkzV05xSzlSM0RlbVhGQ0lIR0hsbUROUXc3XzJ6TWJPQW9ZTHZsWnViQWU2cTQ1d0swUk9RYzFRWkFvT3dvWjdaRW1FWXNncjJOa1RqTDlyRGRpVzg?oc=5",
-      "lead_source": "연합뉴스",
+      "title": "인천공항공사, 이주배경 청소년 대상 인공지능(AI) 캠프 성료",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBpajdMX2VyS2xSNlAyN1FNTzUwc3RXZ0dibjUySVFLZzcwa2VrOVNFSXJ4b2F5RWNQSExiejdtcmh0MVZNUW1MY2VjNVVuMkM4SnlQMEg0UlZFSWE1M212SzAzTUFESW02eFFlWEpB?oc=5",
+      "lead_source": "세정포커스",
       "count": 5,
       "sources": [
-        "일간투데이",
-        "강원일보",
-        "강릉넷TV",
-        "연합뉴스",
-        "신아일보"
+        "세정포커스",
+        "뉴데일리",
+        "우리일보",
+        "경기도민일보 미디어",
+        "투어코리아"
       ],
       "locales": [
         "국내"
       ],
       "keywords": [
-        "통일교육"
+        "이주배경 청소년"
       ],
       "tags": [
-        "청소년",
-        "평화",
-        "통일",
-        "민주시민교육"
-      ]
-    },
-    {
-      "title": "국민체육진흥공단, ‘희망 청소년 스포츠 활동 지원 사업’ 추진",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBtbVkwcm5LZzJiT0UyRTJfOVg2Sm5qT29aUVBrTnI3bm9sTWFRNFB0UldxOXhybDVRSHFlYW9nY3l3VE14RjV0X0NEN05qUXVMdXl6OU1xVlo1SnAzcC1rclhXTTRnYjZQOER2alBROE1UUQ?oc=5",
-      "lead_source": "웹이코노미",
-      "count": 5,
-      "sources": [
-        "아시아투데이",
-        "톱스타뉴스",
-        "이뉴스투데이",
-        "글로벌에픽",
-        "웹이코노미"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "북한이탈청소년"
-      ],
-      "tags": [
-        "청소년",
-        "스포츠",
-        "활동",
-        "지원"
+        "ai",
+        "인천공항공사",
+        "이주배경",
+        "청소년"
       ]
     },
     {
@@ -131,79 +132,51 @@
       ]
     },
     {
-      "title": "충남교육청, 다문화 교육 연구학교 운영 성과 공유",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBQQlh0eGZqRzhPejlwSlB4YlprYVdjSkwweEtMSmVpNFdhNFBUSjRtVkM1RV9ndXB3bl9kQ1BTN3lzVXVUYXN3MjdFdWRFRkFtNVJtMFdaLTJmOHRBd24yTWNYU0o1eFFQUFVKSW13?oc=5",
-      "lead_source": "뉴스홈(newshome)",
-      "count": 5,
+      "title": "국민체육진흥공단, ‘희망 청소년 스포츠 활동 지원 사업’ 추진",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBtbVkwcm5LZzJiT0UyRTJfOVg2Sm5qT29aUVBrTnI3bm9sTWFRNFB0UldxOXhybDVRSHFlYW9nY3l3VE14RjV0X0NEN05qUXVMdXl6OU1xVlo1SnAzcC1rclhXTTRnYjZQOER2alBROE1UUQ?oc=5",
+      "lead_source": "웹이코노미",
+      "count": 4,
       "sources": [
-        "경남도민뉴스",
-        "세종충청뉴스",
-        "뉴스충청인",
-        "뉴스홈(newshome)",
-        "누리일보"
+        "톱스타뉴스",
+        "이뉴스투데이",
+        "글로벌에픽",
+        "웹이코노미"
       ],
       "locales": [
         "국내"
       ],
       "keywords": [
-        "다문화 학생 교육",
-        "다문화교육"
+        "북한이탈청소년"
       ],
       "tags": [
-        "교육",
-        "충남교육청",
-        "다문화",
-        "연구학교"
+        "청소년",
+        "스포츠",
+        "활동",
+        "지원"
       ]
     },
     {
-      "title": "의정부교육지원청, RAS 예술로 잇는 다문화가족 어울림",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0zVzhfSGdDXzBVa3RSSkRFRnVRa3R5S005NWo3OXYyTzdaZ0pIcE9qdE90b2xJc0lKb3N3c1IyeGd4ampfclI4eXFOSXM4T1E0YTE1bFliTjNvZGI1LU9VWTJvc3pBQjc3TF9vcQ?oc=5",
-      "lead_source": "경기북부탑뉴스",
+      "title": "인천도서관, 19일 앤 카슨 문학 세계 조명하는 특별 강연 개최",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5aT2trSFo2d0RZOGg1blZleE44c1RTaDRaQnNhbUwyRWVyaWdJUDgwejlmcTNHcHVScmR2eThvZEtnM0laOTZtbUdfcDYzV3NkbTlrTFVPb1d3OHplSVR5QjBkLXpkU25o?oc=5",
+      "lead_source": "경인매일",
       "count": 4,
       "sources": [
-        "뉴스피크",
-        "오토투데이",
-        "경기북부탑뉴스",
-        "누리일보"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육",
-        "다문화교육",
-        "상호문화교육"
-      ],
-      "tags": [
-        "ras",
-        "예술로",
-        "잇는",
-        "다문화가족"
-      ]
-    },
-    {
-      "title": "인천공항공사, 이주배경 청소년 대상 인공지능(AI) 캠프 성료",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBpajdMX2VyS2xSNlAyN1FNTzUwc3RXZ0dibjUySVFLZzcwa2VrOVNFSXJ4b2F5RWNQSExiejdtcmh0MVZNUW1MY2VjNVVuMkM4SnlQMEg0UlZFSWE1M212SzAzTUFESW02eFFlWEpB?oc=5",
-      "lead_source": "세정포커스",
-      "count": 4,
-      "sources": [
-        "뉴데일리",
-        "세정포커스",
-        "우리일보",
+        "경인매일",
+        "디스커버리뉴스(DISCOVERYNEWS)",
+        "경기도민일보 미디어",
         "투어코리아"
       ],
       "locales": [
         "국내"
       ],
       "keywords": [
-        "이주배경 청소년"
+        "현대시"
       ],
       "tags": [
-        "이주배경",
-        "ai",
-        "캠프",
-        "청소년"
+        "인천도서관",
+        "카슨",
+        "특별",
+        "강연"
       ]
     },
     {
@@ -214,8 +187,8 @@
       "sources": [
         "뉴스홈(newshome)",
         "경기뉴스원",
-        "매일일보",
-        "서프라이즈뉴스"
+        "서프라이즈뉴스",
+        "매일일보"
       ],
       "locales": [
         "국내"
@@ -232,15 +205,14 @@
       ]
     },
     {
-      "title": "인천도서관, 노벨문학상 수상자 '앤 카슨'의 문학세계 특강 19일 개최",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1INkJwZkFhcDBKNUlkTm4zZ05FNTNWQllsZUxPMUxKVTVTY1Vab3VPVmJvLW16RDI1dEJlNG1YOEphdS1FUmFEVnlVNjRwLUtuRWhISTkydTRiRThYTTM2ekJMME9sVUt1YkI4?oc=5",
-      "lead_source": "프레시안",
-      "count": 4,
+      "title": "김민정 시인, 노벨문학상 수상자 '앤 카슨' 문학세계 조명한다",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB3RWd4LWFSeWhLamZueW9jWnZSWFBjVzNHSnFTaXo1RWVIV2lCZVBETk5nNVRiZG5yOUN2OE84NjdpajNPV3p6eko3d2RmaG90SXJhNFVOMEgteGRqbXN5Nk94RHc2MUFsaGEzZW9n?oc=5",
+      "lead_source": "국제뉴스",
+      "count": 3,
       "sources": [
         "인천투데이",
         "국제뉴스",
-        "프레시안",
-        "연합시민의소리"
+        "프레시안"
       ],
       "locales": [
         "국내"
@@ -256,86 +228,14 @@
       ]
     },
     {
-      "title": "전북 5개 시군, 교육부 ‘교육혁신선도지역’지정",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA2LWxVSDZsckpKVlNGNlBUdUQ1YUhaanU5SzBqdkpnVC1jdm41ZTNQb0JuaElaVzhqVlYzdm1yblA2bUl5NlJJRkZvbDdsWmlxQWNQV0lhM3B5ZnlZUGFrT2xQUGhwMmkxYWc?oc=5",
-      "lead_source": "전북제일신문",
-      "count": 4,
-      "sources": [
-        "뉴스핌",
-        "전북제일신문",
-        "완주신문",
-        "동행미디어 시대"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육",
-        "다문화교육"
-      ],
-      "tags": [
-        "전북",
-        "5개",
-        "시군",
-        "교육부"
-      ]
-    },
-    {
-      "title": "대전테미문학관, 문학·커피·MBTI 결합 체험 프로그램 운영",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1DaWJLZGpCd2YzeVQ1RDN0T1dOTlBXR0FneklJRWt0TWRWTlpudVlqODM1RDdpaXI0cmJjX0xUc0N0WS1PMk5STmt3WnJOU3NEYl9ZSlFoSVNWTDJaWXFSbDVVUDV3ZVFFakM3dnVXOVFyMDQ?oc=5",
-      "lead_source": "충남일보",
+      "title": "부천 이주배경청소년 인권 네트워크, 가족 50명과 ‘소통교육’ 성료",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBVdmxXQWJQMHF5TFNSbWNKbFhLdUU1UTY5NmpkTnJLQmVaZVpXMWhiak41RzNMbUNIbXpHbUYtc2pDVGxxZmR4MmdteGhVREFNQzBneHlZbmZlSGhqVWZxOGhIcw?oc=5",
+      "lead_source": "중부시사신문",
       "count": 3,
       "sources": [
-        "충청매일",
-        "충남일보",
-        "아시아뉴스통신"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "문학교육"
-      ],
-      "tags": [
-        "대전테미문학관",
-        "문학",
-        "커피",
-        "체험"
-      ]
-    },
-    {
-      "title": "대전흥룡초, 다름을 넘어 함께 즐기는 ‘동부동락’축제 개최",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFB6Wkh0Vmc0VnZ6MUFkS0dKVlBobTRFUC1YbkRlOUVSUmZZM1c1RHhFSUgxQ09KdnJlNVhZdVM5ekhzZHRBM3NuNmxCdXJWbkVoNlZzSlNaVG5pX2dTMlNicjNOSDBQVzhPLUE?oc=5",
-      "lead_source": "도민연합뉴스",
-      "count": 3,
-      "sources": [
-        "충청매일",
-        "도민연합뉴스",
-        "굿뉴스365"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육",
-        "다문화교육"
-      ],
-      "tags": [
-        "대전흥룡초",
-        "동부동락",
-        "축제",
-        "다름을"
-      ]
-    },
-    {
-      "title": "안성시민장학회, 이주배경 학생 11명에 장학금 500만 원 전달",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5YQnYzZTkzdXRiS1pwTVVaQ0EweV9VMEk0a010RWllSWJ0SnBEb0xvRW4tQW1vS0thRk5kX3J1MG4zZEV5aHZTVUU4SUc0Z0hyMTh3MllqSkdXRkRRVXZRT0Y1MDl2dw?oc=5",
-      "lead_source": "안성뉴스",
-      "count": 3,
-      "sources": [
-        "뉴시스",
-        "글로벌뉴스통신GNA",
-        "안성뉴스"
+        "중부시사신문",
+        "세계로컬타임즈",
+        "웹이코노미"
       ],
       "locales": [
         "국내"
@@ -344,27 +244,27 @@
         "이주배경 청소년"
       ],
       "tags": [
-        "안성시민장학회",
-        "이주배경",
-        "학생",
-        "11명에"
+        "부천",
+        "이주배경청소년",
+        "인권",
+        "네트워크"
       ]
     },
     {
       "title": "예산교육지원청, 다문화 가족과 마을이 함께하는 공감 캠프 운영",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5mQjhXVDVodWlRZTlxVzE5SkxJRThDUHFZUlMyLV84VHg0VHFjU1dHR2oxYk5rNXltZWFtaDRaNEc0cnlQUmtMbjl6Zy1MNDk4aWZxSWE4LS1vNlpMcnRranJxWXlXdWVGNXFNX0dSWQ?oc=5",
-      "lead_source": "충청일보",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5BT0hwUVRUb1h6cVhWUHJZUkwzNzNxUXUtTTZrQ0Z5U1NkMS1pZXVaMklSeXNwVUlVUjBIVkgtQUZBVTJJZDl1d1lLSkNsT1hGUlVMNFFwZUR3U2N0d0kyQ3FkLXFTdENv?oc=5",
+      "lead_source": "충청타임즈",
       "count": 3,
       "sources": [
-        "충청일보",
         "충청타임즈",
-        "뉴스케이"
+        "뉴스케이",
+        "충청일보"
       ],
       "locales": [
         "국내"
       ],
       "keywords": [
-        "다문화교육",
+        "다문화 학생 교육",
         "상호문화교육"
       ],
       "tags": [
@@ -395,52 +295,6 @@
         "아동",
         "청소년",
         "12명"
-      ]
-    },
-    {
-      "title": "한민족통일여성협의회, 제22회 통일스피치대회 성황리 개최",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5fSFB1LWI2eFZZYnNJUFpRWUtLNzR0Q3gwQlJzUFJVVmluZ3NsQzF0S1I0TjVicXl2cVJta1RkcWU1b2hRaGJIRUNmbXBmQWd0a05Na3pGZE9tSndJakhtTVRxUGwzZw?oc=5",
-      "lead_source": "한국미디어뉴스",
-      "count": 3,
-      "sources": [
-        "한국미디어뉴스",
-        "TV서울",
-        "시사코리아"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "제22회",
-        "통일스피치대회",
-        "개최",
-        "한민족통일여성협의회"
-      ]
-    },
-    {
-      "title": "희망친구 기아대책, `2027 호프컵` 대한민국팀 출정… 이주배경 아동·청소년 등 12명 선발",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBTSWw5X3FOQndxQkluSDJteHVxRjYyT0F5bnRIa3lSTEtiV1B1R1FXeW1sdDM1WTgzdzlyYkRtYXkxeEIyUGVaYnYtck5uUENpMElJ?oc=5",
-      "lead_source": "뉴스파워",
-      "count": 3,
-      "sources": [
-        "더버터",
-        "뉴스파워",
-        "팍스경제TV"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "이주배경 청소년"
-      ],
-      "tags": [
-        "기아대책",
-        "호프컵",
-        "출정",
-        "이주배경"
       ]
     },
     {
@@ -487,47 +341,25 @@
       ]
     },
     {
-      "title": "대전테미문학관, 문학·커피 체험 ‘테미 테이스팅’ 운영",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5ocXZyQk9XUU1halAteFdRMUtyZERfRDVydU11c284bUZ5WWVUQ0JoTndfYkg2R3p1NTZQNExjQmRvek00YjdpWGRXSWF4dHBDQzh0VVlLYjE5ZVcwSE5MSEZfd2NBVWs?oc=5",
-      "lead_source": "충청헤럴드",
+      "title": "대전흥룡초, 다문화 어우러진 ‘동부동락’ 축제 성황",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBxblpQcm9zWjhHeC1tRFBkQ0doclVQU1VBMGlEN2J4Q04teFg1Smp3bU9JZkd5RGhoazBtZXJOXzVvMy1mZ3RjOU5jUlJ6TG9aam9fUURISm5Ebld0QW8zNlR5N0VKOTRsenc?oc=5",
+      "lead_source": "충청매일",
       "count": 2,
       "sources": [
-        "중부매일",
-        "충청헤럴드"
+        "충청매일",
+        "도민연합뉴스"
       ],
       "locales": [
         "국내"
       ],
       "keywords": [
-        "문학교육"
+        "다문화교육"
       ],
       "tags": [
-        "대전테미문학관",
-        "테미",
-        "테이스팅",
-        "운영"
-      ]
-    },
-    {
-      "title": "부천 이주배경청소년 인권 네트워크, 가족 50명과 소통교육 마무리",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE15NEppNkxYSkpmZTQxaUNIMGRfei1fSXd5LUZDVGo3RFJfeUZGUm1pQTBvVlFyUi1QWmR2akFVeDhJWW80SE43ZFdlNzFBQ0lkd0J5bmpJUVNPX2RZS2ZySHdlRmItNUVwS3VLd1dYNGxDZw?oc=5",
-      "lead_source": "웹이코노미",
-      "count": 2,
-      "sources": [
-        "미디어투데이",
-        "웹이코노미"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "이주배경 청소년"
-      ],
-      "tags": [
-        "부천",
-        "이주배경청소년",
-        "인권",
-        "네트워크"
+        "대전흥룡초",
+        "동부동락",
+        "축제",
+        "다문화"
       ]
     },
     {
@@ -558,8 +390,8 @@
       "lead_source": "호남교육신문",
       "count": 2,
       "sources": [
-        "호남교육신문",
-        "미디어투데이"
+        "미디어투데이",
+        "호남교육신문"
       ],
       "locales": [
         "국내"
@@ -572,6 +404,29 @@
         "100주년",
         "장성",
         "뮤지컬로"
+      ]
+    },
+    {
+      "title": "의정부교육청, RAS 예술로 잇는 다문화가족 어울림",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5qSmRpSDVPUHA0LVRKM2EwTEVwOXoybVBSRGNqdHhPdHlQYTRiTUE3d0M3Z0RIanBiUm5pdlVTOExsTmJHc2NHSXQ5OXd2U1dPTUxmQXNQcERsUjg4Y1dTb1lFOUN3ZTAyWE9jdGN2MA?oc=5",
+      "lead_source": "오토투데이",
+      "count": 2,
+      "sources": [
+        "오토투데이",
+        "경기북부탑뉴스"
+      ],
+      "locales": [
+        "국내"
+      ],
+      "keywords": [
+        "다문화 학생 교육",
+        "상호문화교육"
+      ],
+      "tags": [
+        "ras",
+        "예술로",
+        "잇는",
+        "다문화가족"
       ]
     },
     {
@@ -597,28 +452,6 @@
       ]
     },
     {
-      "title": "최미금 경기도의원 주최 ‘가상체험학습 조례 제정을 위한 공청회’ 성황리 개최 > 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTE5KeDA2VUlHQTBlc1dWdXJ4MFh6Qm9ndlNBdjBoS3ZSWnZNdndLczJTR3dVd2I3dzg2MUZNckpnU1RFOUVi?oc=5",
-      "lead_source": "더코리아",
-      "count": 2,
-      "sources": [
-        "경기탑뉴스",
-        "더코리아"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화교육"
-      ],
-      "tags": [
-        "최미금",
-        "경기도의원",
-        "가상체험학습",
-        "조례"
-      ]
-    },
-    {
       "title": "한국문학 탄생 100년 작가, 땅끝에서 만나다",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1OeUhXS2ZCX1RNRE9vcW1yUE93REszSUwxdXYzX09CaE5GMG1TbGpsb01ndVFOcTJsaXVOUVN2bjR6Mml5TE1sU0s3Nl82cU5VME5sYlNhTGEtMnR0Y2lMUHFpM2lVUQ?oc=5",
       "lead_source": "뉴뉴스",
@@ -641,111 +474,6 @@
       ]
     },
     {
-      "title": "\"가정통신문도 어려운데\"…이주배경 학부모 교육 사각지대",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9hMWtLeHFyRnBpd1RvSHpWNTdlSjFSSHNYcE55VXZmXy1RbWJIMDgyTERmNFZnYV9TOXotbU1RMzY1R1R0VUZ2YkVmQnk4R2xLcFpOSFV3Y0syZw?oc=5",
-      "lead_source": "뉴스1",
-      "count": 1,
-      "sources": [
-        "뉴스1"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화교육"
-      ],
-      "tags": [
-        "가정통신문도",
-        "어려운데",
-        "이주배경",
-        "학부모"
-      ]
-    },
-    {
-      "title": "\"경기도의회에 초대할게요\"…최명진 도의원, 이주배경 학생들과 약속 지켜",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1BYVhFM3NWZ1JoZ0JleXhlbmVlYVhnMmZjeFNVQU9zbTF2Yll0TFkxdk8zMkhSR19lQ0ZCOERGZU45OGVqNUIwcFJxa1BMLUlwODh1TkRiN1ZfblNzdU5WUGZ5NUJKZ2Q1?oc=5",
-      "lead_source": "씨티21",
-      "count": 1,
-      "sources": [
-        "씨티21"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화교육"
-      ],
-      "tags": [
-        "경기도의회에",
-        "초대할게요",
-        "최명진",
-        "도의원"
-      ]
-    },
-    {
-      "title": "\"세계 여러 나라 문화 한자리에서 만나요\"… 성정청소년문화의집, 다문화 체험 '별별마을' 성황",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1xUDRLOFo2cUVhanBUNzY2ZHRjZFZoNTVSZjBmcmZGY0JJNkQtNmJicDFxUDlsY3NxYnZ2ZDlZbDFoTXJCS0JVYXktUF8wM2ZOajVtSjRhZTlUZGhOVGpsWkdfcEo?oc=5",
-      "lead_source": "충청탑뉴스",
-      "count": 1,
-      "sources": [
-        "충청탑뉴스"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화교육"
-      ],
-      "tags": [
-        "세계",
-        "여러",
-        "나라",
-        "문화"
-      ]
-    },
-    {
-      "title": "\"평화는 기다린다고 찾아오는 게 아니다...'작은실천' 축적 필요\"",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9oX1ZtbTJyV3NFQm16Ml90ZUUzcHhtamF2OGNnRTE4eHZlQ1lmdjFhTEFsSVZ6YlhYMW4ta0U5MTQ1RlU4MmFsY19yUzN1RXRIRjNYRFN0Q1JUUy1j?oc=5",
-      "lead_source": "뉴스핌",
-      "count": 1,
-      "sources": [
-        "뉴스핌"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "평화는",
-        "기다린다고",
-        "찾아오는",
-        "아니다"
-      ]
-    },
-    {
-      "title": "'김제·무주·부안·순창·완주' 교육혁신선도지역 지정",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE15ekhsaWpQR1FwbS04cWU2ZXBUNnJzekI3VUluNXpoWlNhbVVIZmFuYjR4S3E2OGlEYXp4YUZKTTQzRHJ6OGJOaXBTNDk4c1luNGxKSk5MN015OFJqUFB3MFl0Z1VKVGVvME8ydk9Mc1QwWWlOaWRuc9IBeEFVX3lxTE15ekhsaWpQR1FwbS04cWU2ZXBUNnJzekI3VUluNXpoWlNhbVVIZmFuYjR4S3E2OGlEYXp4YUZKTTQzRHJ6OGJOaXBTNDk4c1luNGxKSk5MN015OFJqUFB3MFl0Z1VKVGVvME8ydk9Mc1QwWWlOaWRucw?oc=5",
-      "lead_source": "뉴시스",
-      "count": 1,
-      "sources": [
-        "뉴시스"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육"
-      ],
-      "tags": [
-        "김제",
-        "무주",
-        "부안",
-        "순창"
-      ]
-    },
-    {
       "title": "'부상 딛고 다시 선 다비드'… 이주배경 청소년 12명, 세계 축구 무대 도전",
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB5NjZQb1VGX3pNV25XMEpxeVlGQUUyNnhOODA0QXZCNkxVZVp4dEF6c2V4MkZRTTZBNVZleHVmQ05jNXJkWlBaOEd0YlZWa2I0NDNadmRzZHBVNFZNRnUyZEFYQU0wWmxj?oc=5",
       "lead_source": "한국NGO신문",
@@ -764,27 +492,6 @@
         "딛고",
         "다시",
         "다비드"
-      ]
-    },
-    {
-      "title": "100년 넘은 한옥에 현대 조각이 들어왔다…남산골서 가구예술 전시",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE52anEzMzY2SmtUaVZZWXZ6aUxLSlJfTGJTWVl3YXptbm5fY2dLOHR5bXQwRUJDRjdaN0FiaGdacVFKS3hrQ3lqUGlxVm9pQ190UG00QU52QTk2VE9yT3J5OWxrV181cXNfSG5GcUg4bGs?oc=5",
-      "lead_source": "SK브로드밴드 회사소개",
-      "count": 1,
-      "sources": [
-        "SK브로드밴드 회사소개"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "100년",
-        "넘은",
-        "한옥에",
-        "현대"
       ]
     },
     {
@@ -829,27 +536,6 @@
       ]
     },
     {
-      "title": "[김윤환 시인의 시와 인생] 늦게 피어난 꽃나무",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1fcVA4eDIxUXM4Y3hZYXBtYURKMWY4b2kxRkk4RnRGSldfNnA4eGlKU0JReGZwTU5Fb0VMZ1Nhcm4wbE53TnNuNXhxMjVNWVk1b3R2bmtPMmtYREtRWVYxcWZxN01RMGc1?oc=5",
-      "lead_source": "경인매일",
-      "count": 1,
-      "sources": [
-        "경인매일"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "김윤환",
-        "시인의",
-        "시와",
-        "인생"
-      ]
-    },
-    {
       "title": "[단독] 차별 탓…이주배경 고교생 ‘적응 힘들어 자퇴’ 2.5배 더 많다",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE44VjQtWUhiMEhYd1R2bF9valhfRFFvWE9SM2szeC1NWVBiWTdRWkFyUk16Ym56RjFSbGVnRDR2d1Y3MExWR2Z3MXpQNHZoU1B0SEpDck5SaHNtemY0NFNmbWo4S044eEVFRlE?oc=5",
       "lead_source": "한겨레",
@@ -861,7 +547,7 @@
         "국내"
       ],
       "keywords": [
-        "다문화교육"
+        "이주배경 청소년"
       ],
       "tags": [
         "차별",
@@ -872,7 +558,7 @@
     },
     {
       "title": "[단독]수요 늘어도 없앤다…성평등부, '다문화자녀' 현금 지원 내년 종료 - 머니투데이",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9YVTF2TGNmV3diXzFnel9fLWE3SDZ2QkZvSHRjWUxiWDZSbHJuTFM1WnRlZFE1M0xkM3p4OFlLaGJSSWZCbEdXQ3o3bDhxUW1HVmNLQWpzUUNOa0JmY2FBTnlscGhNLUhZOFNFYlhXU2pXOFFBS2Nr0gF8QVVfeXFMT3ZHWFQ3a2hrVDBXRjJmWFNpUjJjNTJLbDZtQjFBVDQyREE2RDd2azVua1lrdG5rZndsellUS1J6aFNCX1pHS3h1TVBGeTBQMjhkdksxRERIZFNUNzRUQ1Y3TG1qQnM2eDlpbnczTmpHU1BwWHpUay1oY1UwOA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBIel9UaG9Jd0w2YklVb3pLYzVKQVIxR2ExaDVUX1FoVHpseVVzOTFTZ3FNMVhqZmRvWGlpSFQ0X0JxUlZJTUExRWJqTkpsOUpWd1QxRnRrUHVrc1JJRFJwZEJxai00TE5fUFlVeDVGONIBb0FVX3lxTFBIel9UaG9Jd0w2YklVb3pLYzVKQVIxR2ExaDVUX1FoVHpseVVzOTFTZ3FNMVhqZmRvWGlpSFQ0X0JxUlZJTUExRWJqTkpsOUpWd1QxRnRrUHVrc1JJRFJwZEJxai00TE5fUFlVeDVGOA?oc=5",
       "lead_source": "머니투데이",
       "count": 1,
       "sources": [
@@ -889,27 +575,6 @@
         "늘어도",
         "없앤다",
         "성평등부"
-      ]
-    },
-    {
-      "title": "[시인 김평 시와 함께하는 세상] \"詩論:명시(名詩)란 무엇인가? - 윌리엄 워즈워스의 「수선화」를 중심으로 살펴본 명시의 본질과 문학적 조건 및 문학사적 가치\" III",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBpYnVnaHZEWGJRbXl5SXRPaUFFb0paZnhIV3VzdlNHRkNkVmhVNllDTW9XTl9UbUJCZFFldHlUc1BMSVZ1VzM2QXdEdzZ0cDJ4RFJGMjVja0VFNjdsVDhqZkJxS0tpT1FTQkljSnJB0gFyQVVfeXFMUHIzUlBZNU9Oc2Y4UERQVDJGbnl1WVljdW9GNjVSZGx1WjItbHRKM3JsRGJZTDhvT3lrdEdtSmZjSnVzaXdQdW5qXzFPby1WVElWUWU4bms2QmQxTGhpZXFpSnNpMzFELVJ3TkhJdnJKY1FR?oc=5",
-      "lead_source": "잡포스트",
-      "count": 1,
-      "sources": [
-        "잡포스트"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "시인",
-        "김평",
-        "시와",
-        "함께하는"
       ]
     },
     {
@@ -930,48 +595,6 @@
         "시탐정",
         "조지훈의",
         "승무"
-      ]
-    },
-    {
-      "title": "[시평] 감각의 역전과 실존적 전회",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE52am10anNGOWhobW9JanMwd1JOWVlBa2Fhc3hqSWs5ajRHZ0hzMXdYUW45QzVRaGhSVGRubnFvUDJmWl91aUVCeGpTa2hMVXU2aHI4VHU2OXRJeE5tNmpwaGRVc213ZXllWUZoNGNB?oc=5",
-      "lead_source": "미디어피아",
-      "count": 1,
-      "sources": [
-        "미디어피아"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "시평",
-        "감각의",
-        "역전과",
-        "실존적"
-      ]
-    },
-    {
-      "title": "[시평] 존재의 서정과 순간의 영원성",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9DUllYdWtabUtSMmNnZXNoZHU0b1JPRGxUTDZndzJTN2J5ckdmYzRQa0FhS2xHalFKcENPR2F1LXVQVVVxY0ZUM210WklLQTNqV1RLdjlKeFVXWUEzejVpQjB1MUJ1LUxqZkF4SFNn?oc=5",
-      "lead_source": "미디어피아",
-      "count": 1,
-      "sources": [
-        "미디어피아"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "시평",
-        "존재의",
-        "서정과",
-        "순간의"
       ]
     },
     {
@@ -1056,6 +679,27 @@
       ]
     },
     {
+      "title": "[충청의 窓] 태극기를 달 때만 ‘우리’이고, 평소에는 ‘남’인가요?",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBYcmhFSWhhZDcwakxGcjFyRjJwd29BclBaWHJiUEtWNnJ0RjBYWXdPMUtsMURDX3FyVXRqRmJSMEcyV25iWVlzX0hJeThtUG9NT3F6cU5KM3hkWDdVdmZuVkNSc0hpNzFDTUlqcXln?oc=5",
+      "lead_source": "www.cctoday.co.kr",
+      "count": 1,
+      "sources": [
+        "www.cctoday.co.kr"
+      ],
+      "locales": [
+        "국내"
+      ],
+      "keywords": [
+        "다문화교육"
+      ],
+      "tags": [
+        "충청의",
+        "태극기를",
+        "때만",
+        "우리"
+      ]
+    },
+    {
       "title": "[현장기고] 아세안 교육의 변화 체감한 ACT+1",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9CTGdRSGIyS0VFejZtMnNIRms2aUpCSHdLWFZyakc4R25zREUzR0h6dDlqaW55OUhoSTE3YjlVTlZJM1VuNXR3ZE5ZVnhldDkyOGljbXFCdWVka19CTVlZ?oc=5",
       "lead_source": "한국교육신문",
@@ -1074,48 +718,6 @@
         "아세안",
         "교육의",
         "변화"
-      ]
-    },
-    {
-      "title": "[화요시선] 76년 전 하늘에서 본 대전",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1zTEZWYThiVTMwbjRSMW9vS1R1dkh4aFk4RmpJQ3JyeEJ5bUloekI4TEZZSkdhUWwza1M2ekdwNFZLOWRYOHVReFhKcDZDN3FhZ1JkeDZ4ajExc280VmFQa2lNSTRVLVBHV0xkUHFrdjhGQQ?oc=5",
-      "lead_source": "충남일보",
-      "count": 1,
-      "sources": [
-        "충남일보"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "화요시선",
-        "76년",
-        "하늘에서",
-        "대전"
-      ]
-    },
-    {
-      "title": "‘2026년 청소년 평화 공감 토크콘서트 통일 톡투유' 행사 개최",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1mTE5TcTNWZXNHbUwzNXFwSkYtVHNyUFV2RExhSnYyN19JOEIzT3ZESENldDJOX0kxcGxKaGhXRTJ6UGtfMXRUUnQ0LVVXRjBFbXcwNmRDYUE2TEpZckFFLWxLME5ZZlgzb094eW0zTQ?oc=5",
-      "lead_source": "하동뉴스",
-      "count": 1,
-      "sources": [
-        "하동뉴스"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "2026년",
-        "청소년",
-        "평화",
-        "공감"
       ]
     },
     {
@@ -1161,48 +763,6 @@
       ]
     },
     {
-      "title": "“교육교부금 개편 중단하라” 100만 서명운동 선언",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE95bExVVGpXNnUyV2RwTUI0MDVOa2tlanFpVVB1c3pocWU5YS1jbHE3Qm10MW1OcC13XzFnaF9JREtRQmRXUW93U1VkMzZwRm1UOU53S0x3VGpYa1c0bmhN?oc=5",
-      "lead_source": "한국교육신문",
-      "count": 1,
-      "sources": [
-        "한국교육신문"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화교육"
-      ],
-      "tags": [
-        "교육교부금",
-        "개편",
-        "중단하라",
-        "100만"
-      ]
-    },
-    {
-      "title": "“놀이로 즐기며 세계문화 배워요” 세종 전동초등학교",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA5ZVI3b2RRWW1halZzTnE2eHpONmJkeFNQTllNT0h2MUpGTXJfQV9aakUzc3BpRVhWMGZOcEtOWjR6NXlteFRZTVVWQWZfTVpFSnFJd2JUTUhjdUtwWDhMTnZGRmFvREE?oc=5",
-      "lead_source": "세종의소리",
-      "count": 1,
-      "sources": [
-        "세종의소리"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육"
-      ],
-      "tags": [
-        "놀이로",
-        "즐기며",
-        "세계문화",
-        "배워요"
-      ]
-    },
-    {
       "title": "“모든 청소년 차별없이 존중받길”… 인천 이주배경아동 권리선언 발표",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9nWTdncjV6ZHlOVEdGcmtLLWdoeURBN0pWY2xUR1Joc0lsc3ZkZnV3dWstUGwtdUF2QTVhQTU4X3FFWS1BNGMtekRFYXNWOHNRbGc?oc=5",
       "lead_source": "경인일보",
@@ -1221,27 +781,6 @@
         "청소년",
         "차별없이",
         "존중받길"
-      ]
-    },
-    {
-      "title": "“벽깨기 협력으로 지역 돌봄의 문을 열다” 경기도시흥교육지원청, ’서촌초 거점형 아이누리돌봄센터’ 개소",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBXZEZmemxMa21uVU9BYXZSQ0FJTGFtVi1xNGlLbVNsMFdSaHhjVnQwYVIyTnh4Yl9SeGxqQm1EN3RCUmZIdHRWSFhXX3JVUjlOR1d0aGd3M2JDRFpTNmpOYw?oc=5",
-      "lead_source": "비전21뉴스",
-      "count": 1,
-      "sources": [
-        "비전21뉴스"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육"
-      ],
-      "tags": [
-        "벽깨기",
-        "협력으로",
-        "지역",
-        "돌봄의"
       ]
     },
     {
@@ -1308,12 +847,12 @@
       ]
     },
     {
-      "title": "강원 청소년, 평화와 민주주의를 배우다…교육청·민주평통 맞손",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5HRElKTFlXY1I2WHVWa2FuNjNaVTJwX3hWcThWXzFJZGxualdLTTYwMy1KYXFkYW9iSjhSNzYyU3o0cnNfOXpZSTRZNXVxclo0bkgzR1E2MENvalZael9YcXRWN24xNGho?oc=5",
-      "lead_source": "강원신문",
+      "title": "강원교육청, 민주평통과 청소년 평화·통일·민주시민교육 협약 체결",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9MeXd5S1ozek92OFg5M0dyTm1wXzV5REh0Q0ZIWS1FUWhMQlJBX01EOEJIY2RmbGdZMnNSMWJGVHRZU2FSOGpEdW9RSC03dHl3QmRqOUNCSUFSMXVfRUt1TjlUd2t5Mms1TWdj?oc=5",
+      "lead_source": "일간투데이",
       "count": 1,
       "sources": [
-        "강원신문"
+        "일간투데이"
       ],
       "locales": [
         "국내"
@@ -1322,31 +861,10 @@
         "통일교육"
       ],
       "tags": [
-        "강원",
+        "강원교육청",
+        "민주평통과",
         "청소년",
-        "평화와",
-        "민주주의를"
-      ]
-    },
-    {
-      "title": "경상국립대 김지율 학술연구교수, 사진 시집 『침묵의 헤테로토피아』 출간",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5RTEs4OGNkNDh5V3dnUWdUSjlxaUlzVV9mVkxaSWNCSXZqUTBScDk0d2tPRF9TS0UyamZSTGFjU3hsWW9Bbl8tdkdXeWpBV3RIZjNQZmZSSEs4cHNiV3ByWmJISDZLUUNCSHhQd2tzSEo1cWVPcDRV?oc=5",
-      "lead_source": "진주인터넷뉴스",
-      "count": 1,
-      "sources": [
-        "진주인터넷뉴스"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "경상국립대",
-        "김지율",
-        "학술연구교수",
-        "사진"
+        "평화"
       ]
     },
     {
@@ -1361,55 +879,13 @@
         "국내"
       ],
       "keywords": [
-        "다문화교육"
+        "다문화 학생 교육"
       ],
       "tags": [
         "고등학생은",
         "60만",
         "원까지",
         "받았는데"
-      ]
-    },
-    {
-      "title": "광명문화재단, 기획전시 ‘Pop-up: 펼쳐진 세계’ 개최",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBDN0ZwRE1iOGVZTGNFSFlHeG1qdER6SllSc29pRF8zUWg5OEdNM2FsUkJiX0RtSXNTdFJ2cGRnZ3JHcEZMamRibU1CS2gxclQ1M1B1OUVQMTFBT1ZKd1h2Wi10Q0hucEE4Y1hxYklrdw?oc=5",
-      "lead_source": "뉴스파이어",
-      "count": 1,
-      "sources": [
-        "뉴스파이어"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "광명문화재단",
-        "기획전시",
-        "pop",
-        "up"
-      ]
-    },
-    {
-      "title": "국가보훈부, '제97주년 학생독립운동 기념식' 3일 광주교육대학교서 거행",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1nYXdWYU5rVzY3cVkxQ2RfZ3hrX2VoY1pxdFAxTV9zMXVxZkJJWnVyaWxBYUJtTnBtSTdRb1pUa3J6eVFLMTloa0ZkU2QyYzhlcmROZEJJajBtTmxRRjRxS3U1WWxmd3lJZzR6NQ?oc=5",
-      "lead_source": "서울포커스",
-      "count": 1,
-      "sources": [
-        "서울포커스"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육"
-      ],
-      "tags": [
-        "국가보훈부",
-        "제97주년",
-        "학생독립운동",
-        "기념식"
       ]
     },
     {
@@ -1434,12 +910,12 @@
       ]
     },
     {
-      "title": "기아대책 '2027 호프컵' 내년 4월말 개최…10개국 결연아동 참가",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9iQS1Dci10VldHZnVDTElGR2Q4VEFHdndUWUltVXQ0UGx1T0pxSmJ6UWh5UUE5dFpacWpJbWczZTNrNmNDS20yRVRZZkNERFhCb1h6RmtBWVNSMEdZek1JMNIBYEFVX3lxTE9iQS1Dci10VldHZnVDTElGR2Q4VEFHdndUWUltVXQ0UGx1T0pxSmJ6UWh5UUE5dFpacWpJbWczZTNrNmNDS20yRVRZZkNERFhCb1h6RmtBWVNSMEdZek1JMA?oc=5",
-      "lead_source": "연합뉴스",
+      "title": "기아대책 ‘2027 호프컵’ 한국팀 출정... 이주배경 아동·청소년 12명 선발",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1reDRyNzd1SDIyaG1ZSUZWQlJwMmdxMnZsNE1vWXNRNnYtb1BwLVBLdGY4R2Y0VU9LMDF6ZjQyN09Pb3dKa3gycHNrVVRzc0pkVmRTcHJKeFVWbFVUYmhGQzlTSEx1SUVNalE?oc=5",
+      "lead_source": "더버터",
       "count": 1,
       "sources": [
-        "연합뉴스"
+        "더버터"
       ],
       "locales": [
         "국내"
@@ -1450,29 +926,8 @@
       "tags": [
         "기아대책",
         "호프컵",
-        "내년",
-        "4월말"
-      ]
-    },
-    {
-      "title": "김원식 서영암농협 조합장, UN의날 기념 평화메달 받아",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5tN21vTGxSREd5WjJKMmRxaEkzenN6V05NYmZWUi1uWGxqem5tQlNJbjR0dXIzdWtQU0ZEYlhjNHFkZExXakpxMndQOTFlSHFXazZrT0ZpalFfUQ?oc=5",
-      "lead_source": "농민신문",
-      "count": 1,
-      "sources": [
-        "농민신문"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "김원식",
-        "서영암농협",
-        "조합장",
-        "un의날"
+        "한국팀",
+        "출정"
       ]
     },
     {
@@ -1539,27 +994,6 @@
       ]
     },
     {
-      "title": "논산시가족센터, 다문화가족 자녀 언어발달 부모교육",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFA5dTRsV0JLU2Z5dnhWSHZTQzI3QnB0ZG9peXJNMzZqdFp1MHk5aXE0NWQ3VWdkRzRzWTVIRU42QUdTMXpNeEdOSGVzaHY4eU1WQmk2dmtQazlzaFVyY3c?oc=5",
-      "lead_source": "놀뫼신문",
-      "count": 1,
-      "sources": [
-        "놀뫼신문"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화교육"
-      ],
-      "tags": [
-        "논산시가족센터",
-        "다문화가족",
-        "자녀",
-        "언어발달"
-      ]
-    },
-    {
       "title": "다문화·이주배경 청소년에 복싱 배움 기회 연다",
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9kTnlycUtRNy1Ha21KMHRKc1RWTFVaY0V6ZER0dDlLSmlvVTF2TWtXNU5aczh1SjdaakdwVDY4MlRmZ0N1bFVha0s4ZFNRclNtdmJSd2tyR09kSHFzSjJTallBRmI2TXZx?oc=5",
       "lead_source": "아시아경제",
@@ -1578,27 +1012,6 @@
         "이주배경",
         "청소년에",
         "복싱"
-      ]
-    },
-    {
-      "title": "다문화가족 자녀 언어발달 부모교육 – 교육도 듣고, 체험활동도 하고",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5DUkxXdVdjME01dXdXa2JTZXJaRGxJOTNyQjd5SnJDc0YxNE4zNVgxa0YwWHdPUGF4MVFVUlFmRjVkSDJDNEZsY0N5emduc2ZselJMQXpxRWFPQVFWaFBiTXQ5Yng3bHFReVBR?oc=5",
-      "lead_source": "충청메시지",
-      "count": 1,
-      "sources": [
-        "충청메시지"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화교육"
-      ],
-      "tags": [
-        "다문화가족",
-        "자녀",
-        "언어발달",
-        "부모교육"
       ]
     },
     {
@@ -1707,48 +1120,6 @@
       ]
     },
     {
-      "title": "대전테미문학관 ‘테미 테이스팅’ 참가자 모집",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBPUnJRNjJDWVFDdThZSTY4QWx4N1hmUW9JZGtYVmFfcnA3VHNFWWFZVGZzWVpZWUVpd09YWnhTanJfMzhUd3dXTGhnYVNURVB5T3U1bjBmOVdJdktPVnppRXFEeURuZ0JoY2c?oc=5",
-      "lead_source": "뉴스티앤티",
-      "count": 1,
-      "sources": [
-        "뉴스티앤티"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "문학교육"
-      ],
-      "tags": [
-        "대전테미문학관",
-        "테미",
-        "테이스팅",
-        "참가자"
-      ]
-    },
-    {
-      "title": "문장이 목소리와 음악을 만난다, \"아르코 문학극장\" 박준의 시로 마무리",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5aVklmNHA3Vjk5SDJ1N1FubHRtd2Rsdk9kMFBNeHRRbkZlcE1FMXBfekphUDkxc2ZXSDhPeUlmd21QRWF6U0dCX1RoMGhmMnhrLTZkaUQwbEdCNDN1TVE?oc=5",
-      "lead_source": "데일리환경",
-      "count": 1,
-      "sources": [
-        "데일리환경"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "문장이",
-        "목소리와",
-        "음악을",
-        "만난다"
-      ]
-    },
-    {
       "title": "문학 교육: 지식이 능력을 가리지 않도록 하세요.",
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5PMDNTVDdIYWw3b2VWcWNiNzRUZ1lEM0Zvb3cxNWdYNzRFQjRDS3J4NW1EY2pvOGRJbGhKR29DTWtZb1EzUjMweWdhY1draGQ3by1UNnlZTGhWdER2blRuVnR0UjNhTTllbEliaWhyU2VqT0V1Vzk4RklaQQ?oc=5",
       "lead_source": "Vietnam.vn",
@@ -1781,76 +1152,13 @@
         "국내"
       ],
       "keywords": [
-        "통일교육"
+        "북한이탈청소년"
       ],
       "tags": [
         "민족통일대구시협의회",
         "통일염원",
         "시민연날리대회",
         "개최"
-      ]
-    },
-    {
-      "title": "민주평통 광명시협의회, 청소년 평화공감 통일아카데미 개최",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1xUXIyNWJWVGFxUnpPQjlWek9ZY19pdXV2ckhOc2xRck5vUVdPbjBNNXhJTnBERllVbFh3NjlSTHp2cnZmTVNtcmZwRjJjY0pnZ1RQRTdPN1RGTkNMTkY3dEQ4ZUhTX0ZvZFo1Q9IBbEFVX3lxTE1xUXIyNWJWVGFxUnpPQjlWek9ZY19pdXV2ckhOc2xRck5vUVdPbjBNNXhJTnBERllVbFh3NjlSTHp2cnZmTVNtcmZwRjJjY0pnZ1RQRTdPN1RGTkNMTkY3dEQ4ZUhTX0ZvZFo1Qw?oc=5",
-      "lead_source": "시사팩트",
-      "count": 1,
-      "sources": [
-        "시사팩트"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "민주평통",
-        "광명시협의회",
-        "청소년",
-        "평화공감"
-      ]
-    },
-    {
-      "title": "민주평통 인천영종구협의회, 영화 '오디세이' 상영하며 전쟁의 상처와 평화의 소중함 되새겨",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBXZkktYXBqdFZSUk5sU21yaXYtM2ZGOHZ6MjV0S3phSUxRYzJkYm5LSkJwdm9SdEloc3JxNjhmTW8wcTVKaGxXRHFwTTVXRHk1d1VpX004ek9abG9kc3UyTmtHRXpUMkVS?oc=5",
-      "lead_source": "경인매일",
-      "count": 1,
-      "sources": [
-        "경인매일"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "민주평통",
-        "인천영종구협의회",
-        "영화",
-        "오디세이"
-      ]
-    },
-    {
-      "title": "민주평통 철원군협의회, 제25회 평화통일기원 걷기대회",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE40Vk5LSV9DRjBDQ3RQZm02bmRib3c3Yy1hbHg2ejh3SXl1VFBJaXgwNXlQTVRUZFhHZXJrTEdpUzR1b1BuLW93NTZIMmlTcHl0TzNmSFdrcVVZNkk?oc=5",
-      "lead_source": "강원일보",
-      "count": 1,
-      "sources": [
-        "강원일보"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "민주평통",
-        "철원군협의회",
-        "제25회",
-        "평화통일기원"
       ]
     },
     {
@@ -1872,27 +1180,6 @@
         "부천",
         "국제교류협력",
         "플러스"
-      ]
-    },
-    {
-      "title": "빈티지 스윙 음악과 현대무용의 만남…경남문화예술회관 ‘스윙 어게인’ 공연",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1RNURKQnJCRmtDRW1MckhpNDRzOE5QWXcxSkJDVGRnaTh6N0ppQjk5ejhPQnd0UnFtbE9hdGRCT0w4MHJxblRtSTl3XzVKVnJUazFmcFY1TWJVNnZibW1SdF9MUEQ5bUJ4R2Vlc0pR?oc=5",
-      "lead_source": "미디어인뉴스",
-      "count": 1,
-      "sources": [
-        "미디어인뉴스"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "스윙",
-        "빈티지",
-        "음악과",
-        "현대무용의"
       ]
     },
     {
@@ -1938,8 +1225,8 @@
       ]
     },
     {
-      "title": "신한증권, 현대건설 목표가↓…\"대미투자 원전 수익화 불확실성\"",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5IMFd2QVJYclRJLTRkSUxYLXVWOUNkajF2Ym1qdHI2djkwRWdRQy1uNEhlNV80aFdqTUEwaEgxTEdDX0dORlpicWtBQVpMU1l4TkNQeEZfdTVFWUlWV2FPZdIBYEFVX3lxTE5IMFd2QVJYclRJLTRkSUxYLXVWOUNkajF2Ym1qdHI2djkwRWdRQy1uNEhlNV80aFdqTUEwaEgxTEdDX0dORlpicWtBQVpMU1l4TkNQeEZfdTVFWUlWV2FPZQ?oc=5",
+      "title": "아산시 \"교육발전특구 시범사업 3년 계승·고도화 기대",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11ZnlsYUlSSjJzWFRnNEpRWkNBVDBfTjNhb3V6WGgxcjdFcWZaUXRhZDlGS0FGb2o5blVPbWlSMTZsREpHQnBKc0c4YVhqeC1OYjJMTDk5ZkVaRlRNQ2o0OdIBYEFVX3lxTE11ZnlsYUlSSjJzWFRnNEpRWkNBVDBfTjNhb3V6WGgxcjdFcWZaUXRhZDlGS0FGb2o5blVPbWlSMTZsREpHQnBKc0c4YVhqeC1OYjJMTDk5ZkVaRlRNQ2o0OQ?oc=5",
       "lead_source": "연합뉴스",
       "count": 1,
       "sources": [
@@ -1949,13 +1236,13 @@
         "국내"
       ],
       "keywords": [
-        "현대시"
+        "다문화교육"
       ],
       "tags": [
-        "신한증권",
-        "현대건설",
-        "목표가",
-        "대미투자"
+        "아산시",
+        "교육발전특구",
+        "시범사업",
+        "3년"
       ]
     },
     {
@@ -2001,23 +1288,24 @@
       ]
     },
     {
-      "title": "여주시, 道 4-H경진대회 3관왕",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE8zS2lrNjFqbVcyVlJKd2VyQUZmOHJRNkI5Ylhja3Ata2dnUUUzTzhOUEw0NnhQZDJLcFNpZnltZ2lZY0Y5ZmUycWd6b2d4YjJBUzc3ZzdIRXVLdlZibjRUQjEtZUJwQjgwNzAyVUpB?oc=5",
-      "lead_source": "현대일보",
+      "title": "안성시민장학회, 이주배경 학생 11명에 장학금 500만원",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5KN0JITU5Tal95UTIwby02WlRqUWlaWnl4RHlocnFadDMtY2RZNGVYYzNjVUJiWV9QZVVtTmw5RU4zNE45WDltZUN6OUhpbFRPOVFNSXZ0LXN3bkpMakJmVm5LYzVIYWRETm5aZGpKWWpmOXlLWWxyYtIBeEFVX3lxTE5KN0JITU5Tal95UTIwby02WlRqUWlaWnl4RHlocnFadDMtY2RZNGVYYzNjVUJiWV9QZVVtTmw5RU4zNE45WDltZUN6OUhpbFRPOVFNSXZ0LXN3bkpMakJmVm5LYzVIYWRETm5aZGpKWWpmOXlLWWxyYg?oc=5",
+      "lead_source": "뉴시스",
       "count": 1,
       "sources": [
-        "현대일보"
+        "뉴시스"
       ],
       "locales": [
         "국내"
       ],
       "keywords": [
-        "현대시"
+        "이주배경 청소년"
       ],
       "tags": [
-        "여주시",
-        "h경진대회",
-        "3관왕"
+        "안성시민장학회",
+        "이주배경",
+        "학생",
+        "11명에"
       ]
     },
     {
@@ -2063,27 +1351,6 @@
       ]
     },
     {
-      "title": "예산신양초 학생들, 세계 전통놀이 체험하며 다문화 감수성 키워",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5mNTNuZUtfRXBDLTBSY0xqZkVJQm4wZ1JNdHZTNEVpRldodWxkZVNpalQ0cGw5aThCLUxZRFpkZkxlUEsxVVYzdlA3Sm1OV29VWjZsX3AxSHNNWG9VakFGWEZkRWU?oc=5",
-      "lead_source": "중도일보",
-      "count": 1,
-      "sources": [
-        "중도일보"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육"
-      ],
-      "tags": [
-        "예산신양초",
-        "학생들",
-        "세계",
-        "전통놀이"
-      ]
-    },
-    {
       "title": "울진 기성초, 왕피천서 생태환경·문학 체험",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE85ZERPSGRkN2hETzJqT3g4M0dlUFNOTnZ3aUZSamQ2UXg1LUE4QTQ0ekV6SVFwUk5sUG9ZUFFRZjVRcnM1ZUJQMmRocGdtdFZtQU1XYXd4S3d0eHpCZDhnQlZIRmk0Wmd5SXc?oc=5",
       "lead_source": "경북도민일보",
@@ -2106,7 +1373,7 @@
     },
     {
       "title": "이제훈 원장 “통일교육, 정답보다 판단의 힘 길러야”",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1qQnpVMjc3ak5ZRFZ5Y2daUlFIaDJDeVpEWGpmNlBWNjBIcU1XUVU3TmstdFloWC1CY19RZUlNNTB0VE8wUW50VTFOekhCMzhDeEhoNnl2WUxGY1dhNExxV2JiZW9NQQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE41YkJzQUJEYWNQV1dBQ2gyTzVzZ0FfZ3gzbmtuYzVZWVJnQUNLc2ctNnJUcnVDSm54eHVuT0w3Mkh0a2R2dXRPS2hFd015ZUNMZDctMmI1dkl1S0hWMURXWE9uMUxtdXM?oc=5",
       "lead_source": "남북경협뉴스",
       "count": 1,
       "sources": [
@@ -2168,48 +1435,6 @@
       ]
     },
     {
-      "title": "인천공항공사, 이주 배경 청소년 AI 캠프로 미래 역량 키우다",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9vZ3F6ZHdyMG1xUkl2M1Y2bV80ZFhZWGVORUhOMlk3eDA4WFB5TWpGWWdlb251TEc0bDA3Qm52OUNtdW1aRGZuYnRONnFFOUhqYnhTbW1VcG96R2dEc1pHOTVuZ2xZSURiYlE?oc=5",
-      "lead_source": "경기도민일보 미디어",
-      "count": 1,
-      "sources": [
-        "경기도민일보 미디어"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "이주배경 청소년"
-      ],
-      "tags": [
-        "인천공항공사",
-        "이주",
-        "배경",
-        "청소년"
-      ]
-    },
-    {
-      "title": "인천도서관, “노벨문학상 앤 카슨을 만나다” 특별 프로그램 개최",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB0d0RFcnBIR3NubExBdkN1cFlvUGFQNm1NdHc2ZjR5T25DT1VLQTR4cFJiX0FHN21oa0xYYkE4ajVxNkJMNENIZFFIcDBzZ290eXlIWThYYmpXSG9hQnU5VA?oc=5",
-      "lead_source": "메트로신문",
-      "count": 1,
-      "sources": [
-        "메트로신문"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "인천도서관",
-        "노벨문학상",
-        "카슨을",
-        "만나다"
-      ]
-    },
-    {
       "title": "일산 공부에진심학원, 특목고·자공고 진학 전략 ‘고교선택 설명회’ 개최",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB3b3c3T2h5TUJHU25BdkZPRHp0ZTByR050WjdrbUhUSUJpX2pIb0RjODZEeFByZmlyRWNwVHdmVjRVeWZ6SHdFTlVhTzQtTF9FUmNSM2ZSc0NwS29HdFFJdUNMOVBKZUHSAWdBVV95cUxQd293N09oeU1CR1NuQXZGT0R6dGUwckdOdFo3a21IVElCaV9qSG9EYzg2RHhQcmZpckVjcFR3ZlY0VXlmekh3RU5VYU80LUxfRVJjUjNmUnNDcEtvR3RRSXVDTDlQSmVB?oc=5",
       "lead_source": "ABC뉴스",
@@ -2228,6 +1453,27 @@
         "공부에진심학원",
         "특목고",
         "자공고"
+      ]
+    },
+    {
+      "title": "전북 5개 시군, 교육부 교육혁신선도지역 선정…내년 '본격화'",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFAxZzBUMDR1MHpWcWgtazZXV1RzSTNIYVFfQjRXdk5GVFFuOEVnWnhhY2JiTFk1bmpHcTQ3VnpXNWRUeEd0UTloRjh6N19obkNvR19nclFobEZZdERG?oc=5",
+      "lead_source": "뉴스핌",
+      "count": 1,
+      "sources": [
+        "뉴스핌"
+      ],
+      "locales": [
+        "국내"
+      ],
+      "keywords": [
+        "다문화교육"
+      ],
+      "tags": [
+        "전북",
+        "5개",
+        "시군",
+        "교육부"
       ]
     },
     {
@@ -2294,6 +1540,48 @@
       ]
     },
     {
+      "title": "최명진 도의원, 김포랭귀지스쿨 이주배경 학생들과 도의회 견학",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBRM2hCNVBCMldwU1hDM2lTd1gwVURkNThFZHRtSXEtbjh1YkZ4X0ZmWXctZlRvcnYzTnBnY1gxRjVhNXJoN2VydUVVT3l0dUxMX2ZUTVllaVFUUl9OV1AwWjNvcXlDeWFtZHc00gFrQVVfeXFMUFEzaEI1UEIyV3BTWEMzaVN3WDBVRGQ1OEVkdG1JcS1uOHViRnhfRmZZdy1mVG9ydjNOcGdjWDFGNWE1cmg3ZXJ1RVVPeXR1TExfZlRNWWVpUVRSX05XUDBaM29xeUN5YW1kdzQ?oc=5",
+      "lead_source": "김포신문",
+      "count": 1,
+      "sources": [
+        "김포신문"
+      ],
+      "locales": [
+        "국내"
+      ],
+      "keywords": [
+        "다문화교육"
+      ],
+      "tags": [
+        "최명진",
+        "도의원",
+        "김포랭귀지스쿨",
+        "이주배경"
+      ]
+    },
+    {
+      "title": "최미금 경기도의원, 가상체험학습 조례 제정을 위한 공청회 성료… ‘학생 체험학습 기회 넓힌다’",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9NbTNzOF9UMGpCRjBQeEJFTmlFdnpSZlhOZ0hjN2IwU01LOURTTDh3SDZ2b1RtdWd4ZXZWeUpSQzh4WjgwRzdVdzhkTS1jVnkwdTVFNXc1TElGcjZGS05GQ19uYw?oc=5",
+      "lead_source": "경기탑뉴스",
+      "count": 1,
+      "sources": [
+        "경기탑뉴스"
+      ],
+      "locales": [
+        "국내"
+      ],
+      "keywords": [
+        "다문화교육"
+      ],
+      "tags": [
+        "최미금",
+        "경기도의원",
+        "가상체험학습",
+        "조례"
+      ]
+    },
+    {
       "title": "춘천교대 대학원 석·박사학위과정 2027학년도 전기 신입생 모집",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9PZk9IaWs3UThubDJGNDhiNXpUTXVQNFpCUE4xZXNWLV9GSnF4WnhOYm5jTUJXc01IYk05YzVjVlliVmt1QUJZZS1XYzNGUTN1OGFpSm1GVk93eDJRZDRpbWVqZWpIR1hrVkx3bQ?oc=5",
       "lead_source": "베리타스알파",
@@ -2312,69 +1600,6 @@
         "대학원",
         "박사학위과정",
         "2027학년도"
-      ]
-    },
-    {
-      "title": "충남교육청, 다문화교육 현장모델 확산",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9nSmFCbUR3UGtKbGpwTEpaUURjMTVxQUF4SC12RUxaNGtic1FmZ244ZXJQVnBGMFlocGJ3UWQzUTFhN2N6QnBUUnYtZ2FETUJYQXVTUnVmZHRyZUNDQTE4SjNFeG5BSWtsV3VuekNhY9IBb0FVX3lxTE9nSmFCbUR3UGtKbGpwTEpaUURjMTVxQUF4SC12RUxaNGtic1FmZ244ZXJQVnBGMFlocGJ3UWQzUTFhN2N6QnBUUnYtZ2FETUJYQXVTUnVmZHRyZUNDQTE4SjNFeG5BSWtsV3VuekNhYw?oc=5",
-      "lead_source": "뉴스세상",
-      "count": 1,
-      "sources": [
-        "뉴스세상"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육"
-      ],
-      "tags": [
-        "충남교육청",
-        "다문화교육",
-        "현장모델",
-        "확산"
-      ]
-    },
-    {
-      "title": "충북교육청, 2027년 진학 캘린더 제작... 체계적인 진학 준비 지원 외 (11월2일 종합)",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9TY240REx2U1kyNDAyTnBYTGNXRzk0QTMxNHd4TG1abDltZjduQkxQbTVSQkwzQW1QMEgzMUlyOEtOMThzaTNkQjBPTXd5QU41Q0NrX212Mm9UNWU1STBSUlJ3?oc=5",
-      "lead_source": "충북데일리",
-      "count": 1,
-      "sources": [
-        "충북데일리"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화교육"
-      ],
-      "tags": [
-        "진학",
-        "충북교육청",
-        "2027년",
-        "캘린더"
-      ]
-    },
-    {
-      "title": "태안군, 다문화가족 소통교육 4개 읍·면 순회 운영",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE93X2ZXY09YaTZSU2JtQU1HSThaNEZUcW1VaFd1eFBkQWR2dHZwOFR2ZTVNSDFnQVR4dHdkU2J6bzZ2STBZZ0lYWnZ3UnFvb0VBelJ4bGNaejFHV2RWV3d1bWNoa1FXd2RiNnk3eg?oc=5",
-      "lead_source": "충청뉴스",
-      "count": 1,
-      "sources": [
-        "충청뉴스"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화교육"
-      ],
-      "tags": [
-        "태안군",
-        "다문화가족",
-        "소통교육",
-        "4개"
       ]
     },
     {
@@ -2420,26 +1645,6 @@
       ]
     },
     {
-      "title": "평화경제·공동성장의 한반도",
-      "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxOM3g1OEhPaFVaUElBM3A5cWlTRTJPd1lnMkpHQS1rV3NpVmVBMHMybUlSZlAzUXExMzdwenlwOGlVODhhMmFCc3BBaVNWcTU2b3A0bVVaeFNHSXQ3QlFjVlV3WlVYeWxsanQycXhfVzJxUDR1TDRZT0JIbkV5T0dtamNpMVZ3Tk9Bdm1TYmVwSm4zOWdhd0JFNnMtLTBENnlIb2dQelJWUFgyVVl1QXgwTWNRbW81cGpmT0ZpaXQ5blQ2SFFIWVB3VUdfUURsUjg3ZC1iSVdvVWZJWFQ0ZlE0bzlhODRyMkpvMGhZeWhaQmI5eWw2SlZhN0Z0eDFRNHdXUFAxakhZTTBHS2luUDk0dWxHTzBFaThWdkpnMGV3X2thVC1mOXl0SUtuOXpHNVhQN2V6UzUwXzBhbm9oTk8xcGJn?oc=5",
-      "lead_source": "대한민국 정책브리핑",
-      "count": 1,
-      "sources": [
-        "대한민국 정책브리핑"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "평화경제",
-        "공동성장의",
-        "한반도"
-      ]
-    },
-    {
       "title": "한국디카시인협회, 제4기 디카시창작지도사 과정 수강생 모집",
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5Ddm02QkNDZDE5b3ExblRYbGlKVFA1WDh4MFgtanhJZ3N1UU5ubnB2aEFhdXpZQlhzVmhSSUVYaXF3Z24yenhlMUpDNUR2Q2pPN0s2cFJ4M3FYTnpuRVdkOVcweEN6b2p2OE05NlZB?oc=5",
       "lead_source": "김해뉴스",
@@ -2479,48 +1684,6 @@
         "탄생",
         "100년",
         "거장들"
-      ]
-    },
-    {
-      "title": "한국전쟁 상처와 평화 돌아보는 전시회 대전 테미마을박물관서 개막",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1MZm9CQ3ZuakFwdjlDTG55dVVpMUVJaVUwM2ZQT1g2SzhPVGtIRnlkbXpqekFkRzNWajNKY0xFX0FWOUhOaE9ZTGY5a0xjekV6WXMzeFlYbGUwcnA0WjVLOXpfbW4?oc=5",
-      "lead_source": "중도일보",
-      "count": 1,
-      "sources": [
-        "중도일보"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "통일교육"
-      ],
-      "tags": [
-        "한국전쟁",
-        "상처와",
-        "평화",
-        "돌아보는"
-      ]
-    },
-    {
-      "title": "한글 가치 되새기고 미래기술 체험까지… 배움의 장 활짝",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1BeFZkN1h4eDVVQzBtdlNibVVOcWpsUGg5NllLcW5tY0h4bC1LMXFvLWlQTHBoTlR4RDA4ZkZjblFMQkJrUUtMTDlKZUt6b2xzSENlbXlmWFRCZEhqLVFzVXp2WDk0QVZ5VjdvSnJQWVJDcHfSAXNBVV95cUxNQXhWZDdYeHg1VUMwbXZTYm1VTnFqbFBoOTZZS3FubWNIeGwtSzFxby1pUExwaE5UeEQwOGZGY25RTEJCa1FLTEw5SmVLem9sc0hDZW15ZlhUQmRIai1Rc1V6dlg5NEFWeVY3b0pyUFlSQ3B3?oc=5",
-      "lead_source": "대전일보",
-      "count": 1,
-      "sources": [
-        "대전일보"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "다문화 학생 교육"
-      ],
-      "tags": [
-        "한글",
-        "가치",
-        "되새기고",
-        "미래기술"
       ]
     },
     {
@@ -2587,27 +1750,6 @@
       ]
     },
     {
-      "title": "현대자동차, 국내 최대 원메이크 레이싱 대회 '현대 N 페스티벌' 2026 시즌 성료",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5BZ1Y5MUx4ODhiU3VyeGROclBYRDNnTVhlVVhLMzE1SHJtZl9jTFdyYWxOVWxoM2JXQlFZblB6eTlIT2dfcUExX205NWJjUEdEN01veHZnM1BTVUdTRWd3SdIBYEFVX3lxTE5BZ1Y5MUx4ODhiU3VyeGROclBYRDNnTVhlVVhLMzE1SHJtZl9jTFdyYWxOVWxoM2JXQlFZblB6eTlIT2dfcUExX205NWJjUEdEN01veHZnM1BTVUdTRWd3SQ?oc=5",
-      "lead_source": "연합뉴스",
-      "count": 1,
-      "sources": [
-        "연합뉴스"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "현대시"
-      ],
-      "tags": [
-        "현대자동차",
-        "국내",
-        "최대",
-        "원메이크"
-      ]
-    },
-    {
       "title": "화성시가족센터, 다문화가족 자녀 위한 아쿠아리움 체험학습 성황리 개최",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE80WWk3dmFUZW1GQjd4NU9qQ3NfSkhlejRpLVJLQW1xY1lsZnY3bkc4RGVJSWNWclJlN2pzbEJ1aDZrUlFkQXoxMGdzZjRIZFFxb3lMcmdNTFdKSWVoWU42YXRFcTfSAWdBVV95cUxOdmcyczhJb3E3cUNWQmsxc04wQ0F1U0VMYmFpb1RkRjRCOHNCcC1ld3ZuX3Y0SU5meUxuc1dBVlVEZDVjODBmc3dqd3YzT29GeHVIenlOM1VKWXI1LXg5MFdXbVNjUDFj?oc=5",
       "lead_source": "국민기자뉴스",
@@ -2619,7 +1761,7 @@
         "국내"
       ],
       "keywords": [
-        "다문화교육"
+        "상호문화교육"
       ],
       "tags": [
         "화성시가족센터",
@@ -2647,27 +1789,6 @@
         "오산",
         "북페스티벌에서",
         "가족"
-      ]
-    },
-    {
-      "title": "화순군체육회, 화순군가족센터와 업무협약 체결",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE13c3RfdXZ1eHYzUzB4ZTJFRGpXVkZvaFVSRnpoLTBPeFdabzRuNFVCZU45WTBpQ3ZLcHNkTERlMG1oV3EzLXFHVm1DMFppVmZWa1dOakZBUWZ4OG5OYlBGeWhfd01wWnZPQzh4cFJvckdUbEE?oc=5",
-      "lead_source": "동방일보",
-      "count": 1,
-      "sources": [
-        "동방일보"
-      ],
-      "locales": [
-        "국내"
-      ],
-      "keywords": [
-        "이주배경 청소년"
-      ],
-      "tags": [
-        "화순군체육회",
-        "화순군가족센터와",
-        "업무협약",
-        "체결"
       ]
     }
   ]
