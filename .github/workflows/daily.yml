@@ -1,0 +1,78 @@
+name: 매일 동향 수집 및 배포
+
+on:
+  schedule:
+    # UTC 22:00 = 한국시간 다음날 오전 7시
+    - cron: "0 22 * * *"
+  workflow_dispatch:        # 저장소 Actions 탭에서 수동 실행 가능
+  push:
+    branches: [main]
+    paths:
+      - "config.json"
+      - "assets/**"
+      - "scripts/**"
+      - ".github/workflows/daily.yml"
+
+permissions:
+  contents: write           # 수집한 데이터를 저장소에 다시 커밋
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 동향 수집
+        # 예약 실행은 설정된 요일에만 논문을 모읍니다.
+        # 수동 실행과 설정 변경 시에는 요일과 무관하게 논문도 모읍니다.
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            python3 scripts/collect.py
+          else
+            python3 scripts/collect.py --papers
+          fi
+        continue-on-error: true
+        env:
+          # 선택 사항. 저장소 Settings → Secrets and variables → Actions 에
+          # OPENALEX_API_KEY 를 등록하면 자동으로 쓰입니다. 없어도 동작합니다.
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+
+      - name: 수집 결과 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --staged --quiet; then
+            echo "변경된 데이터가 없습니다."
+          else
+            git commit -m "데이터 수집 $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: 사이트 빌드
+        run: python3 scripts/build.py
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

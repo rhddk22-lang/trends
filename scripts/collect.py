@@ -1,0 +1,566 @@
+#!/usr/bin/env python3
+"""
+동향 수집기 — 설정한 검색어로 뉴스와 논문을 모아 data/ 아래에 JSON으로 저장합니다.
+
+  python3 scripts/collect.py              평소 실행 (오늘 날짜로 저장)
+  python3 scripts/collect.py --date X     특정 날짜로 저장
+  python3 scripts/collect.py --sample     네트워크 없이 예시 데이터 생성
+
+표준 라이브러리만 씁니다. 설치할 패키지가 없습니다.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+import xml.etree.ElementTree as ET
+from collections import Counter
+from datetime import datetime, timedelta, timezone
+from difflib import SequenceMatcher
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DATA = ROOT / "data"
+UA = "Mozilla/5.0 (compatible; research-archive/1.0)"
+TIMEOUT = 25
+
+# 태그를 뽑을 때 버릴 단어들. 필요하면 자유롭게 늘리세요.
+STOPWORDS = {
+    "그리고", "그러나", "하지만", "위해", "통해", "대한", "관련", "이번", "지난", "올해",
+    "대해", "라고", "에서", "으로", "하는", "했다", "한다", "있다", "없다", "것으로",
+    "밝혔다", "전했다", "말했다", "기자", "단독", "속보", "종합", "영상", "포토",
+    "the", "and", "for", "with", "from", "that", "this", "says", "said", "will",
+    "has", "have", "its", "new", "amid", "over", "after", "into", "about", "more",
+}
+
+
+# ──────────────────────────────────────────────────────────────
+# 공통
+# ──────────────────────────────────────────────────────────────
+
+def load_config() -> dict:
+    with (ROOT / "config.json").open(encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def fetch(url: str, attempts: int = 3) -> bytes | None:
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                return resp.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code in (403, 429):
+                # OpenAlex 는 키가 없으면 같은 IP 사용자들이 하루 한도를 나눠 씁니다.
+                print(
+                    f"  ! 요청 한도에 걸렸습니다 (HTTP {exc.code}). "
+                    "OPENALEX_API_KEY 를 저장소 Secrets 에 넣으면 한도가 따로 잡힙니다. "
+                    "키는 무료입니다.",
+                    file=sys.stderr,
+                )
+                return None
+            if exc.code >= 500 and attempt < attempts:
+                time.sleep(2 * attempt)
+                continue
+            print(f"  ! 가져오기 실패 (HTTP {exc.code}): {url[:80]}", file=sys.stderr)
+            return None
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            if attempt < attempts:
+                time.sleep(2 * attempt)
+                continue
+            print(f"  ! 가져오기 실패: {exc}", file=sys.stderr)
+            return None
+    return None
+
+
+def today(tz_offset_hours: int = 9) -> str:
+    tz = timezone(timedelta(hours=tz_offset_hours))
+    return datetime.now(tz).strftime("%Y-%m-%d")
+
+
+# ──────────────────────────────────────────────────────────────
+# 뉴스
+# ──────────────────────────────────────────────────────────────
+
+SOURCE_SUFFIX = re.compile(r"\s+[-–—]\s+[^-–—]{1,40}$")
+
+
+def split_title(raw: str) -> tuple[str, str]:
+    """구글 뉴스 제목은 보통 '제목 - 매체' 형태입니다."""
+    raw = re.sub(r"\s+", " ", (raw or "").strip())
+    match = SOURCE_SUFFIX.search(raw)
+    if match:
+        return raw[: match.start()].strip(), match.group(0).lstrip(" -–—").strip()
+    return raw, ""
+
+
+def normalize(text: str) -> str:
+    text = re.sub(r"[^\w\s가-힣]", " ", text.lower())
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def google_news(keyword: str, locale: dict, limit: int) -> list[dict]:
+    query = urllib.parse.quote_plus(f"{keyword} when:2d")
+    url = (
+        f"https://news.google.com/rss/search?q={query}"
+        f"&hl={locale.get('hl', 'ko')}"
+        f"&gl={locale.get('gl', 'KR')}"
+        f"&ceid={locale.get('ceid', 'KR:ko')}"
+    )
+    raw = fetch(url)
+    if not raw:
+        return []
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError as exc:
+        print(f"  ! RSS 해석 실패 ({keyword}): {exc}", file=sys.stderr)
+        return []
+
+    out: list[dict] = []
+    for item in list(root.iterfind(".//item"))[:limit]:
+        title_raw = (item.findtext("title") or "").strip()
+        link = (item.findtext("link") or "").strip()
+        if not title_raw or not link:
+            continue
+        title, inline_source = split_title(title_raw)
+        source_el = item.find("source")
+        source = (source_el.text or "").strip() if source_el is not None else inline_source
+        out.append(
+            {
+                "title": title,
+                "url": link,
+                "source": source or inline_source or "출처 미상",
+                "published": (item.findtext("pubDate") or "").strip(),
+                "keyword": keyword,
+                "locale": locale.get("label", locale.get("gl", "")),
+            }
+        )
+    return out
+
+
+def extract_tags(titles: list[str], limit: int = 4) -> list[str]:
+    counts: Counter[str] = Counter()
+    for title in titles:
+        for word in normalize(title).split():
+            if len(word) < 2 or word in STOPWORDS or word.isdigit():
+                continue
+            counts[word] += 1
+    return [word for word, _ in counts.most_common(limit)]
+
+
+def cluster_articles(articles: list[dict], threshold: float) -> list[dict]:
+    """제목이 비슷한 기사들을 하나로 묶습니다."""
+    buckets: list[dict] = []
+
+    for article in articles:
+        key = normalize(article["title"])
+        if not key:
+            continue
+        placed = False
+        for bucket in buckets:
+            if SequenceMatcher(None, key, bucket["key"]).ratio() >= threshold:
+                bucket["members"].append(article)
+                placed = True
+                break
+        if not placed:
+            buckets.append({"key": key, "members": [article]})
+
+    clusters: list[dict] = []
+    for bucket in buckets:
+        members = bucket["members"]
+        # 가장 중심에 가까운 제목을 대표로 고릅니다.
+        if len(members) > 2:
+            keys = [normalize(m["title"]) for m in members]
+            scores = [
+                sum(SequenceMatcher(None, k, other).ratio() for other in keys)
+                for k in keys
+            ]
+            lead = members[scores.index(max(scores))]
+        else:
+            lead = min(members, key=lambda m: len(m["title"]))
+
+        seen: list[str] = []
+        for member in members:
+            if member["source"] not in seen:
+                seen.append(member["source"])
+
+        clusters.append(
+            {
+                "title": lead["title"],
+                "url": lead["url"],
+                "lead_source": lead["source"],
+                "count": len(members),
+                "sources": seen,
+                "locales": sorted({m["locale"] for m in members if m["locale"]}),
+                "keywords": sorted({m["keyword"] for m in members}),
+                "tags": extract_tags([m["title"] for m in members]),
+            }
+        )
+
+    clusters.sort(key=lambda c: (-c["count"], c["title"]))
+    return clusters
+
+
+def collect_news(cfg: dict) -> dict:
+    settings = cfg["collect"]
+    keywords = [k for k in settings.get("news_keywords", []) if k.strip()]
+    locales = settings.get("news_locales") or [{"label": "국내", "hl": "ko", "gl": "KR", "ceid": "KR:ko"}]
+    limit = int(settings.get("max_per_keyword", 30))
+
+    articles: list[dict] = []
+    seen_urls: set[str] = set()
+
+    for keyword in keywords:
+        for locale in locales:
+            label = locale.get("label", locale.get("gl", ""))
+            print(f"  · 뉴스 · {keyword} ({label})")
+            for article in google_news(keyword, locale, limit):
+                if article["url"] in seen_urls:
+                    continue
+                seen_urls.add(article["url"])
+                articles.append(article)
+            time.sleep(0.6)  # 예의상 간격을 둡니다.
+
+    clusters = cluster_articles(articles, float(settings.get("cluster_threshold", 0.62)))
+    return {"articles": len(articles), "clusters": clusters}
+
+
+# ──────────────────────────────────────────────────────────────
+# 논문 (Crossref)
+# ──────────────────────────────────────────────────────────────
+
+def crossref(query: str, window_days: int, rows: int = 25) -> list[dict]:
+    since = (datetime.now(timezone.utc) - timedelta(days=window_days)).strftime("%Y-%m-%d")
+    params = urllib.parse.urlencode(
+        {
+            "query.bibliographic": query,
+            "filter": f"from-pub-date:{since},type:journal-article",
+            "rows": rows,
+            "sort": "published",
+            "order": "desc",
+            "select": "DOI,title,container-title,issued,author,URL,abstract",
+        }
+    )
+    raw = fetch(f"https://api.crossref.org/works?{params}")
+    if not raw:
+        return []
+    try:
+        payload = json.loads(raw)
+    except json.JSONDecodeError:
+        return []
+
+    out: list[dict] = []
+    for work in payload.get("message", {}).get("items", []):
+        titles = work.get("title") or []
+        if not titles:
+            continue
+        parts = (work.get("issued", {}).get("date-parts") or [[None]])[0]
+        authors = [
+            " ".join(filter(None, [a.get("given"), a.get("family")]))
+            for a in (work.get("author") or [])[:4]
+        ]
+        container = work.get("container-title") or []
+        out.append(
+            {
+                "title": re.sub(r"\s+", " ", titles[0]).strip(),
+                "venue": container[0] if container else "",
+                "year": str(parts[0]) if parts and parts[0] else "",
+                "authors": [a for a in authors if a],
+                "doi": (work.get("DOI") or "").lower(),
+                "url": work.get("URL", ""),
+                "query": query,
+                "lang": "",
+                "source": "Crossref",
+            }
+        )
+    return out
+
+
+def openalex(query: str, window_days: int, rows: int = 25,
+             sort: str = "publication_date:desc") -> list[dict]:
+    """
+    OpenAlex. 국내 인문·교육 학술지 수록률이 Crossref보다 훨씬 넓고,
+    한글 검색어도 그대로 통합니다. API 키 없이도 동작합니다.
+
+    주의: 국문 인문학 논문은 OpenAlex 색인이 몇 달에서 1년 이상 늦게 들어오고
+    절대량도 적습니다. 그래서 국문 검색어는 기간을 길게 잡아야 합니다.
+    """
+    since = (datetime.now(timezone.utc) - timedelta(days=window_days)).strftime("%Y-%m-%d")
+    encoded = urllib.parse.quote(query, safe="")
+    url = (
+        "https://api.openalex.org/works"
+        f"?filter=title_and_abstract.search:{encoded},from_publication_date:{since}"
+        f"&per-page={rows}&sort={sort}"
+    )
+    api_key = os.environ.get("OPENALEX_API_KEY", "").strip()
+    if api_key:
+        url += f"&api_key={urllib.parse.quote(api_key, safe='')}"
+
+    raw = fetch(url)
+    if not raw:
+        return []
+    try:
+        payload = json.loads(raw)
+    except json.JSONDecodeError:
+        return []
+
+    out: list[dict] = []
+    for work in payload.get("results", []):
+        title = (work.get("display_name") or "").strip()
+        if not title:
+            continue
+        location = work.get("primary_location") or {}
+        venue_source = location.get("source") or {}
+        authors = [
+            (a.get("author") or {}).get("display_name", "")
+            for a in (work.get("authorships") or [])[:4]
+        ]
+        doi = (work.get("doi") or "").replace("https://doi.org/", "").lower()
+        landing = location.get("landing_page_url") or work.get("doi") or work.get("id", "")
+        out.append(
+            {
+                "title": re.sub(r"\s+", " ", title),
+                "venue": venue_source.get("display_name", "") or "",
+                "year": str(work.get("publication_year") or ""),
+                "authors": [a for a in authors if a],
+                "doi": doi,
+                "url": landing,
+                "query": query,
+                "lang": work.get("language", "") or "",
+                "source": "OpenAlex",
+            }
+        )
+    return out
+
+
+def paper_key(paper: dict) -> str:
+    """DOI가 있으면 DOI로, 없으면 정규화한 제목으로 중복을 거릅니다."""
+    doi = (paper.get("doi") or "").strip().lower()
+    if doi:
+        return f"doi:{doi}"
+    return f"title:{normalize(paper.get('title', ''))}"
+
+
+def collect_papers(cfg: dict, stamp: str) -> dict:
+    """
+    국문과 영문은 사정이 정반대라 조건을 나눠 겁니다.
+
+      국문 — 색인이 느리고 양이 적음  → 기간을 길게, 최신순으로
+      영문 — 양이 넘침               → 기간을 짧게, 관련도순으로
+
+    같은 논문이 매번 다시 걸리는 것은 정상입니다. 중복은 걸러지고
+    새로 색인된 것만 쌓입니다.
+    """
+    settings = cfg["collect"]
+    ko = settings.get("korean", {})
+    en = settings.get("english", {})
+
+    groups = [
+        {
+            "label": "국문",
+            "queries": [q for q in ko.get("queries", []) if q.strip()],
+            "window": int(ko.get("window_days", 1095)),
+            "rows": int(ko.get("max_results", 50)),
+            "sort": ko.get("sort", "publication_date:desc"),
+        },
+        {
+            "label": "영문",
+            "queries": [q for q in en.get("queries", []) if q.strip()],
+            "window": int(en.get("window_days", 90)),
+            "rows": int(en.get("max_results", 20)),
+            "sort": en.get("sort", "relevance_score:desc"),
+        },
+    ]
+
+    store_path = DATA / "studies.json"
+    store = {"updated": "", "items": []}
+    if store_path.exists():
+        try:
+            store = json.loads(store_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            pass
+
+    known = {paper_key(item) for item in store.get("items", [])}
+    fresh: list[dict] = []
+
+    for group in groups:
+        for query in group["queries"]:
+            found = openalex(query, group["window"], group["rows"], group["sort"])
+            time.sleep(0.4)
+            found += crossref(query, group["window"], group["rows"])
+            time.sleep(0.4)
+
+            added_here = 0
+            for paper in found:
+                key = paper_key(paper)
+                if key in known:
+                    continue
+                known.add(key)
+                paper["added"] = stamp
+                paper["group"] = group["label"]
+                fresh.append(paper)
+                added_here += 1
+            print(f"  · 논문 · [{group['label']}] {query} → 신규 {added_here}편")
+
+    items = fresh + store.get("items", [])
+    store = {"updated": stamp, "items": items[:800]}
+    store_path.write_text(
+        json.dumps(store, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    return {"new": len(fresh), "total": len(items)}
+
+
+# ──────────────────────────────────────────────────────────────
+# 예시 데이터
+# ──────────────────────────────────────────────────────────────
+
+def write_sample(stamp: str) -> None:
+    (DATA / "trends").mkdir(parents=True, exist_ok=True)
+    clusters = [
+        {
+            "title": "예시 · 묶음 기사 제목이 여기에 들어갑니다",
+            "url": "https://example.com/1",
+            "lead_source": "예시일보",
+            "count": 7,
+            "sources": ["예시일보", "샘플신문", "테스트방송"],
+            "locales": ["국내", "해외"],
+            "keywords": ["검색어1"],
+            "tags": ["예시", "태그", "자동추출"],
+        },
+        {
+            "title": "예시 · 두 번째 묶음, 해외 보도가 함께 묶인 경우",
+            "url": "https://example.com/2",
+            "lead_source": "Sample Times",
+            "count": 3,
+            "sources": ["Sample Times", "Demo Post"],
+            "locales": ["해외"],
+            "keywords": ["검색어2"],
+            "tags": ["sample", "demo"],
+        },
+        {
+            "title": "예시 · 단독 보도 하나만 잡힌 경우",
+            "url": "https://example.com/3",
+            "lead_source": "테스트뉴스",
+            "count": 1,
+            "sources": ["테스트뉴스"],
+            "locales": ["국내"],
+            "keywords": ["검색어3"],
+            "tags": ["단일"],
+        },
+    ]
+    (DATA / "trends" / f"{stamp}.json").write_text(
+        json.dumps(
+            {"date": stamp, "generated_at": stamp, "articles": 11, "clusters": clusters},
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    (DATA / "studies.json").write_text(
+        json.dumps(
+            {
+                "updated": stamp,
+                "items": [
+                    {
+                        "title": "Example article title collected from Crossref",
+                        "venue": "Journal of Examples",
+                        "year": "2026",
+                        "authors": ["Jane Doe", "John Roe"],
+                        "doi": "10.0000/example.1",
+                        "url": "https://doi.org/10.0000/example.1",
+                        "query": "your research topic",
+                        "added": stamp,
+                    }
+                ],
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    print(f"예시 데이터를 만들었습니다 ({stamp}).")
+
+
+# ──────────────────────────────────────────────────────────────
+
+def prune(keep_days: int) -> None:
+    folder = DATA / "trends"
+    if not folder.exists():
+        return
+    files = sorted(folder.glob("*.json"), reverse=True)
+    for stale in files[keep_days:]:
+        stale.unlink()
+
+
+def papers_due(cfg: dict, stamp: str) -> bool:
+    """
+    논문은 매일 돌릴 필요가 없습니다. 국문 인문학 논문은 색인이 느리게 들어와
+    하루 단위로는 거의 변하지 않고, 매일 돌리면 OpenAlex 요청만 축냅니다.
+    기본값은 주 1회(월요일)입니다. papers_weekday 를 -1 로 두면 매일 돕니다.
+    """
+    weekday = int(cfg["collect"].get("papers_weekday", 0))
+    if weekday < 0:
+        return True
+    try:
+        return datetime.strptime(stamp, "%Y-%m-%d").weekday() == weekday
+    except ValueError:
+        return True
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--date", default=None, help="저장할 날짜 (YYYY-MM-DD)")
+    parser.add_argument("--sample", action="store_true", help="네트워크 없이 예시 데이터 생성")
+    parser.add_argument("--papers", action="store_true", help="요일과 무관하게 논문도 수집")
+    parser.add_argument("--news-only", action="store_true", help="뉴스만 수집")
+    args = parser.parse_args()
+
+    cfg = load_config()
+    stamp = args.date or today()
+
+    if args.sample:
+        write_sample(stamp)
+        return 0
+
+    DATA.mkdir(parents=True, exist_ok=True)
+    (DATA / "trends").mkdir(parents=True, exist_ok=True)
+
+    print(f"[{stamp}] 수집 시작")
+    news = collect_news(cfg)
+    (DATA / "trends" / f"{stamp}.json").write_text(
+        json.dumps(
+            {
+                "date": stamp,
+                "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "articles": news["articles"],
+                "clusters": news["clusters"],
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    print(f"  → 기사 {news['articles']}건을 {len(news['clusters'])}개로 묶었습니다.")
+
+    if args.news_only:
+        print("  · 논문 수집 건너뜀 (--news-only)")
+    elif args.papers or papers_due(cfg, stamp):
+        papers = collect_papers(cfg, stamp)
+        print(f"  → 논문 신규 {papers['new']}편 (누적 {papers['total']}편)")
+    else:
+        weekday_name = "월화수목금토일"[int(cfg["collect"].get("papers_weekday", 0))]
+        print(f"  · 논문 수집은 {weekday_name}요일에만 돕니다. 지금 돌리려면 --papers")
+
+    prune(int(cfg["collect"].get("keep_days", 400)))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
