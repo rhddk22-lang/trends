@@ -348,6 +348,102 @@ def paper_key(paper: dict) -> str:
     return f"title:{normalize(paper.get('title', ''))}"
 
 
+HANGUL = re.compile(r"[가-힣]")
+
+
+def crossref_original_titles(dois: list[str], batch: int = 20) -> dict[str, str]:
+    """
+    국내 학술지 논문은 KCI에 영문 제목으로 등록되는 경우가 많지만,
+    Crossref 의 original-title 필드에 한글 원제가 함께 들어 있습니다.
+    기계번역보다 이쪽이 정확하므로 먼저 시도합니다.
+    """
+    found: dict[str, str] = {}
+    for i in range(0, len(dois), batch):
+        chunk = [d for d in dois[i:i + batch] if d]
+        if not chunk:
+            continue
+        flt = ",".join(f"doi:{d}" for d in chunk)
+        url = (
+            "https://api.crossref.org/works?"
+            + urllib.parse.urlencode(
+                {"filter": flt, "rows": batch, "select": "DOI,original-title"}
+            )
+        )
+        raw = fetch(url)
+        if not raw:
+            continue
+        try:
+            payload = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+        for work in payload.get("message", {}).get("items", []):
+            titles = work.get("original-title") or []
+            if titles and HANGUL.search(titles[0]):
+                found[(work.get("DOI") or "").lower()] = re.sub(r"\s+", " ", titles[0]).strip()
+        time.sleep(0.3)
+    return found
+
+
+def machine_translate(text: str) -> str:
+    """MyMemory 무료 번역. 키가 필요 없고, 한도를 넘으면 조용히 비웁니다."""
+    url = "https://api.mymemory.translated.net/get?" + urllib.parse.urlencode(
+        {"q": text[:480], "langpair": "en|ko"}
+    )
+    raw = fetch(url, attempts=1)
+    if not raw:
+        return ""
+    try:
+        payload = json.loads(raw)
+    except json.JSONDecodeError:
+        return ""
+    if payload.get("responseStatus") != 200:
+        return ""
+    out = (payload.get("responseData") or {}).get("translatedText", "").strip()
+    # 한도를 넘기면 안내 문구를 본문처럼 돌려주므로 걸러냅니다.
+    if not out or "MYMEMORY WARNING" in out.upper() or not HANGUL.search(out):
+        return ""
+    return out
+
+
+def add_korean_titles(items: list[dict], budget: int) -> dict:
+    """
+    한글 제목을 붙입니다. title_ko 가 이미 있는 항목은 건드리지 않으므로
+    매일 돌려도 새로 들어온 것만 처리합니다.
+    """
+    todo = [
+        it for it in items
+        if not it.get("title_ko") and not HANGUL.search(it.get("title", ""))
+    ]
+    if not todo:
+        return {"original": 0, "translated": 0, "remaining": 0}
+
+    # 1단계 — Crossref 에서 한글 원제 찾기
+    originals = crossref_original_titles([it.get("doi", "") for it in todo if it.get("doi")])
+    n_orig = 0
+    for it in todo:
+        hit = originals.get((it.get("doi") or "").lower())
+        if hit:
+            it["title_ko"] = hit
+            it["title_ko_source"] = "원제"
+            n_orig += 1
+
+    # 2단계 — 남은 것은 기계번역. 하루 한도가 있어 예산만큼만 합니다.
+    rest = [it for it in todo if not it.get("title_ko")]
+    n_trans = 0
+    for it in rest[:budget]:
+        ko = machine_translate(it.get("title", ""))
+        if not ko:
+            break  # 한도에 걸렸으면 더 시도하지 않습니다.
+        it["title_ko"] = ko
+        it["title_ko_source"] = "기계번역"
+        n_trans += 1
+        time.sleep(0.4)
+
+    remaining = len([it for it in items
+                     if not it.get("title_ko") and not HANGUL.search(it.get("title", ""))])
+    return {"original": n_orig, "translated": n_trans, "remaining": remaining}
+
+
 def collect_papers(cfg: dict, stamp: str) -> dict:
     """
     국문과 영문은 사정이 정반대라 조건을 나눠 겁니다.
@@ -409,12 +505,20 @@ def collect_papers(cfg: dict, stamp: str) -> dict:
                 added_here += 1
             print(f"  · 논문 · [{group['label']}] {query} → 신규 {added_here}편")
 
-    items = fresh + store.get("items", [])
-    store = {"updated": stamp, "items": items[:800]}
+    items = (fresh + store.get("items", []))[:800]
+
+    budget = int(settings.get("translate_per_run", 120))
+    titles = add_korean_titles(items, budget)
+    print(
+        f"  → 한글 제목: 원제 {titles['original']}건, 번역 {titles['translated']}건"
+        + (f", 남은 것 {titles['remaining']}건은 다음 실행에서" if titles["remaining"] else "")
+    )
+
+    store = {"updated": stamp, "items": items}
     store_path.write_text(
         json.dumps(store, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    return {"new": len(fresh), "total": len(items)}
+    return {"new": len(fresh), "total": len(items), "titles": titles}
 
 
 # ──────────────────────────────────────────────────────────────

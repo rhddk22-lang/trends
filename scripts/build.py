@@ -187,12 +187,19 @@ def render_entry(item: dict) -> str:
         bits.append(esc(item["year"]))
     meta = " · ".join(b for b in bits if b)
 
-    title = esc(item.get("title", ""))
+    # 한글 제목이 있으면 그것을 앞에 세우고 원제를 아래에 둡니다.
+    original = esc(item.get("title", ""))
+    korean = esc(item.get("title_ko", ""))
     url = item.get("url", "")
+    shown = korean or original
     heading = (
-        f'<a href="{esc(url)}" rel="noopener nofollow" target="_blank">{title}</a>'
-        if url else title
+        f'<a href="{esc(url)}" rel="noopener nofollow" target="_blank">{shown}</a>'
+        if url else shown
     )
+    sub = f'<p class="entry__original">{original}</p>' if korean else ""
+    if item.get("title_ko_source") == "기계번역":
+        sub = '<p class="entry__original"><span class="tag tag--warn">기계번역</span> ' \
+              f'{original}</p>'
 
     chips = []
     if item.get("group"):
@@ -205,6 +212,7 @@ def render_entry(item: dict) -> str:
 
     return f"""<li class="entry">
   <p class="entry__title">{heading}</p>
+  {sub}
   {f'<p class="entry__meta">{meta}</p>' if meta else ''}
   {f'<p class="entry__note">{esc(item.get("note",""))}</p>' if item.get("note") else ''}
   {tags}

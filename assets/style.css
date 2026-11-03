@@ -319,6 +319,20 @@ a:focus-visible, button:focus-visible {
 }
 .entry__title a:hover { color: var(--accent); }
 
+.entry__original {
+  margin: 0.3rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--faint);
+}
+
+.tag--warn {
+  color: var(--accent);
+  border-color: var(--accent);
+  font-size: 0.68rem;
+  vertical-align: 1px;
+}
+
 .entry__meta {
   margin-top: 0.35rem;
   font-size: 0.815rem;
