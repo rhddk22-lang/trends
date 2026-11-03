@@ -46,17 +46,51 @@ def assign_topics(haystack: str, topics: list[dict]) -> list[str]:
             if any(squash(term) in hay for term in t.get("terms", []))]
 
 
+def topic_styles(topics: list[dict]) -> str:
+    """주제마다 고유 색을 변수로 깔아둡니다. 밝은 화면과 어두운 화면 값이 따로입니다."""
+    if not topics:
+        return ""
+    light = " ".join(
+        f"--t{i}: {t.get('color', '#6E6A61')};" for i, t in enumerate(topics)
+    )
+    dark = " ".join(
+        f"--t{i}: {t.get('colorDark', t.get('color', '#9B9589'))};"
+        for i, t in enumerate(topics)
+    )
+    return (
+        f"<style>:root {{ {light} }}\n"
+        f"@media (prefers-color-scheme: dark) {{ :root:not([data-theme=\"light\"]) {{ {dark} }} }}\n"
+        f":root[data-theme=\"dark\"] {{ {dark} }}</style>"
+    )
+
+
+def topic_index(topics: list[dict]) -> dict[str, int]:
+    return {t["label"]: i for i, t in enumerate(topics)}
+
+
+def topic_tags(labels: list[str], topics: list[dict]) -> str:
+    """자료마다 붙는 작은 주제 딱지. 주제 색을 그대로 씁니다."""
+    idx = topic_index(topics)
+    return "".join(
+        f'<span class="tag tag--topic" style="--c: var(--t{idx[label]})">{esc(label)}</span>'
+        for label in labels if label in idx
+    )
+
+
 def topic_bar(counts: dict[str, int], total: int, topics: list[dict]) -> str:
     """위쪽 주제 버튼 줄. 자료가 하나도 없는 주제는 내보내지 않습니다."""
     live = [t["label"] for t in topics if counts.get(t["label"])]
     if not live:
         return ""
-    chips = [f'<button class="chip is-on" data-topic="" type="button">'
+    idx = topic_index(topics)
+    chips = ['<button class="chip chip--all is-on" data-topic="" type="button">'
              f'전체 <span class="chip__n">{total}</span></button>']
     for label in live:
         chips.append(
-            f'<button class="chip" data-topic="{esc(label)}" type="button">'
-            f'{esc(label)} <span class="chip__n">{counts[label]}</span></button>'
+            f'<button class="chip" data-topic="{esc(label)}" type="button" '
+            f'style="--c: var(--t{idx[label]})">'
+            f'<span class="chip__dot"></span>{esc(label)} '
+            f'<span class="chip__n">{counts[label]}</span></button>'
         )
     return (
         '<div class="topics" role="group" aria-label="주제 고르기">'
@@ -185,8 +219,10 @@ def page(cfg: dict, *, depth: int, active: str, title: str, body: str,
 <meta name="description" content="{esc(desc)}">
 {FONTS}
 <link rel="stylesheet" href="{up}assets/style.css">
+{topic_styles(cfg.get("collect", {}).get("topics", []))}
 </head>
 <body>
+<div class="spectrum" aria-hidden="true"></div>
 <header class="masthead">
   <div class="wrap">
     <p class="masthead__title"><a href="{up}">{esc(site.get('title', ''))}</a></p>
@@ -225,17 +261,24 @@ def render_cluster(cluster: dict, topics: list[dict] | None = None) -> str:
     else:
         line = esc(cluster.get("lead_source", ""))
 
-    tags = "".join(f'<span class="tag">{esc(tag)}</span>' for tag in cluster.get("tags", []))
     locales = " · ".join(esc(loc) for loc in cluster.get("locales", []))
 
     marks = assign_topics(
         " ".join([cluster.get("title", "")] + cluster.get("keywords", [])
                  + cluster.get("tags", [])), topics or [])
 
+    tags = topic_tags(marks, topics or []) + "".join(
+        f'<span class="tag tag--quiet">{esc(tag)}</span>'
+        for tag in cluster.get("tags", [])[:3]
+    )
+
+    lead_i = topic_index(topics or []).get(marks[0]) if marks else None
+    badge_style = f' style="--c: var(--t{lead_i})"' if lead_i is not None else ''
+
     return f"""<li class="cluster" data-topics="{esc('|'.join(marks))}">
   <p class="cluster__title"><a href="{esc(cluster.get('url', '#'))}" rel="noopener nofollow" target="_blank">{esc(cluster.get('title', ''))}</a></p>
   <p class="cluster__meta">
-    <span class="cluster__count">{count}건</span>
+    <span class="cluster__count"{badge_style}>{count}건</span>
     <span class="cluster__sources">{line}</span>
     {f'<span class="cluster__sources">· {locales}</span>' if locales else ''}
   </p>
@@ -267,19 +310,18 @@ def render_entry(item: dict, topics: list[dict] | None = None) -> str:
         sub = '<p class="entry__original"><span class="tag tag--warn">기계번역</span> ' \
               f'{original}</p>'
 
-    chips = []
-    if item.get("group"):
-        chips.append(f'<span class="tag">{esc(item["group"])}</span>')
-    if item.get("query"):
-        chips.append(f'<span class="tag">{esc(item["query"])}</span>')
-    if item.get("source"):
-        chips.append(f'<span class="tag">{esc(item["source"])}</span>')
-    tags = f'<p class="cluster__tags">{"".join(chips)}</p>' if chips else ""
-
     marks = assign_topics(" ".join([
         item.get("title", ""), item.get("title_ko", ""),
         item.get("venue", ""), item.get("query", ""),
     ]), topics or [])
+
+    chips = [topic_tags(marks, topics or [])]
+    if item.get("query"):
+        chips.append(f'<span class="tag tag--quiet">{esc(item["query"])}</span>')
+    if item.get("source"):
+        chips.append(f'<span class="tag tag--quiet">{esc(item["source"])}</span>')
+    joined = "".join(chips)
+    tags = f'<p class="cluster__tags">{joined}</p>' if joined else ""
 
     return f"""<li class="entry" data-topics="{esc('|'.join(marks))}">
   <p class="entry__title">{heading}</p>

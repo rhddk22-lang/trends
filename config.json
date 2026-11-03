@@ -1,6 +1,5 @@
 {
   "_안내": "이 파일만 고치면 사이트 전체가 바뀝니다. 핵심은 collect 블록입니다.",
-
   "site": {
     "title": "현대시교육 연구 동향",
     "subtitle": "현대시·문학교육을 축으로 상호문화교육, 다문화교육, 통일교육, 북한이탈청소년 연구를 모읍니다.",
@@ -10,25 +9,33 @@
     "noindex": true,
     "timezone": "Asia/Seoul"
   },
-
   "owner": {
     "_안내": "푸터 한 줄에만 쓰입니다. 비워두면 표시되지 않습니다.",
     "name": "",
     "note": "",
     "links": [
-      { "label": "GitHub", "url": "" }
+      {
+        "label": "GitHub",
+        "url": ""
+      }
     ]
   },
-
   "nav": [
-    { "label": "동향", "path": "trends" },
-    { "label": "논문", "path": "studies" },
-    { "label": "자료실", "path": "library" }
+    {
+      "label": "동향",
+      "path": "trends"
+    },
+    {
+      "label": "논문",
+      "path": "studies"
+    },
+    {
+      "label": "자료실",
+      "path": "library"
+    }
   ],
-
   "collect": {
     "_안내": "news_keywords 는 뉴스용, korean/english 는 논문용입니다. 돌려보고 잡음이 많은 검색어는 지우세요.",
-
     "news_keywords": [
       "다문화교육",
       "상호문화교육",
@@ -41,11 +48,14 @@
       "문학교육",
       "현대시"
     ],
-
     "news_locales": [
-      { "label": "국내", "hl": "ko", "gl": "KR", "ceid": "KR:ko" }
+      {
+        "label": "국내",
+        "hl": "ko",
+        "gl": "KR",
+        "ceid": "KR:ko"
+      }
     ],
-
     "korean": {
       "_안내": "국문 논문은 OpenAlex 색인이 몇 달에서 1년 이상 늦게 들어오고 양도 적습니다. 그래서 기간을 3년으로 길게 잡고 최신순으로 가져옵니다. 짧게 잡으면 0건이 됩니다.",
       "window_days": 1095,
@@ -71,7 +81,6 @@
         "북한이탈주민 교육"
       ]
     },
-
     "english": {
       "_안내": "영문은 반대로 양이 넘칩니다. 기간을 짧게 잡고 관련도순으로 상위 몇 편만 가져옵니다. 잡음이 많으면 max_results 를 줄이세요.",
       "window_days": 90,
@@ -90,42 +99,163 @@
         "unification education Korea"
       ]
     },
-
-    "_topics_안내": "페이지 위쪽 주제 버튼입니다. 제목·학술지명·검색어에 terms 중 하나라도 있으면 그 주제로 분류되고, 여러 주제에 동시에 들어갈 수 있습니다. 띄어쓰기는 무시됩니다. 순서대로 버튼이 놓입니다.",
+    "_topics_안내": "페이지 위쪽 주제 버튼입니다. 제목·학술지명·검색어에 terms 중 하나라도 있으면 그 주제로 분류되고, 여러 주제에 동시에 들어갈 수 있습니다. 띄어쓰기는 무시됩니다. 순서대로 버튼이 놓입니다. color 는 밝은 화면, colorDark 는 어두운 화면에서 쓰는 색입니다.",
     "topics": [
-      { "label": "현대시·시교육", "terms": ["현대시", "시교육", "시창작", "시텍스트", "시감상", "서정시", "poetry", "poem"] },
-      { "label": "문학교육", "terms": ["문학교육", "문학수업", "문학텍스트", "문학작품", "아동문학", "청소년문학", "문학관", "literatureeducat", "literatureteach", "literary"] },
-      { "label": "상호문화교육", "terms": ["상호문화", "intercultural", "cross-cultural", "crosscultural"] },
-      { "label": "다문화교육", "terms": ["다문화", "이주배경", "multicultural", "migrantbackground", "migrant"] },
-      { "label": "통일·평화교육", "terms": ["통일교육", "평화교육", "통일담론", "unificationeducat"] },
-      { "label": "북한이탈청소년", "terms": ["북한이탈", "탈북", "새터민", "northkorean", "defector"] },
-      { "label": "한국어교육", "terms": ["한국어교육", "한국어교원", "한국어학습", "이중언어", "ksl", "koreanlanguage"] },
-      { "label": "국어과·교육과정", "terms": ["국어교육", "국어과", "교육과정", "languagearts", "curriculum", "성취기준", "교과서"] }
+      {
+        "label": "현대시·시교육",
+        "terms": [
+          "현대시",
+          "시교육",
+          "시창작",
+          "시텍스트",
+          "시감상",
+          "서정시",
+          "poetry",
+          "poem"
+        ],
+        "color": "#8E4162",
+        "colorDark": "#E39BB8"
+      },
+      {
+        "label": "문학교육",
+        "terms": [
+          "문학교육",
+          "문학수업",
+          "문학텍스트",
+          "문학작품",
+          "아동문학",
+          "청소년문학",
+          "문학관",
+          "literatureeducat",
+          "literatureteach",
+          "literary"
+        ],
+        "color": "#B05A2F",
+        "colorDark": "#E8A074"
+      },
+      {
+        "label": "상호문화교육",
+        "terms": [
+          "상호문화",
+          "intercultural",
+          "cross-cultural",
+          "crosscultural"
+        ],
+        "color": "#2E7A70",
+        "colorDark": "#6FC7BA"
+      },
+      {
+        "label": "다문화교육",
+        "terms": [
+          "다문화",
+          "이주배경",
+          "multicultural",
+          "migrantbackground",
+          "migrant"
+        ],
+        "color": "#9A6B16",
+        "colorDark": "#DFB055"
+      },
+      {
+        "label": "통일·평화교육",
+        "terms": [
+          "통일교육",
+          "평화교육",
+          "통일담론",
+          "unificationeducat"
+        ],
+        "color": "#3B5EA0",
+        "colorDark": "#8EACE8"
+      },
+      {
+        "label": "북한이탈청소년",
+        "terms": [
+          "북한이탈",
+          "탈북",
+          "새터민",
+          "northkorean",
+          "defector"
+        ],
+        "color": "#6A4C9C",
+        "colorDark": "#B298E4"
+      },
+      {
+        "label": "한국어교육",
+        "terms": [
+          "한국어교육",
+          "한국어교원",
+          "한국어학습",
+          "이중언어",
+          "ksl",
+          "koreanlanguage"
+        ],
+        "color": "#5F7330",
+        "colorDark": "#A8C062"
+      },
+      {
+        "label": "국어과·교육과정",
+        "terms": [
+          "국어교육",
+          "국어과",
+          "교육과정",
+          "languagearts",
+          "curriculum",
+          "성취기준",
+          "교과서"
+        ],
+        "color": "#47616E",
+        "colorDark": "#9DB8C6"
+      }
     ],
-
     "_relevance_안내": "제목이나 학술지명에 이 중 하나라도 들어 있어야 보관합니다. OpenAlex 가 한글 다어절 검색어를 느슨하게 처리해서 엉뚱한 논문이 섞여 들어오는 것을 막는 장치입니다. 놓치는 게 있으면 단어를 추가하세요. 띄어쓰기는 무시되므로 '문학교육' 하나로 '문학 교육' 도 걸립니다.",
     "relevance_terms": [
-      "현대시", "시교육", "시창작", "시텍스트", "시감상", "서정시",
-      "문학교육", "문학수업", "문학텍스트", "문학작품", "국어교육", "국어과",
-      "상호문화", "다문화", "이주배경", "이중언어", "한국어교육", "KSL",
-      "통일교육", "평화교육", "북한이탈", "탈북", "새터민",
-      "poetry", "poem", "literary", "literature educat", "literature teach",
-      "intercultural", "multicultural", "cross-cultural",
-      "north korean", "defector", "unification educat",
-      "korean language", "language arts", "ksl", "migrant background"
+      "현대시",
+      "시교육",
+      "시창작",
+      "시텍스트",
+      "시감상",
+      "서정시",
+      "문학교육",
+      "문학수업",
+      "문학텍스트",
+      "문학작품",
+      "국어교육",
+      "국어과",
+      "상호문화",
+      "다문화",
+      "이주배경",
+      "이중언어",
+      "한국어교육",
+      "KSL",
+      "통일교육",
+      "평화교육",
+      "북한이탈",
+      "탈북",
+      "새터민",
+      "poetry",
+      "poem",
+      "literary",
+      "literature educat",
+      "literature teach",
+      "intercultural",
+      "multicultural",
+      "cross-cultural",
+      "north korean",
+      "defector",
+      "unification educat",
+      "korean language",
+      "language arts",
+      "ksl",
+      "migrant background"
     ],
-
     "_translate_안내": "영문 제목에 한글을 붙입니다. 먼저 Crossref 의 original-title 에서 국내 논문의 한글 원제를 찾고, 없는 것만 무료 기계번역을 씁니다. 번역은 하루 한도가 있어 한 번에 이만큼만 처리하고 나머지는 다음 실행으로 넘깁니다.",
     "translate_per_run": 120,
-
     "_papers_weekday_안내": "논문 수집 요일. 0=월 … 6=일, -1=매일. 국문 논문은 색인이 느려 하루 단위로는 거의 안 변하므로 주 1회면 충분하고, API 요청도 아낍니다. 뉴스는 요일과 무관하게 매일 돕니다.",
     "papers_weekday": 0,
-
     "max_per_keyword": 30,
     "cluster_threshold": 0.62,
     "keep_days": 400
   },
-
   "library": {
     "intro": "직접 모은 자료를 분류해 쌓아두는 공간입니다. 자동 수집에 잡히지 않는 교육과정 문서, 단행본, 기관 보고서 같은 것들을 여기에 두시면 됩니다.",
     "groups": [

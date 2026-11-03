@@ -82,6 +82,23 @@ a:focus-visible, button:focus-visible {
   padding: 0 var(--gutter);
 }
 
+/* ── 맨 위 색 띠 ──────────────────────────── */
+
+.spectrum {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--t0, var(--accent)) 0%,
+    var(--t1, var(--accent)) 14%,
+    var(--t2, var(--accent)) 28%,
+    var(--t3, var(--accent)) 42%,
+    var(--t4, var(--accent)) 57%,
+    var(--t5, var(--accent)) 71%,
+    var(--t6, var(--accent)) 85%,
+    var(--t7, var(--accent)) 100%
+  );
+}
+
 /* ── 머리말 ───────────────────────────────── */
 
 .masthead {
@@ -180,40 +197,61 @@ a:focus-visible, button:focus-visible {
 }
 
 .chip {
+  --c: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
   font: inherit;
   font-size: 0.83rem;
   font-weight: 500;
   line-height: 1.4;
-  color: var(--muted);
+  color: var(--c);
   background: var(--surface);
+  background: color-mix(in srgb, var(--c) 7%, var(--surface));
   border: 1px solid var(--line);
+  border-color: color-mix(in srgb, var(--c) 28%, transparent);
   border-radius: 999px;
-  padding: 0.3rem 0.72rem;
+  padding: 0.3rem 0.76rem;
   cursor: pointer;
-  transition: color .12s, border-color .12s, background .12s;
+  transition: background .14s, border-color .14s, color .14s;
   -webkit-tap-highlight-color: transparent;
 }
 
-.chip:hover { color: var(--ink); border-color: var(--faint); }
+.chip:hover {
+  background: color-mix(in srgb, var(--c) 15%, var(--surface));
+  border-color: color-mix(in srgb, var(--c) 48%, transparent);
+}
+
+.chip__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c);
+  flex: 0 0 auto;
+}
 
 .chip.is-on {
-  color: var(--surface);
-  background: var(--accent);
-  border-color: var(--accent);
+  color: #fff;
+  background: var(--c);
+  border-color: var(--c);
 }
 
-:root[data-theme="dark"] .chip.is-on,
-.chip.is-on { color: #fff; }
+.chip.is-on .chip__dot { background: rgba(255, 255, 255, 0.8); }
+
+.chip--all { --c: var(--ink-soft); }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .chip.is-on { color: #1A1713; }
+  :root:not([data-theme="light"]) .chip.is-on { color: #15130F; }
+  :root:not([data-theme="light"]) .chip.is-on .chip__dot { background: rgba(0, 0, 0, 0.45); }
 }
+
+:root[data-theme="dark"] .chip.is-on { color: #15130F; }
+:root[data-theme="dark"] .chip.is-on .chip__dot { background: rgba(0, 0, 0, 0.45); }
 
 .chip__n {
   font-family: var(--mono);
   font-size: 0.72rem;
-  opacity: 0.72;
-  margin-left: 0.12rem;
+  opacity: 0.7;
 }
 
 .topics__empty {
@@ -289,11 +327,12 @@ a:focus-visible, button:focus-visible {
 }
 
 .cluster__count {
+  --c: var(--accent);
   font-family: var(--mono);
   font-size: 0.7rem;
   letter-spacing: 0.04em;
-  color: var(--accent);
-  background: var(--accent-bg);
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 13%, transparent);
   padding: 0.12rem 0.44rem;
   border-radius: 3px;
   white-space: nowrap;
@@ -315,6 +354,20 @@ a:focus-visible, button:focus-visible {
   border-radius: 999px;
   padding: 0.08rem 0.5rem;
   white-space: nowrap;
+}
+
+/* 주제 딱지 — 해당 주제 색을 옅게 깔고 글씨는 진하게 */
+.tag--topic {
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 11%, transparent);
+  border-color: color-mix(in srgb, var(--c) 30%, transparent);
+  font-weight: 500;
+}
+
+/* 검색어·출처처럼 부차적인 정보 */
+.tag--quiet {
+  color: var(--faint);
+  border-color: var(--line-soft);
 }
 
 /* ── 날짜별 기록 목록 ─────────────────────── */
