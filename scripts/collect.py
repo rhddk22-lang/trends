@@ -459,6 +459,24 @@ def add_korean_titles(items: list[dict], budget: int) -> dict:
     return {"original": n_orig, "translated": n_trans, "remaining": remaining}
 
 
+def squash(text: str) -> str:
+    """띄어쓰기와 기호를 없앱니다. '문학 교육' 과 '문학교육' 을 같게 보기 위해서입니다."""
+    return re.sub(r"[^\w가-힣]", "", (text or "").lower())
+
+
+def is_relevant(item: dict, terms: list[str]) -> bool:
+    """
+    OpenAlex 는 한글 다어절 검색어를 느슨하게 처리합니다.
+    '이주배경 학생 교육' 이 '학생' 이나 '교육' 만 있어도 걸리는 식이라
+    제목에 핵심어가 실제로 들어 있는지 한 번 더 확인합니다.
+    """
+    if not terms:
+        return True
+    hay = squash(item.get("title", "")) + " " + squash(item.get("title_ko", "")) \
+        + " " + squash(item.get("venue", ""))
+    return any(squash(t) in hay for t in terms)
+
+
 def collect_papers(cfg: dict, stamp: str) -> dict:
     """
     국문과 영문은 사정이 정반대라 조건을 나눠 겁니다.
@@ -520,8 +538,9 @@ def collect_papers(cfg: dict, stamp: str) -> dict:
                 added_here += 1
             print(f"  · 논문 · [{group['label']}] {query} → 신규 {added_here}편")
 
-    items = (fresh + store.get("items", []))[:800]
+    items = (fresh + store.get("items", []))[:900]
 
+    # 한글 제목을 먼저 붙입니다. 걸러낼 때 한글 원제도 함께 보기 위해서입니다.
     budget = int(settings.get("translate_per_run", 120))
     titles = add_korean_titles(items, budget)
     print(
@@ -529,7 +548,13 @@ def collect_papers(cfg: dict, stamp: str) -> dict:
         + (f", 남은 것 {titles['remaining']}건은 다음 실행에서" if titles["remaining"] else "")
     )
 
-    store = {"updated": stamp, "items": items}
+    terms = settings.get("relevance_terms", [])
+    before = len(items)
+    items = [it for it in items if is_relevant(it, terms)]
+    if before != len(items):
+        print(f"  → 주제와 무관한 {before - len(items)}편을 걸러냈습니다. (남은 {len(items)}편)")
+
+    store = {"updated": stamp, "items": items[:800]}
     store_path.write_text(
         json.dumps(store, ensure_ascii=False, indent=2), encoding="utf-8"
     )
