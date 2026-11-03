@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 import shutil
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -31,6 +32,67 @@ FONTS = (
 
 def esc(value) -> str:
     return html.escape(str(value or ""), quote=True)
+
+
+def squash(text: str) -> str:
+    """띄어쓰기와 기호를 없애 '문학 교육' 과 '문학교육' 을 같게 봅니다."""
+    return re.sub(r"[^\w가-힣]", "", (text or "").lower())
+
+
+def assign_topics(haystack: str, topics: list[dict]) -> list[str]:
+    """한 자료가 어느 주제에 들어가는지 고릅니다. 여러 개여도 됩니다."""
+    hay = squash(haystack)
+    return [t["label"] for t in topics
+            if any(squash(term) in hay for term in t.get("terms", []))]
+
+
+def topic_bar(counts: dict[str, int], total: int, topics: list[dict]) -> str:
+    """위쪽 주제 버튼 줄. 자료가 하나도 없는 주제는 내보내지 않습니다."""
+    live = [t["label"] for t in topics if counts.get(t["label"])]
+    if not live:
+        return ""
+    chips = [f'<button class="chip is-on" data-topic="" type="button">'
+             f'전체 <span class="chip__n">{total}</span></button>']
+    for label in live:
+        chips.append(
+            f'<button class="chip" data-topic="{esc(label)}" type="button">'
+            f'{esc(label)} <span class="chip__n">{counts[label]}</span></button>'
+        )
+    return (
+        '<div class="topics" role="group" aria-label="주제 고르기">'
+        + "".join(chips)
+        + '</div><p class="topics__empty" hidden>이 주제에 해당하는 자료가 없습니다.</p>'
+    )
+
+
+TOPIC_SCRIPT = """<script>
+(function () {
+  var bar = document.querySelector('.topics');
+  if (!bar) return;
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-topics]'));
+  var empty = document.querySelector('.topics__empty');
+  bar.addEventListener('click', function (e) {
+    var btn = e.target.closest('.chip');
+    if (!btn) return;
+    var pick = btn.getAttribute('data-topic');
+    bar.querySelectorAll('.chip').forEach(function (c) {
+      c.classList.toggle('is-on', c === btn);
+    });
+    var shown = 0;
+    items.forEach(function (el) {
+      var on = !pick || ('|' + el.getAttribute('data-topics') + '|').indexOf('|' + pick + '|') > -1;
+      el.hidden = !on;
+      if (on) shown++;
+    });
+    // 전부 숨겨진 구역은 제목까지 감춥니다.
+    document.querySelectorAll('[data-group]').forEach(function (sec) {
+      var any = sec.querySelector('[data-topics]:not([hidden])');
+      sec.hidden = !any;
+    });
+    if (empty) empty.hidden = shown !== 0;
+  });
+})();
+</script>"""
 
 
 def load_config() -> dict:
@@ -155,7 +217,7 @@ def write(path: Path, content: str) -> None:
 # 조각
 # ──────────────────────────────────────────────────────────────
 
-def render_cluster(cluster: dict) -> str:
+def render_cluster(cluster: dict, topics: list[dict] | None = None) -> str:
     sources = cluster.get("sources", [])
     count = cluster.get("count", 1)
     if count > 1 and sources:
@@ -166,7 +228,11 @@ def render_cluster(cluster: dict) -> str:
     tags = "".join(f'<span class="tag">{esc(tag)}</span>' for tag in cluster.get("tags", []))
     locales = " · ".join(esc(loc) for loc in cluster.get("locales", []))
 
-    return f"""<li class="cluster">
+    marks = assign_topics(
+        " ".join([cluster.get("title", "")] + cluster.get("keywords", [])
+                 + cluster.get("tags", [])), topics or [])
+
+    return f"""<li class="cluster" data-topics="{esc('|'.join(marks))}">
   <p class="cluster__title"><a href="{esc(cluster.get('url', '#'))}" rel="noopener nofollow" target="_blank">{esc(cluster.get('title', ''))}</a></p>
   <p class="cluster__meta">
     <span class="cluster__count">{count}건</span>
@@ -177,7 +243,7 @@ def render_cluster(cluster: dict) -> str:
 </li>"""
 
 
-def render_entry(item: dict) -> str:
+def render_entry(item: dict, topics: list[dict] | None = None) -> str:
     bits = []
     if item.get("authors"):
         bits.append(esc(", ".join(item["authors"])))
@@ -210,7 +276,12 @@ def render_entry(item: dict) -> str:
         chips.append(f'<span class="tag">{esc(item["source"])}</span>')
     tags = f'<p class="cluster__tags">{"".join(chips)}</p>' if chips else ""
 
-    return f"""<li class="entry">
+    marks = assign_topics(" ".join([
+        item.get("title", ""), item.get("title_ko", ""),
+        item.get("venue", ""), item.get("query", ""),
+    ]), topics or [])
+
+    return f"""<li class="entry" data-topics="{esc('|'.join(marks))}">
   <p class="entry__title">{heading}</p>
   {sub}
   {f'<p class="entry__meta">{meta}</p>' if meta else ''}
@@ -311,9 +382,17 @@ def build_trends(cfg: dict, days: list[dict]) -> None:
         cfg, depth=1, active="trends", title="동향", body=body
     ))
 
+    topics = cfg.get("collect", {}).get("topics", [])
     for index, day in enumerate(days):
         clusters = day.get("clusters", [])
-        listing = "".join(render_cluster(c) for c in clusters)
+        listing = "".join(render_cluster(c, topics) for c in clusters)
+        counts: dict[str, int] = {}
+        for c in clusters:
+            for label in assign_topics(
+                " ".join([c.get("title", "")] + c.get("keywords", []) + c.get("tags", [])),
+                topics,
+            ):
+                counts[label] = counts.get(label, 0) + 1
         nav_bits = []
         if index + 1 < len(days):
             nav_bits.append(f'<a class="section__more" href="../{esc(days[index + 1]["date"])}/">← 이전 날짜</a>')
@@ -324,10 +403,10 @@ def build_trends(cfg: dict, days: list[dict]) -> None:
             "동향",
             pretty_date(day["date"]),
             f"기사 {day.get('articles', 0)}건 · {len(clusters)}개 묶음",
-        ) + f"""<section class="section">
+        ) + topic_bar(counts, len(clusters), topics) + f"""<section class="section">
   <ul class="cluster-list">{listing or empty_box('수집된 기사가 없습니다.')}</ul>
 </section>
-<p class="footer__links" style="margin:0;gap:1.2rem;">{"".join(nav_bits)}</p>"""
+<p class="footer__links" style="margin:0;gap:1.2rem;">{"".join(nav_bits)}</p>""" + TOPIC_SCRIPT
 
         write(OUT / "trends" / day["date"] / "index.html", page(
             cfg, depth=2, active="trends", title=pretty_date(day["date"]), body=body
@@ -336,20 +415,34 @@ def build_trends(cfg: dict, days: list[dict]) -> None:
 
 def build_studies(cfg: dict, papers: dict) -> None:
     items = papers.get("items", [])
+    topics = cfg.get("collect", {}).get("topics", [])
     if items:
+        counts: dict[str, int] = {}
+        for item in items:
+            for label in assign_topics(" ".join([
+                item.get("title", ""), item.get("title_ko", ""),
+                item.get("venue", ""), item.get("query", ""),
+            ]), topics):
+                counts[label] = counts.get(label, 0) + 1
+
         grouped: dict[str, list[dict]] = {}
         for item in items:
             grouped.setdefault(item.get("added", "기타"), []).append(item)
 
         sections = []
         for stamp in sorted(grouped, reverse=True):
-            rows = "".join(render_entry(item) for item in grouped[stamp])
-            sections.append(f"""<section class="section">
+            rows = "".join(render_entry(item, topics) for item in grouped[stamp])
+            sections.append(f"""<section class="section" data-group="{esc(stamp)}">
   <div class="section__head"><h2>{esc(stamp)} 수집</h2>
   <span class="section__more">{len(grouped[stamp])}편</span></div>
   <ul class="entry-list">{rows}</ul>
 </section>""")
-        body = page_head("논문", "자동 수집 논문", f"총 {len(items)}편") + "\n".join(sections)
+        body = (
+            page_head("논문", "자동 수집 논문", f"총 {len(items)}편")
+            + topic_bar(counts, len(items), topics)
+            + "\n".join(sections)
+            + TOPIC_SCRIPT
+        )
     else:
         body = page_head("논문", "자동 수집 논문") + empty_box(
             "아직 수집된 논문이 없습니다. <code>config.json</code> 의 "

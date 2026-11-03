@@ -168,6 +168,60 @@ a:focus-visible, button:focus-visible {
   font-size: 0.925rem;
 }
 
+/* ── 주제 고르기 ──────────────────────────── */
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  margin: 0 0 2rem;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.chip {
+  font: inherit;
+  font-size: 0.83rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.72rem;
+  cursor: pointer;
+  transition: color .12s, border-color .12s, background .12s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.chip:hover { color: var(--ink); border-color: var(--faint); }
+
+.chip.is-on {
+  color: var(--surface);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+:root[data-theme="dark"] .chip.is-on,
+.chip.is-on { color: #fff; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .chip.is-on { color: #1A1713; }
+}
+
+.chip__n {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  opacity: 0.72;
+  margin-left: 0.12rem;
+}
+
+.topics__empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 1.2rem 0;
+}
+
 /* ── 구역 ─────────────────────────────────── */
 
 .section { margin: 0 0 3.25rem; }
