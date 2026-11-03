@@ -385,10 +385,16 @@ def crossref_original_titles(dois: list[str], batch: int = 20) -> dict[str, str]
 
 
 def machine_translate(text: str) -> str:
-    """MyMemory 무료 번역. 키가 필요 없고, 한도를 넘으면 조용히 비웁니다."""
-    url = "https://api.mymemory.translated.net/get?" + urllib.parse.urlencode(
-        {"q": text[:480], "langpair": "en|ko"}
-    )
+    """
+    MyMemory 무료 번역. 키가 필요 없습니다.
+    익명으로 쓰면 하루 한도가 낮고 같은 IP 를 쓰는 사람들과 나눠 쓰므로,
+    MYMEMORY_EMAIL 을 저장소 Secrets 에 넣어두면 한도가 열 배로 늘어납니다.
+    """
+    params = {"q": text[:480], "langpair": "en|ko"}
+    email = os.environ.get("MYMEMORY_EMAIL", "").strip()
+    if email:
+        params["de"] = email
+    url = "https://api.mymemory.translated.net/get?" + urllib.parse.urlencode(params)
     raw = fetch(url, attempts=1)
     if not raw:
         return ""
@@ -430,14 +436,23 @@ def add_korean_titles(items: list[dict], budget: int) -> dict:
     # 2단계 — 남은 것은 기계번역. 하루 한도가 있어 예산만큼만 합니다.
     rest = [it for it in todo if not it.get("title_ko")]
     n_trans = 0
+    misses = 0
     for it in rest[:budget]:
         ko = machine_translate(it.get("title", ""))
         if not ko:
-            break  # 한도에 걸렸으면 더 시도하지 않습니다.
+            misses += 1
+            # 한 번 걸러진 것은 넘어가되, 연달아 실패하면 한도로 보고 멈춥니다.
+            if misses >= 3:
+                print("  ! 번역 한도에 걸린 듯합니다. 남은 것은 다음 실행으로 넘깁니다.",
+                      file=sys.stderr)
+                break
+            time.sleep(1.5)
+            continue
+        misses = 0
         it["title_ko"] = ko
         it["title_ko_source"] = "기계번역"
         n_trans += 1
-        time.sleep(0.4)
+        time.sleep(0.6)
 
     remaining = len([it for it in items
                      if not it.get("title_ko") and not HANGUL.search(it.get("title", ""))])
