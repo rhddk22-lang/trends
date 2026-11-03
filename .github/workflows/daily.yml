@@ -33,8 +33,10 @@ jobs:
           python-version: "3.12"
 
       - name: 동향 수집
-        # 예약 실행은 설정된 요일에만 논문을 모읍니다.
-        # 수동 실행과 설정 변경 시에는 요일과 무관하게 논문도 모읍니다.
+        # 설정이나 코드만 고쳤을 때(push)는 수집을 건너뜁니다.
+        # 데이터는 이미 저장소에 있으니 다시 빌드만 하면 되고, 배포가 1분 안에 끝납니다.
+        # 검색어를 바꿔서 바로 다시 모으고 싶으면 Actions 탭에서 Run workflow 를 누르세요.
+        if: github.event_name != 'push'
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
             python3 scripts/collect.py
@@ -50,6 +52,7 @@ jobs:
           MYMEMORY_EMAIL: ${{ secrets.MYMEMORY_EMAIL }}
 
       - name: 수집 결과 커밋
+        if: github.event_name != 'push'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
