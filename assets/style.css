@@ -521,47 +521,77 @@ a:focus-visible, button:focus-visible {
   .hide-btn { opacity: 0.45; }
 }
 
-/* ── 숨긴 자료 안내 띠 ────────────────────── */
+/* ── 숨김 알림 (잠깐 떴다 사라짐) ─────────── */
 
-.tray {
+.toast {
   position: fixed;
   left: 50%;
-  bottom: 1.1rem;
-  transform: translateX(-50%);
+  bottom: 1.4rem;
+  transform: translate(-50%, 0.6rem);
   z-index: 20;
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  padding: 0.52rem 0.72rem 0.52rem 0.95rem;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem 0.5rem 0.95rem;
   background: var(--ink);
   color: var(--bg);
   border-radius: 999px;
   font-size: 0.83rem;
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
-  max-width: calc(100vw - 2rem);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .18s, transform .18s, visibility .18s;
 }
 
-.tray__n { white-space: nowrap; opacity: 0.9; }
+.toast.is-on {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
 
-.tray__btn {
+.toast__btn {
   font: inherit;
   font-size: 0.8rem;
   color: var(--bg);
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.16);
   border: 0;
   border-radius: 999px;
-  padding: 0.24rem 0.62rem;
+  padding: 0.22rem 0.6rem;
   cursor: pointer;
   white-space: nowrap;
-  transition: background .12s;
 }
 
-.tray__btn:hover { background: rgba(255, 255, 255, 0.26); }
+.toast__btn:hover { background: rgba(255, 255, 255, 0.3); }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .tray__btn { background: rgba(0, 0, 0, 0.18); }
-  :root:not([data-theme="light"]) .tray__btn:hover { background: rgba(0, 0, 0, 0.32); }
+  :root:not([data-theme="light"]) .toast__btn { background: rgba(0, 0, 0, 0.2); }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: opacity .18s, visibility .18s; transform: translate(-50%, 0); }
+}
+
+/* ── 꼬리말의 숨김 관리 줄 ────────────────── */
+
+.hidden-note {
+  flex-basis: 100%;
+  color: var(--faint);
+}
+
+.linkish {
+  font: inherit;
+  font-size: inherit;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.linkish:hover { color: var(--accent); }
 
 /* ── 꼬리말 ───────────────────────────────── */
 
@@ -588,18 +618,4 @@ a:focus-visible, button:focus-visible {
   .page-head h1 { font-size: 1.5rem; }
 }
 
-.tray__x {
-  font: inherit;
-  font-size: 1.05rem;
-  line-height: 1;
-  color: var(--bg);
-  background: transparent;
-  border: 0;
-  padding: 0.1rem 0.15rem 0.2rem;
-  margin-left: -0.2rem;
-  cursor: pointer;
-  opacity: 0.55;
-  transition: opacity .12s;
-}
 
-.tray__x:hover { opacity: 1; }

@@ -161,42 +161,60 @@ PAGE_SCRIPT = """<script>
       });
     }
     if (empty) empty.hidden = shown !== 0;
-    paintTray();
+    paintNote();
   }
 
-  var tray = null;
-  var trayOff = false;
-  function paintTray() {
-    if (!hidden.size || trayOff) { if (tray) { tray.remove(); tray = null; } return; }
-    if (!tray) {
-      tray = document.createElement('div');
-      tray.className = 'tray';
-      document.body.appendChild(tray);
-      tray.addEventListener('click', function (e) {
-        var act = e.target.getAttribute('data-act');
-        if (act === 'undo') { hidden = new Set(); save(hidden); apply(); }
-        if (act === 'close') { trayOff = true; paintTray(); }
-        if (act === 'copy') {
-          var text = JSON.stringify(Array.from(hidden), null, 2);
-          var done = function () {
-            var b = tray.querySelector('[data-act="copy"]');
-            if (b) { b.textContent = '복사됨'; setTimeout(function () { b.textContent = '목록 복사'; }, 1600); }
-          };
-          if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, done); }
-          else {
-            var ta = document.createElement('textarea');
-            ta.value = text; document.body.appendChild(ta); ta.select();
-            try { document.execCommand('copy'); } catch (err) {}
-            ta.remove(); done();
-          }
-        }
+  // 숨긴 직후 잠깐 떴다 사라지는 알림입니다.
+  var toast = null, toastTimer = null, lastKey = null;
+  function flash() {
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'toast';
+      document.body.appendChild(toast);
+      toast.addEventListener('click', function (e) {
+        if (e.target.getAttribute('data-act') !== 'undo1') return;
+        if (lastKey) { hidden.delete(lastKey); save(hidden); lastKey = null; }
+        clearTimeout(toastTimer);
+        toast.classList.remove('is-on');
+        apply();
       });
     }
-    tray.innerHTML =
-      '<span class="tray__n">숨긴 자료 ' + hidden.size + '개</span>' +
-      '<button class="tray__btn" data-act="copy" type="button">목록 복사</button>' +
-      '<button class="tray__btn" data-act="undo" type="button">모두 되돌리기</button>' +
-      '<button class="tray__x" data-act="close" type="button" aria-label="이 안내 닫기">\u00d7</button>';
+    toast.innerHTML = '<span>숨겼습니다</span>'
+      + '<button class="toast__btn" data-act="undo1" type="button">실행 취소</button>';
+    toast.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('is-on'); }, 4000);
+  }
+
+  // 꼬리말의 조용한 관리 줄입니다. 숨긴 게 있을 때만 보입니다.
+  var note = document.querySelector('.hidden-note');
+  function paintNote() {
+    if (!note) return;
+    if (!hidden.size) { note.hidden = true; note.innerHTML = ''; return; }
+    note.hidden = false;
+    note.innerHTML = '숨긴 자료 ' + hidden.size + '개'
+      + ' <button class="linkish" data-act="copy" type="button">목록 복사</button>'
+      + ' <button class="linkish" data-act="undo" type="button">되돌리기</button>';
+  }
+  if (note) {
+    note.addEventListener('click', function (e) {
+      var act = e.target.getAttribute('data-act');
+      if (act === 'undo') { hidden = new Set(); save(hidden); apply(); }
+      if (act === 'copy') {
+        var text = JSON.stringify(Array.from(hidden), null, 2);
+        var done = function () {
+          var b = note.querySelector('[data-act="copy"]');
+          if (b) { b.textContent = '복사됨'; setTimeout(paintNote, 1600); }
+        };
+        if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, done); }
+        else {
+          var ta = document.createElement('textarea');
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); } catch (err) {}
+          ta.remove(); done();
+        }
+      }
+    });
   }
 
   document.addEventListener('click', function (e) {
@@ -204,10 +222,11 @@ PAGE_SCRIPT = """<script>
     if (!x) return;
     var row = x.closest('[data-key]');
     if (!row) return;
-    hidden.add(row.getAttribute('data-key'));
+    lastKey = row.getAttribute('data-key');
+    hidden.add(lastKey);
     save(hidden);
-    trayOff = false;
     apply();
+    flash();
   });
 
   if (bar) {
@@ -355,11 +374,12 @@ def page(cfg: dict, *, depth: int, active: str, title: str, body: str,
 <main class="wrap">
 {body}
 </main>
-<script>window.__permanent = {permanent_json};</script>
-{PAGE_SCRIPT}
 <footer class="footer wrap">
 {"".join(owner_bits) if owner_bits else '<span>자동 수집 아카이브</span>'}
+<span class="hidden-note" hidden></span>
 </footer>
+<script>window.__permanent = {permanent_json};</script>
+{PAGE_SCRIPT}
 </body>
 </html>
 """
