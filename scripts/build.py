@@ -350,6 +350,7 @@ def page_head(eyebrow: str, heading: str, note: str = "") -> str:
 
 def build_home(cfg: dict, days: list[dict], papers: dict) -> None:
     site = cfg["site"]
+    topics = cfg.get("collect", {}).get("topics", [])
     parts: list[str] = []
 
     if days:
@@ -360,7 +361,7 @@ def build_home(cfg: dict, days: list[dict], papers: dict) -> None:
             pretty_date(latest["date"]),
             f"기사 {latest.get('articles', 0)}건을 {len(clusters)}개 묶음으로 정리했습니다.",
         ))
-        top = "".join(render_cluster(c) for c in clusters[:6])
+        top = "".join(render_cluster(c, topics) for c in clusters[:6])
         parts.append(f"""<section class="section">
   <div class="section__head">
     <h2>주요 묶음</h2>
@@ -393,7 +394,7 @@ def build_home(cfg: dict, days: list[dict], papers: dict) -> None:
 
     items = papers.get("items", [])
     if items:
-        rows = "".join(render_entry(item) for item in items[:4])
+        rows = "".join(render_entry(item, topics) for item in items[:4])
         parts.append(f"""<section class="section">
   <div class="section__head">
     <h2>새로 모은 논문</h2>
@@ -408,23 +409,64 @@ def build_home(cfg: dict, days: list[dict], papers: dict) -> None:
 
 
 def build_trends(cfg: dict, days: list[dict]) -> None:
+    topics = cfg.get("collect", {}).get("topics", [])
+    recent_n = int(cfg.get("collect", {}).get("trends_on_index", 7))
+
     if days:
-        rows = "".join(
-            f'<li><span class="archive__date">{esc(day["date"])}</span>'
-            f'<a class="archive__label" href="{esc(day["date"])}/">{pretty_date(day["date"])}</a>'
-            f'<span class="archive__count">{len(day.get("clusters", []))}묶음</span></li>'
-            for day in days
+        # 최근 며칠치 기사를 이 페이지에 바로 펼칩니다.
+        # 전부 펼치면 날이 갈수록 한없이 무거워지므로 나머지는 아래 목록으로 둡니다.
+        recent, older = days[:recent_n], days[recent_n:]
+
+        counts: dict[str, int] = {}
+        shown = 0
+        sections = []
+        for day in recent:
+            clusters = day.get("clusters", [])
+            shown += len(clusters)
+            for c in clusters:
+                for label in assign_topics(
+                    " ".join([c.get("title", "")] + c.get("keywords", []) + c.get("tags", [])),
+                    topics,
+                ):
+                    counts[label] = counts.get(label, 0) + 1
+            listing = "".join(render_cluster(c, topics) for c in clusters)
+            sections.append(f"""<section class="section" data-group="{esc(day['date'])}">
+  <div class="section__head">
+    <h2>{esc(pretty_date(day['date']))}</h2>
+    <a class="section__more" href="{esc(day['date'])}/">이 날짜만 보기 →</a>
+  </div>
+  <ul class="cluster-list">{listing or empty_box('수집된 기사가 없습니다.')}</ul>
+</section>""")
+
+        if older:
+            rows = "".join(
+                f'<li><span class="archive__date">{esc(day["date"])}</span>'
+                f'<a class="archive__label" href="{esc(day["date"])}/">{pretty_date(day["date"])}</a>'
+                f'<span class="archive__count">{len(day.get("clusters", []))}묶음</span></li>'
+                for day in older
+            )
+            sections.append(f"""<section class="section">
+  <div class="section__head"><h2>이전 기록</h2>
+  <span class="section__more">{len(older)}일치</span></div>
+  <ul class="archive">{rows}</ul>
+</section>""")
+
+        note = f"최근 {len(recent)}일치 {shown}개 묶음"
+        if older:
+            note += f" · 이전 {len(older)}일치는 아래 목록에서"
+        body = (
+            page_head("동향", "수집한 보도", note)
+            + topic_bar(counts, shown, topics)
+            + "\n".join(sections)
+            + TOPIC_SCRIPT
         )
-        body = page_head("동향", "날짜별 기록", f"총 {len(days)}일치가 쌓여 있습니다.") + \
-            f'<section class="section"><ul class="archive">{rows}</ul></section>'
     else:
-        body = page_head("동향", "날짜별 기록") + empty_box("아직 기록이 없습니다.")
+        body = page_head("동향", "수집한 보도") + empty_box("아직 기록이 없습니다.")
 
     write(OUT / "trends" / "index.html", page(
         cfg, depth=1, active="trends", title="동향", body=body
     ))
 
-    topics = cfg.get("collect", {}).get("topics", [])
     for index, day in enumerate(days):
         clusters = day.get("clusters", [])
         listing = "".join(render_cluster(c, topics) for c in clusters)
@@ -501,7 +543,8 @@ def build_library(cfg: dict) -> None:
     groups = library.get("groups", [])
     sections = []
     for group in groups:
-        rows = "".join(render_entry(item) for item in group.get("items", []))
+        rows = "".join(render_entry(item, cfg.get("collect", {}).get("topics", []))
+                       for item in group.get("items", []))
         if not rows:
             continue
         sections.append(f"""<section class="section">

@@ -254,7 +254,9 @@
     "papers_weekday": 0,
     "max_per_keyword": 30,
     "cluster_threshold": 0.62,
-    "keep_days": 400
+    "keep_days": 400,
+    "_trends_on_index_안내": "동향 페이지에 기사를 바로 펼칠 날짜 수. 나머지는 아래 목록으로 내려갑니다. 늘리면 페이지가 무거워집니다.",
+    "trends_on_index": 7
   },
   "library": {
     "intro": "직접 모은 자료를 분류해 쌓아두는 공간입니다. 자동 수집에 잡히지 않는 교육과정 문서, 단행본, 기관 보고서 같은 것들을 여기에 두시면 됩니다.",
