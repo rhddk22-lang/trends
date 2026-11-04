@@ -28,7 +28,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
-UA = "Mozilla/5.0 (compatible; research-archive/1.0)"
+# 구글 뉴스는 서버에서 오는 요청을 503 으로 거부하는 일이 잦습니다.
+# 평범한 브라우저처럼 보이는 머리말을 붙이면 대개 통과합니다.
+UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+BROWSER_HEADERS = {
+    "User-Agent": UA,
+    "Accept": "application/rss+xml, application/xml, text/xml, */*;q=0.8",
+    "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.8",
+    "Cache-Control": "no-cache",
+}
 TIMEOUT = 25
 
 # 태그를 뽑을 때 버릴 단어들. 필요하면 자유롭게 늘리세요.
@@ -51,7 +61,7 @@ def load_config() -> dict:
 
 
 def fetch(url: str, attempts: int = 3) -> bytes | None:
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    req = urllib.request.Request(url, headers=dict(BROWSER_HEADERS))
     for attempt in range(1, attempts + 1):
         try:
             with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
@@ -106,7 +116,7 @@ def normalize(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def google_news(keyword: str, locale: dict, limit: int) -> list[dict]:
+def google_news(keyword: str, locale: dict, limit: int) -> list[dict] | None:
     query = urllib.parse.quote_plus(f"{keyword} when:2d")
     url = (
         f"https://news.google.com/rss/search?q={query}"
@@ -116,12 +126,12 @@ def google_news(keyword: str, locale: dict, limit: int) -> list[dict]:
     )
     raw = fetch(url)
     if not raw:
-        return []
+        return None
     try:
         root = ET.fromstring(raw)
     except ET.ParseError as exc:
         print(f"  ! RSS 해석 실패 ({keyword}): {exc}", file=sys.stderr)
-        return []
+        return None
 
     out: list[dict] = []
     for item in list(root.iterfind(".//item"))[:limit]:
@@ -216,20 +226,32 @@ def collect_news(cfg: dict) -> dict:
 
     articles: list[dict] = []
     seen_urls: set[str] = set()
+    tried = 0
+    failed = 0
 
     for keyword in keywords:
         for locale in locales:
             label = locale.get("label", locale.get("gl", ""))
-            print(f"  · 뉴스 · {keyword} ({label})")
-            for article in google_news(keyword, locale, limit):
+            tried += 1
+            found = google_news(keyword, locale, limit)
+            if found is None:
+                failed += 1
+                print(f"  · 뉴스 · {keyword} ({label}) → 실패")
+                time.sleep(2.0)
+                continue
+            fresh = 0
+            for article in found:
                 if article["url"] in seen_urls:
                     continue
                 seen_urls.add(article["url"])
                 articles.append(article)
-            time.sleep(0.6)  # 예의상 간격을 둡니다.
+                fresh += 1
+            print(f"  · 뉴스 · {keyword} ({label}) → {fresh}건")
+            time.sleep(0.8)  # 예의상 간격을 둡니다.
 
     clusters = cluster_articles(articles, float(settings.get("cluster_threshold", 0.62)))
-    return {"articles": len(articles), "clusters": clusters}
+    return {"articles": len(articles), "clusters": clusters,
+            "tried": tried, "failed": failed}
 
 
 # ──────────────────────────────────────────────────────────────
@@ -678,20 +700,31 @@ def main() -> int:
 
     print(f"[{stamp}] 수집 시작")
     news = collect_news(cfg)
-    (DATA / "trends" / f"{stamp}.json").write_text(
-        json.dumps(
-            {
-                "date": stamp,
-                "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                "articles": news["articles"],
-                "clusters": news["clusters"],
-            },
-            ensure_ascii=False,
-            indent=2,
-        ),
-        encoding="utf-8",
-    )
-    print(f"  → 기사 {news['articles']}건을 {len(news['clusters'])}개로 묶었습니다.")
+
+    # 전부 실패했는데 빈 파일을 쓰면 그날이 '기사 0건' 으로 박제됩니다.
+    # 차라리 쓰지 않고 넘어가면 다음 실행이나 다음 날 채워집니다.
+    if news["articles"] == 0 and news["failed"] > 0:
+        print(
+            f"  ! 뉴스 {news['tried']}건 중 {news['failed']}건이 실패하고 기사가 하나도 "
+            "없어 오늘 파일을 쓰지 않습니다. 기존 기록은 그대로 둡니다.",
+            file=sys.stderr,
+        )
+    else:
+        (DATA / "trends" / f"{stamp}.json").write_text(
+            json.dumps(
+                {
+                    "date": stamp,
+                    "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                    "articles": news["articles"],
+                    "clusters": news["clusters"],
+                },
+                ensure_ascii=False,
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+        note = f" ({news['failed']}건 실패)" if news["failed"] else ""
+        print(f"  → 기사 {news['articles']}건을 {len(news['clusters'])}개로 묶었습니다.{note}")
 
     if args.news_only:
         print("  · 논문 수집 건너뜀 (--news-only)")
