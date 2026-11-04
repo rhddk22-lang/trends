@@ -121,6 +121,14 @@ PAGE_SCRIPT = """<script>
   }
   var hidden = load();
 
+  // 이미 hidden.json 에 올라가 영구 제외된 것은 브라우저가 더 셀 필요가 없습니다.
+  var permanent = window.__permanent || [];
+  if (permanent.length && hidden.size) {
+    var before = hidden.size;
+    permanent.forEach(function (k) { hidden.delete(k); });
+    if (hidden.size !== before) save(hidden);
+  }
+
   function matches(el) {
     return !pick || ('|' + el.getAttribute('data-topics') + '|').indexOf('|' + pick + '|') > -1;
   }
@@ -157,8 +165,9 @@ PAGE_SCRIPT = """<script>
   }
 
   var tray = null;
+  var trayOff = false;
   function paintTray() {
-    if (!hidden.size) { if (tray) { tray.remove(); tray = null; } return; }
+    if (!hidden.size || trayOff) { if (tray) { tray.remove(); tray = null; } return; }
     if (!tray) {
       tray = document.createElement('div');
       tray.className = 'tray';
@@ -166,6 +175,7 @@ PAGE_SCRIPT = """<script>
       tray.addEventListener('click', function (e) {
         var act = e.target.getAttribute('data-act');
         if (act === 'undo') { hidden = new Set(); save(hidden); apply(); }
+        if (act === 'close') { trayOff = true; paintTray(); }
         if (act === 'copy') {
           var text = JSON.stringify(Array.from(hidden), null, 2);
           var done = function () {
@@ -185,7 +195,8 @@ PAGE_SCRIPT = """<script>
     tray.innerHTML =
       '<span class="tray__n">숨긴 자료 ' + hidden.size + '개</span>' +
       '<button class="tray__btn" data-act="copy" type="button">목록 복사</button>' +
-      '<button class="tray__btn" data-act="undo" type="button">모두 되돌리기</button>';
+      '<button class="tray__btn" data-act="undo" type="button">모두 되돌리기</button>' +
+      '<button class="tray__x" data-act="close" type="button" aria-label="이 안내 닫기">\u00d7</button>';
   }
 
   document.addEventListener('click', function (e) {
@@ -195,6 +206,7 @@ PAGE_SCRIPT = """<script>
     if (!row) return;
     hidden.add(row.getAttribute('data-key'));
     save(hidden);
+    trayOff = false;
     apply();
   });
 
@@ -312,6 +324,7 @@ def page(cfg: dict, *, depth: int, active: str, title: str, body: str,
         owner_bits.append(f'<span class="footer__links">{owner_links}</span>')
 
     built = datetime.now(timezone(timedelta(hours=9))).strftime("%Y-%m-%d %H:%M")
+    permanent_json = json.dumps(sorted(load_hidden()), ensure_ascii=False)
 
     head_title = title if title == site.get("title") else f"{title} · {site.get('title','')}"
 
@@ -342,6 +355,7 @@ def page(cfg: dict, *, depth: int, active: str, title: str, body: str,
 <main class="wrap">
 {body}
 </main>
+<script>window.__permanent = {permanent_json};</script>
 {PAGE_SCRIPT}
 <footer class="footer wrap">
 {"".join(owner_bits) if owner_bits else '<span>자동 수집 아카이브</span>'}

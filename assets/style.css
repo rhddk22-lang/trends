@@ -587,3 +587,19 @@ a:focus-visible, button:focus-visible {
   .masthead { padding-top: 1.9rem; }
   .page-head h1 { font-size: 1.5rem; }
 }
+
+.tray__x {
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--bg);
+  background: transparent;
+  border: 0;
+  padding: 0.1rem 0.15rem 0.2rem;
+  margin-left: -0.2rem;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity .12s;
+}
+
+.tray__x:hover { opacity: 1; }
