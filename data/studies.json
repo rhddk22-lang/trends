@@ -1,6 +1,58 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "items": [
+    {
+      "title": "Poetry creation education plan using movement-images",
+      "venue": "",
+      "year": "2024",
+      "authors": [
+        "hanra Park"
+      ],
+      "doi": "10.37736/kjlr.2024.02.15.1.16",
+      "url": "https://doi.org/10.37736/kjlr.2024.02.15.1.16",
+      "query": "시 창작 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-04",
+      "group": "국문",
+      "title_ko": "운동-이미지를 활용한 시 창작 교육 방안",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "An Analysis of Multicultural Acceptance in High School Integrated Social Studies Textbooks: Focusing on the Coherence between Explicit and Implicit Messages",
+      "venue": "The Journal of Multicultural Society",
+      "year": "2026",
+      "authors": [
+        "Yunhi Cho",
+        "Sungbae Oh"
+      ],
+      "doi": "10.14431/jms.2026.10.19.3.415",
+      "url": "https://doi.org/10.14431/jms.2026.10.19.3.415",
+      "query": "다문화 문학교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-04",
+      "group": "국문",
+      "title_ko": "고등학교 「통합사회」 교과서의 다문화 수용성 분석: 명시적 서술과 잠재적 메시지의 정합성을 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Educational Aspirations among Immigrant-Background Adolescents in South Korea: Heterogeneous Longitudinal Trajectories",
+      "venue": "The Journal of Multicultural Society",
+      "year": "2026",
+      "authors": [
+        "Seokhyeon Choi"
+      ],
+      "doi": "10.14431/jms.2026.10.19.3.581",
+      "url": "https://doi.org/10.14431/jms.2026.10.19.3.581",
+      "query": "이주배경 학생 교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-04",
+      "group": "국문",
+      "title_ko": "한국 이주배경 청소년의 교육열망 변화에 대한 탐색적 분석: 이주배경 유형과 문화변용 특성을 중심으로",
+      "title_ko_source": "원제"
+    },
     {
       "title": "Educational Variations on Aesthetic Experience - AI and Digital Convergence: Poetry Space Education -",
       "venue": "Hanminjok Emunhak",
@@ -6578,7 +6630,9 @@
       "lang": "en",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "인도네시아의 비공식 다문화 교육 매핑: 모델, 배우 및 과제에 대한 체계적인 검토",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "Mentoring practices for generation Z in higher education in a multicultural environment",
@@ -6595,7 +6649,9 @@
       "lang": "en",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "다문화 환경에서 고등교육 중인 Z세대를 위한 멘토링 실습",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "MULTICULTURAL EDUCATION THROUGH LANGUAGE LEARNING: PROMOTING TOLERANCE AND INCLUSION IN EFL CLASSROOMS",
@@ -6612,7 +6668,9 @@
       "lang": "en",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "언어 학습을 통한 다문화 교육: EFL 교실에서 관용과 포용성 증진",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "Multicultural Education from an Islamic Perspective and Its Relevance to the Lives of the People of Papua",
@@ -6629,7 +6687,9 @@
       "lang": "en",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "이슬람 관점에서 본 다문화 교육과 파푸아 주민의 삶과의 관련성",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "Public Value and Multicultural Education: A Bibliometric Mapping of Research Trends on Inclusive Citizenship",
@@ -6644,7 +6704,9 @@
       "lang": "en",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "공공 가치 및 다문화 교육: 포용적 시민 의식에 대한 연구 동향의 참고문헌 매핑",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "DIGITAL LIBRARIES AND KNOWLEDGE MANAGEMENT IN MULTICULTURAL ENVIRONMENTS: LIBRARIAN’S PERSPECTIVES",
@@ -6661,7 +6723,9 @@
       "lang": "",
       "source": "Crossref",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "다문화 환경에서의 디지털 도서관 및 지식 관리: 사서의 관점",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "The Use of an Intercultural Approach in Teaching German to Develop Communicative Competence in a Foreign Language",
@@ -6678,7 +6742,9 @@
       "lang": "uk",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "외국어 의사소통 능력을 개발하기 위해 독일어를 가르칠 때 상호문화적 접근법의 사용",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "The Integration of Intercultural Communication Strategies into Foreign Language Teaching",
@@ -6693,7 +6759,9 @@
       "lang": "en",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "이문화 커뮤니케이션 전략을 외국어 교육에 통합",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "MULTILINGUALISM AS A KEY COMPETENCE IN THE GLOBALIZED WORLD: EDUCATIONAL INCLUSION, INTERCULTURAL COMMUNICATION, AND LINGUISTIC DIVERSITY",
@@ -6709,7 +6777,9 @@
       "lang": "en",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "세계화 시대의 핵심 역량으로서의 다국어: 교육적 포용, 다문화적 의사소통, 언어적 다양성",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "THEORETICAL FRAMEWORK FOR AI-MEDIATED INTERCULTURAL COMMUNICATIVE COMPETENCE IN SECOND FOREIGN LANGUAGE LEARNING",
@@ -6727,7 +6797,9 @@
       "lang": "en",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "제2외국어학습에서 인공지능 매개 상호문화적 의사소통 역량을 위한 이론적 틀",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "PRE-SERVICE ENGLISH TEACHERS’ ATTITUDES TOWARD AND EXPERIENCE OF TEACHING CULTURE AND INTERCULTURAL COMMUNICATION",
@@ -6742,7 +6814,9 @@
       "lang": "en",
       "source": "OpenAlex",
       "added": "2026-11-03",
-      "group": "영문"
+      "group": "영문",
+      "title_ko": "예비 영어 교사의 교육 문화 및 다문화 커뮤니케이션에 대한 태도 및 경험",
+      "title_ko_source": "기계번역"
     },
     {
       "title": "Gamification and Formative Feedback in Digital Learning Environments: Implications for Intercultural Competence in Italian Culture",
