@@ -478,6 +478,91 @@ a:focus-visible, button:focus-visible {
   border-radius: 3px;
 }
 
+/* ── 숨기기 버튼 ──────────────────────────── */
+
+.cluster, .entry { position: relative; }
+
+.hide-btn {
+  position: absolute;
+  top: 0.85rem;
+  right: -0.35rem;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--faint);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .12s, color .12s, background .12s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cluster:first-child .hide-btn,
+.entry:first-child .hide-btn { top: -0.15rem; }
+
+.cluster:hover .hide-btn,
+.entry:hover .hide-btn,
+.hide-btn:focus-visible { opacity: 1; }
+
+.hide-btn:hover {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+/* 손가락으로 쓰는 화면에서는 늘 보이게 둡니다. */
+@media (hover: none) {
+  .hide-btn { opacity: 0.45; }
+}
+
+/* ── 숨긴 자료 안내 띠 ────────────────────── */
+
+.tray {
+  position: fixed;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.52rem 0.72rem 0.52rem 0.95rem;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 999px;
+  font-size: 0.83rem;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
+  max-width: calc(100vw - 2rem);
+}
+
+.tray__n { white-space: nowrap; opacity: 0.9; }
+
+.tray__btn {
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--bg);
+  background: rgba(255, 255, 255, 0.14);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.24rem 0.62rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .12s;
+}
+
+.tray__btn:hover { background: rgba(255, 255, 255, 0.26); }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tray__btn { background: rgba(0, 0, 0, 0.18); }
+  :root:not([data-theme="light"]) .tray__btn:hover { background: rgba(0, 0, 0, 0.32); }
+}
+
 /* ── 꼬리말 ───────────────────────────────── */
 
 .footer {

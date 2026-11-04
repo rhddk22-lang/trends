@@ -99,32 +99,118 @@ def topic_bar(counts: dict[str, int], total: int, topics: list[dict]) -> str:
     )
 
 
-TOPIC_SCRIPT = """<script>
+PAGE_SCRIPT = """<script>
 (function () {
+  var STORE = 'hidden-v1';
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-key]'));
+  if (!items.length) return;
+
   var bar = document.querySelector('.topics');
-  if (!bar) return;
-  var items = Array.prototype.slice.call(document.querySelectorAll('[data-topics]'));
   var empty = document.querySelector('.topics__empty');
-  bar.addEventListener('click', function (e) {
-    var btn = e.target.closest('.chip');
-    if (!btn) return;
-    var pick = btn.getAttribute('data-topic');
-    bar.querySelectorAll('.chip').forEach(function (c) {
-      c.classList.toggle('is-on', c === btn);
-    });
+  var pick = '';
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORE);
+      return new Set(raw ? JSON.parse(raw) : []);
+    } catch (e) { return new Set(); }
+  }
+  function save(set) {
+    try { localStorage.setItem(STORE, JSON.stringify(Array.from(set))); }
+    catch (e) { /* 저장이 막힌 창에서도 화면은 동작합니다 */ }
+  }
+  var hidden = load();
+
+  function matches(el) {
+    return !pick || ('|' + el.getAttribute('data-topics') + '|').indexOf('|' + pick + '|') > -1;
+  }
+
+  function apply() {
     var shown = 0;
+    var counts = {};
     items.forEach(function (el) {
-      var on = !pick || ('|' + el.getAttribute('data-topics') + '|').indexOf('|' + pick + '|') > -1;
-      el.hidden = !on;
-      if (on) shown++;
+      var gone = hidden.has(el.getAttribute('data-key'));
+      el.hidden = gone || !matches(el);
+      if (!el.hidden) shown++;
+      if (!gone) {
+        (el.getAttribute('data-topics') || '').split('|').forEach(function (k) {
+          if (k) counts[k] = (counts[k] || 0) + 1;
+        });
+      }
     });
-    // 전부 숨겨진 구역은 제목까지 감춥니다.
     document.querySelectorAll('[data-group]').forEach(function (sec) {
-      var any = sec.querySelector('[data-topics]:not([hidden])');
-      sec.hidden = !any;
+      sec.hidden = !sec.querySelector('[data-key]:not([hidden])');
     });
+    if (bar) {
+      var live = 0;
+      items.forEach(function (el) { if (!hidden.has(el.getAttribute('data-key'))) live++; });
+      bar.querySelectorAll('.chip').forEach(function (c) {
+        var topic = c.getAttribute('data-topic');
+        var n = topic ? (counts[topic] || 0) : live;
+        var slot = c.querySelector('.chip__n');
+        if (slot) slot.textContent = n;
+        c.hidden = topic && n === 0;
+      });
+    }
     if (empty) empty.hidden = shown !== 0;
+    paintTray();
+  }
+
+  var tray = null;
+  function paintTray() {
+    if (!hidden.size) { if (tray) { tray.remove(); tray = null; } return; }
+    if (!tray) {
+      tray = document.createElement('div');
+      tray.className = 'tray';
+      document.body.appendChild(tray);
+      tray.addEventListener('click', function (e) {
+        var act = e.target.getAttribute('data-act');
+        if (act === 'undo') { hidden = new Set(); save(hidden); apply(); }
+        if (act === 'copy') {
+          var text = JSON.stringify(Array.from(hidden), null, 2);
+          var done = function () {
+            var b = tray.querySelector('[data-act="copy"]');
+            if (b) { b.textContent = '복사됨'; setTimeout(function () { b.textContent = '목록 복사'; }, 1600); }
+          };
+          if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, done); }
+          else {
+            var ta = document.createElement('textarea');
+            ta.value = text; document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); } catch (err) {}
+            ta.remove(); done();
+          }
+        }
+      });
+    }
+    tray.innerHTML =
+      '<span class="tray__n">숨긴 자료 ' + hidden.size + '개</span>' +
+      '<button class="tray__btn" data-act="copy" type="button">목록 복사</button>' +
+      '<button class="tray__btn" data-act="undo" type="button">모두 되돌리기</button>';
+  }
+
+  document.addEventListener('click', function (e) {
+    var x = e.target.closest('.hide-btn');
+    if (!x) return;
+    var row = x.closest('[data-key]');
+    if (!row) return;
+    hidden.add(row.getAttribute('data-key'));
+    save(hidden);
+    apply();
   });
+
+  if (bar) {
+    bar.addEventListener('click', function (e) {
+      var btn = e.target.closest('.chip');
+      if (!btn) return;
+      pick = btn.getAttribute('data-topic');
+      bar.querySelectorAll('.chip').forEach(function (c) {
+        c.classList.toggle('is-on', c === btn);
+      });
+      apply();
+    });
+  }
+
+  apply();
 })();
 </script>"""
 
@@ -141,6 +227,26 @@ def read_json(path: Path, fallback):
         return json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
         return fallback
+
+
+def item_key(item: dict) -> str:
+    """
+    자료 하나를 가리키는 짧은 이름표입니다.
+    논문은 DOI, 없으면 주소를 씁니다. 화면의 X 버튼과 hidden.json 이 같은 값을 씁니다.
+    """
+    doi = (item.get("doi") or "").strip().lower()
+    if doi:
+        return "doi:" + doi
+    url = (item.get("url") or "").strip()
+    if url:
+        # 구글 뉴스 주소는 길어서 뒤쪽 식별자만 씁니다.
+        return "url:" + url[-60:]
+    return "title:" + squash(item.get("title_ko") or item.get("title", ""))[:60]
+
+
+def load_hidden() -> set[str]:
+    data = read_json(DATA / "hidden.json", {})
+    return {str(x).strip() for x in data.get("ids", []) if str(x).strip()}
 
 
 def trend_days() -> list[dict]:
@@ -236,6 +342,7 @@ def page(cfg: dict, *, depth: int, active: str, title: str, body: str,
 <main class="wrap">
 {body}
 </main>
+{PAGE_SCRIPT}
 <footer class="footer wrap">
 {"".join(owner_bits) if owner_bits else '<span>자동 수집 아카이브</span>'}
 </footer>
@@ -275,7 +382,8 @@ def render_cluster(cluster: dict, topics: list[dict] | None = None) -> str:
     lead_i = topic_index(topics or []).get(marks[0]) if marks else None
     badge_style = f' style="--c: var(--t{lead_i})"' if lead_i is not None else ''
 
-    return f"""<li class="cluster" data-topics="{esc('|'.join(marks))}">
+    return f"""<li class="cluster" data-topics="{esc('|'.join(marks))}" data-key="{esc(item_key(cluster))}">
+  <button class="hide-btn" type="button" title="이 자료 숨기기" aria-label="이 자료 숨기기">×</button>
   <p class="cluster__title"><a href="{esc(cluster.get('url', '#'))}" rel="noopener nofollow" target="_blank">{esc(cluster.get('title', ''))}</a></p>
   <p class="cluster__meta">
     <span class="cluster__count"{badge_style}>{count}건</span>
@@ -323,7 +431,8 @@ def render_entry(item: dict, topics: list[dict] | None = None) -> str:
     joined = "".join(chips)
     tags = f'<p class="cluster__tags">{joined}</p>' if joined else ""
 
-    return f"""<li class="entry" data-topics="{esc('|'.join(marks))}">
+    return f"""<li class="entry" data-topics="{esc('|'.join(marks))}" data-key="{esc(item_key(item))}">
+  <button class="hide-btn" type="button" title="이 자료 숨기기" aria-label="이 자료 숨기기">×</button>
   <p class="entry__title">{heading}</p>
   {sub}
   {f'<p class="entry__meta">{meta}</p>' if meta else ''}
@@ -458,7 +567,7 @@ def build_trends(cfg: dict, days: list[dict]) -> None:
             page_head("동향", "수집한 보도", note)
             + topic_bar(counts, shown, topics)
             + "\n".join(sections)
-            + TOPIC_SCRIPT
+           
         )
     else:
         body = page_head("동향", "수집한 보도") + empty_box("아직 기록이 없습니다.")
@@ -490,7 +599,7 @@ def build_trends(cfg: dict, days: list[dict]) -> None:
         ) + topic_bar(counts, len(clusters), topics) + f"""<section class="section">
   <ul class="cluster-list">{listing or empty_box('수집된 기사가 없습니다.')}</ul>
 </section>
-<p class="footer__links" style="margin:0;gap:1.2rem;">{"".join(nav_bits)}</p>""" + TOPIC_SCRIPT
+<p class="footer__links" style="margin:0;gap:1.2rem;">{"".join(nav_bits)}</p>"""
 
         write(OUT / "trends" / day["date"] / "index.html", page(
             cfg, depth=2, active="trends", title=pretty_date(day["date"]), body=body
@@ -525,7 +634,7 @@ def build_studies(cfg: dict, papers: dict) -> None:
             page_head("논문", "자동 수집 논문", f"총 {len(items)}편")
             + topic_bar(counts, len(items), topics)
             + "\n".join(sections)
-            + TOPIC_SCRIPT
+           
         )
     else:
         body = page_head("논문", "자동 수집 논문") + empty_box(
@@ -575,6 +684,19 @@ def main() -> int:
 
     days = trend_days()
     papers = read_json(DATA / "studies.json", {"items": []})
+
+    # data/hidden.json 에 적힌 자료는 아예 빼고 빌드합니다.
+    hidden = load_hidden()
+    if hidden:
+        removed = 0
+        for day in days:
+            keep = [c for c in day.get("clusters", []) if item_key(c) not in hidden]
+            removed += len(day.get("clusters", [])) - len(keep)
+            day["clusters"] = keep
+        before = len(papers.get("items", []))
+        papers["items"] = [p for p in papers.get("items", []) if item_key(p) not in hidden]
+        removed += before - len(papers["items"])
+        print(f"  · 숨김 목록에 따라 {removed}개를 제외했습니다. (목록 {len(hidden)}개)")
 
     build_home(cfg, days, papers)
     build_trends(cfg, days)
