@@ -681,24 +681,110 @@ def build_studies(cfg: dict, papers: dict) -> None:
     ))
 
 
+FILE_LABELS = {
+    ".pdf": "PDF", ".hwp": "한글", ".hwpx": "한글", ".docx": "워드", ".doc": "워드",
+    ".xlsx": "엑셀", ".xls": "엑셀", ".pptx": "슬라이드", ".ppt": "슬라이드",
+    ".txt": "텍스트", ".md": "텍스트", ".csv": "표", ".zip": "압축",
+}
+
+SKIP_FILES = {"readme.md", ".gitkeep", ".ds_store"}
+
+
+def parse_library_txt() -> list[dict]:
+    """
+    data/library.txt 를 읽습니다. 문법이 거의 없어 잘 깨지지 않습니다.
+      '#' 로 시작하면 주석, '== 이름' 이면 분류, 나머지는 세로줄로 나눈 자료입니다.
+    """
+    path = DATA / "library.txt"
+    if not path.exists():
+        return []
+
+    groups: list[dict] = []
+    current = None
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("=="):
+            current = {"heading": line.lstrip("= ").strip(), "items": []}
+            groups.append(current)
+            continue
+        parts = [c.strip() for c in line.split("|")]
+        parts += [""] * (5 - len(parts))
+        title, venue, year, url, note = parts[:5]
+        if not title:
+            continue
+        if current is None:
+            current = {"heading": "자료", "items": []}
+            groups.append(current)
+        current["items"].append(
+            {"title": title, "venue": venue, "year": year, "url": url, "note": note}
+        )
+    return [g for g in groups if g["items"]]
+
+
+def scan_library_files() -> list[dict]:
+    """
+    library/ 폴더의 파일을 훑습니다. 하위 폴더 이름이 분류가 됩니다.
+    파일은 _site/files/ 로 복사되어 사이트에서 받을 수 있게 됩니다.
+    """
+    src = ROOT / "library"
+    if not src.exists():
+        return []
+
+    buckets: dict[str, list[dict]] = {}
+    for path in sorted(src.rglob("*")):
+        if not path.is_file() or path.name.lower() in SKIP_FILES:
+            continue
+        rel = path.relative_to(src)
+        heading = rel.parts[0] if len(rel.parts) > 1 else "기타 자료"
+        title = rel.stem.replace("_", " ").strip()
+        kb = path.stat().st_size / 1024
+        size = f"{kb / 1024:.1f}MB" if kb >= 1024 else f"{kb:.0f}KB"
+        kind = FILE_LABELS.get(path.suffix.lower(), path.suffix.lstrip(".").upper())
+
+        dest = OUT / "files" / rel
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, dest)
+
+        buckets.setdefault(heading, []).append({
+            "title": title,
+            "venue": f"{kind} · {size}",
+            "url": "../files/" + "/".join(rel.parts),
+            "is_file": True,
+        })
+
+    return [{"heading": h, "items": buckets[h]} for h in sorted(buckets)]
+
+
 def build_library(cfg: dict) -> None:
     library = cfg.get("library", {})
-    groups = library.get("groups", [])
+    topics = cfg.get("collect", {}).get("topics", [])
+
+    groups = parse_library_txt() or library.get("groups", [])
+    file_groups = scan_library_files()
+
     sections = []
-    for group in groups:
-        rows = "".join(render_entry(item, cfg.get("collect", {}).get("topics", []))
-                       for item in group.get("items", []))
+    for group in groups + file_groups:
+        rows = "".join(render_entry(item, topics) for item in group.get("items", []))
         if not rows:
             continue
-        sections.append(f"""<section class="section">
-  <div class="section__head"><h2>{esc(group.get('heading', ''))}</h2></div>
+        sections.append(f"""<section class="section" data-group="{esc(group.get('heading', ''))}">
+  <div class="section__head"><h2>{esc(group.get('heading', ''))}</h2>
+  <span class="section__more">{len(group.get('items', []))}건</span></div>
   <ul class="entry-list">{rows}</ul>
 </section>""")
 
-    body = page_head("자료실", "직접 모은 자료", library.get("intro", ""))
-    body += "\n".join(sections) if sections else empty_box(
-        "아직 등록된 자료가 없습니다. <code>config.json</code> 의 <code>library.groups</code> 에 추가하세요."
-    )
+    intro = library.get("intro", "")
+    body = page_head("자료실", "직접 모은 자료", intro)
+    if sections:
+        body += "\n".join(sections)
+    else:
+        body += empty_box(
+            "아직 등록된 자료가 없습니다. 참고문헌은 "
+            "<code>data/library.txt</code> 에 한 줄씩 적고, 파일은 "
+            "<code>library/</code> 폴더에 올리면 여기에 나타납니다."
+        )
 
     write(OUT / "library" / "index.html", page(
         cfg, depth=1, active="library", title="자료실", body=body
