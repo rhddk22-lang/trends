@@ -1,6 +1,226 @@
 {
-  "updated": "2026-11-04",
+  "updated": "2026-11-09",
   "items": [
+    {
+      "title": "Teaching Modern Poetry through the Use of Analogical Imagination",
+      "venue": "The Studies of Korean Literature",
+      "year": "2026",
+      "authors": [
+        "Si-yeon Kwon"
+      ],
+      "doi": "10.20864/skl.2026.7.91.219",
+      "url": "https://doi.org/10.20864/skl.2026.7.91.219",
+      "query": "현대시 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-09",
+      "group": "국문",
+      "title_ko": "유추적 상상력을 활용한 현대시 읽기 교육 연구",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Curriculum Linkage for KSL Learners’ Transition into Korean Language Arts",
+      "venue": "국제어문",
+      "year": "2026",
+      "authors": [
+        "Minyoung Kim"
+      ],
+      "doi": "10.31147/iall.110.23",
+      "url": "https://doi.org/10.31147/iall.110.23",
+      "query": "국어과 교육과정",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-09",
+      "group": "국문"
+    },
+    {
+      "title": "Action Research on Digital Literacy Instruction in an Elementary School Special Class Integrated with the Korean Language",
+      "venue": "Special Education Research Institute",
+      "year": "2026",
+      "authors": [
+        "Dohee Lee",
+        "Hyojeong Seo"
+      ],
+      "doi": "10.56460/kdps.2026.31.3.225",
+      "url": "https://doi.org/10.56460/kdps.2026.31.3.225",
+      "query": "국어과 교육과정",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-09",
+      "group": "국문"
+    },
+    {
+      "title": "Effects of Generative AI-Based Multimodal Vocabulary Instruction on Target Vocabulary Acquisition in Elementary Students with Autism Spectrum Disorder",
+      "venue": "Special Education Research Institute",
+      "year": "2026",
+      "authors": [
+        "Soyoung Jeong",
+        "Gumwha Lee",
+        "Sukjeong Rhie"
+      ],
+      "doi": "10.56460/kdps.2026.31.3.47",
+      "url": "https://doi.org/10.56460/kdps.2026.31.3.47",
+      "query": "국어과 교육과정",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-09",
+      "group": "국문",
+      "title_ko": "생성형 AI 기반 다중양식 국어과 어휘교수가 자폐성장애 초등학생의 목표어휘 습득에 미치는 효과",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Effects of Korean Language Curriculum-Linked Social Stories Using Video Self-Modeling on the Social Interaction of an Elementary School Student with Autism Spectrum Disorder",
+      "venue": "Special Education Research Institute",
+      "year": "2026",
+      "authors": [
+        "Ye Jin Lee",
+        "Sang Shin Jeon"
+      ],
+      "doi": "10.56460/kdps.2026.31.3.75",
+      "url": "https://doi.org/10.56460/kdps.2026.31.3.75",
+      "query": "국어과 교육과정",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-09",
+      "group": "국문",
+      "title_ko": "비디오 자기모델링 활용 국어과 연계 상황이야기가 자폐성 장애 초등학생의 사회적 상호작용에 미치는 영향",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Effects of the Empowerment Enhancement Program on Self-Esteem and Friendships in Multicultural Children",
+      "venue": "Journal of the Korea Society of Computer and Information",
+      "year": "2026",
+      "authors": [
+        "Jung-chul Heo"
+      ],
+      "doi": "10.9708/jksci.2026.31.10.259",
+      "url": "https://doi.org/10.9708/jksci.2026.31.10.259",
+      "query": "다문화 문학교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-09",
+      "group": "국문",
+      "title_ko": "임파워먼트 향상 프로그램이 다문화 아동의 자아존중감과 친구 관계에 미치는 영향",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Perceived Parental Monitoring and Readiness for the Transition to Upper Secondary School among Adolescents from Multicultural Families : The Sequential Dual Mediation of Self-Esteem and Bicultural Acceptance",
+      "venue": "The Multicultural Child and Youth Studies",
+      "year": "2026",
+      "authors": [
+        "Semi Lee",
+        "Jaeyeon Park"
+      ],
+      "doi": "10.56023/mcyca.2026.11.3.4",
+      "url": "https://doi.org/10.56023/mcyca.2026.11.3.4",
+      "query": "다문화 문학교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-09",
+      "group": "국문",
+      "title_ko": "다문화 가정 청소년이 인지하는 부모의 감독형 양육 태도와 상급학교 진학 준비도 간의 관계 : 자아존중감과 이중문화 수용 태도의 순차적 이중 매개효과",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "A Case Study of a Middle-Aged Female North Korean Defector on Safely Expressing Inner Experience: Centered on the “Protect the Flock of Sheep” Problem-Solving Doll Therapy Program",
+      "venue": "Korean Association of Figure Therapy",
+      "year": "2026",
+      "authors": [
+        "Young-Seok Park",
+        "Kwang-Hyun Choi"
+      ],
+      "doi": "10.64725/kjft.2026.12.2.51",
+      "url": "https://doi.org/10.64725/kjft.2026.12.2.51",
+      "query": "북한이탈주민 교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-09",
+      "group": "국문"
+    },
+    {
+      "title": "Poetry by Alok Ranjan Dasgupta: Types and Content",
+      "venue": "Prantik Gabeshana Patrika",
+      "year": "2026",
+      "authors": [
+        "Romio Sarkar"
+      ],
+      "doi": "10.67841/pgp.260501076",
+      "url": "https://doi.org/10.67841/pgp.260501076",
+      "query": "poetry education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-09",
+      "group": "영문"
+    },
+    {
+      "title": "DEVELOPING INTERCULTURAL COMMUNICATIVE COMPETENCE THROUGH LITERARY TEXTS IN FOREIGN LANGUAGE EDUCATION",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": "2026",
+      "authors": [
+        "Akhmedova Mohigul Olim qizi"
+      ],
+      "doi": "10.5281/zenodo.23949728",
+      "url": "https://doi.org/10.5281/zenodo.23949728",
+      "query": "intercultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-09",
+      "group": "영문"
+    },
+    {
+      "title": "From Gurukul to Generative AI: Philosophical Foundations for AI-Enabled Multicultural Education",
+      "venue": "Journal of Computer Science and Information Technology",
+      "year": "2026",
+      "authors": [
+        "Ashok Kumar Yadav",
+        "Abhishek Kumar Mishra",
+        "Suraj Gupta",
+        "Vimal Singh"
+      ],
+      "doi": "10.61424/jcsit.v3i2.916",
+      "url": "https://doi.org/10.61424/jcsit.v3i2.916",
+      "query": "multicultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-09",
+      "group": "영문"
+    },
+    {
+      "title": "Islamic Teacherpreneurship and The Future of Multicultural PAI Education: Reconsidering Pedagogy, Identity, and Social Engagement",
+      "venue": "International Journal of Nusantara Islam",
+      "year": "2026",
+      "authors": [
+        "Imam Anas Hadi",
+        "Kustoro Kustoro",
+        "Muhamad Abdul Rozak",
+        "Fahrudin Fahrudin"
+      ],
+      "doi": "10.15575/ijni.v14i2.52986",
+      "url": "https://doi.org/10.15575/ijni.v14i2.52986",
+      "query": "multicultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-09",
+      "group": "영문"
+    },
+    {
+      "title": "Methodology of integrated language and literature teaching in the context of developing interpersonal competence of education seekers",
+      "venue": "Interpersona An International Journal on Personal Relationships",
+      "year": "2026",
+      "authors": [
+        "Nelіa Podlevska",
+        "T. T. Moroz",
+        "Valentyna Papushina",
+        "O. A. Zhvava"
+      ],
+      "doi": "10.54899/iij.v20i3.2138",
+      "url": "https://doi.org/10.54899/iij.v20i3.2138",
+      "query": "intercultural competence literature teaching",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-09",
+      "group": "영문"
+    },
     {
       "title": "Poetry creation education plan using movement-images",
       "venue": "",
