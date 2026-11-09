@@ -11,6 +11,7 @@ on:
       - "config.json"
       - "assets/**"
       - "scripts/**"
+      - "data/map_picks.txt"
       - ".github/workflows/daily.yml"
 
 permissions:
@@ -66,6 +67,9 @@ jobs:
 
       - name: 사이트 빌드
         run: python3 scripts/build.py
+
+      - name: 선행연구 지도
+        run: python3 scripts/review_map.py
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

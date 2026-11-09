@@ -30,6 +30,10 @@
       "path": "studies"
     },
     {
+      "label": "선행연구",
+      "path": "map"
+    },
+    {
       "label": "자료실",
       "path": "library"
     }
