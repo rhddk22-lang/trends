@@ -51,6 +51,8 @@ jobs:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           # 선택 사항. 이메일을 넣으면 무료 번역 한도가 하루 5천 단어에서 5만 단어로 늘어납니다.
           MYMEMORY_EMAIL: ${{ secrets.MYMEMORY_EMAIL }}
+          # 선택 사항. 넣으면 Crossref 가 요청 한도를 넉넉하게 줍니다.
+          CROSSREF_MAILTO: ${{ secrets.CROSSREF_MAILTO }}
 
       - name: 수집 결과 커밋
         if: github.event_name != 'push'

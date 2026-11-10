@@ -30,6 +30,10 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 # 구글 뉴스는 서버에서 오는 요청을 503 으로 거부하는 일이 잦습니다.
 # 평범한 브라우저처럼 보이는 머리말을 붙이면 대개 통과합니다.
+# Crossref 에 연락처를 알리면 요청 한도가 넉넉한 쪽으로 분류됩니다.
+# 저장소 Secrets 의 CROSSREF_MAILTO 에서 읽고, 없으면 그냥 익명으로 보냅니다.
+CROSSREF_MAILTO = os.environ.get("CROSSREF_MAILTO", "").strip()
+
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 
@@ -295,7 +299,7 @@ def crossref(query: str, window_days: int, rows: int = 25) -> list[dict]:
                 "venue": container[0] if container else "",
                 "year": str(parts[0]) if parts and parts[0] else "",
                 "month": f"{parts[1]:02d}" if len(parts) > 1 and parts[1] else "",
-                "authors": [a for a in authors if a],
+                "authors": clean_authors(authors),
                 "doi": (work.get("DOI") or "").lower(),
                 "url": work.get("URL", ""),
                 "query": query,
@@ -353,7 +357,7 @@ def openalex(query: str, window_days: int, rows: int = 25,
                 "venue": venue_source.get("display_name", "") or "",
                 "year": str(work.get("publication_year") or ""),
                 "month": (work.get("publication_date") or "")[5:7],
-                "authors": [a for a in authors if a],
+                "authors": clean_authors(authors),
                 "doi": doi,
                 "url": landing,
                 "query": query,
@@ -408,18 +412,44 @@ def crossref_original_titles(dois: list[str], batch: int = 20) -> dict[str, str]
     return found
 
 
-def crossref_months(dois: list[str], batch: int = 20) -> dict[str, str]:
-    """DOI 묶음으로 발행 월을 받아옵니다. Crossref 의 issued 에 연·월·일이 들어 있습니다."""
+AFFIL_WORDS = ("대학교", "대학원", "대학 ", "교수", "강사", "박사과정", "박사수료",
+               "연구원", "연구소", "University", "College", "Institute")
+
+
+def clean_authors(names: list[str]) -> list[str]:
+    """
+    Crossref·OpenAlex 가 저자 이름 칸에 소속을 통째로 넣어두는 일이 있습니다.
+    ("한남대학교 교양대학 부교수" 같은 것) 사람 이름이 아닌 항목은 버립니다.
+    """
+    out = []
+    for raw in names:
+        name = re.sub(r"\s+", " ", (raw or "")).strip(" ,")
+        if not name or len(name) > 40:
+            continue
+        if any(w in name for w in AFFIL_WORDS):
+            continue
+        out.append(name)
+    return out
+
+
+def crossref_months(dois: list[str], batch: int = 10) -> dict[str, str]:
+    """
+    DOI 묶음으로 발행 월을 받아옵니다. Crossref 의 issued 에 연·월·일이 들어 있습니다.
+    한 번에 너무 많이 물으면 거절당해 통째로 비므로 열 개씩 끊습니다.
+    """
     found: dict[str, str] = {}
     for i in range(0, len(dois), batch):
         chunk = [d for d in dois[i:i + batch] if d]
         if not chunk:
             continue
-        url = "https://api.crossref.org/works?" + urllib.parse.urlencode({
+        params = {
             "filter": ",".join(f"doi:{d}" for d in chunk),
             "rows": batch,
             "select": "DOI,issued",
-        })
+        }
+        if CROSSREF_MAILTO:
+            params["mailto"] = CROSSREF_MAILTO
+        url = "https://api.crossref.org/works?" + urllib.parse.urlencode(params)
         raw = fetch(url)
         if not raw:
             continue
