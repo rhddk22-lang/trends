@@ -294,6 +294,7 @@ def crossref(query: str, window_days: int, rows: int = 25) -> list[dict]:
                 "title": re.sub(r"\s+", " ", titles[0]).strip(),
                 "venue": container[0] if container else "",
                 "year": str(parts[0]) if parts and parts[0] else "",
+                "month": f"{parts[1]:02d}" if len(parts) > 1 and parts[1] else "",
                 "authors": [a for a in authors if a],
                 "doi": (work.get("DOI") or "").lower(),
                 "url": work.get("URL", ""),
@@ -351,6 +352,7 @@ def openalex(query: str, window_days: int, rows: int = 25,
                 "title": re.sub(r"\s+", " ", title),
                 "venue": venue_source.get("display_name", "") or "",
                 "year": str(work.get("publication_year") or ""),
+                "month": (work.get("publication_date") or "")[5:7],
                 "authors": [a for a in authors if a],
                 "doi": doi,
                 "url": landing,
@@ -404,6 +406,54 @@ def crossref_original_titles(dois: list[str], batch: int = 20) -> dict[str, str]
                 found[(work.get("DOI") or "").lower()] = re.sub(r"\s+", " ", titles[0]).strip()
         time.sleep(0.3)
     return found
+
+
+def crossref_months(dois: list[str], batch: int = 20) -> dict[str, str]:
+    """DOI 묶음으로 발행 월을 받아옵니다. Crossref 의 issued 에 연·월·일이 들어 있습니다."""
+    found: dict[str, str] = {}
+    for i in range(0, len(dois), batch):
+        chunk = [d for d in dois[i:i + batch] if d]
+        if not chunk:
+            continue
+        url = "https://api.crossref.org/works?" + urllib.parse.urlencode({
+            "filter": ",".join(f"doi:{d}" for d in chunk),
+            "rows": batch,
+            "select": "DOI,issued",
+        })
+        raw = fetch(url)
+        if not raw:
+            continue
+        try:
+            payload = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+        for work in payload.get("message", {}).get("items", []):
+            parts = (work.get("issued", {}).get("date-parts") or [[None]])[0]
+            if len(parts) > 1 and parts[1]:
+                found[(work.get("DOI") or "").lower()] = f"{int(parts[1]):02d}"
+        time.sleep(0.3)
+    return found
+
+
+def add_months(items: list[dict]) -> dict:
+    """
+    월이 비어 있는 항목만 채웁니다. 이미 채워진 것은 건드리지 않으므로
+    매일 돌려도 새로 들어온 것만 처리합니다.
+    """
+    todo = [it for it in items if not it.get("month") and it.get("doi")]
+    if not todo:
+        return {"filled": 0, "remaining": 0}
+
+    found = crossref_months([it["doi"] for it in todo])
+    n = 0
+    for it in todo:
+        hit = found.get((it.get("doi") or "").lower())
+        if hit:
+            it["month"] = hit
+            n += 1
+
+    remaining = len([x for x in items if not x.get("month")])
+    return {"filled": n, "remaining": remaining}
 
 
 def machine_translate(text: str) -> str:
@@ -569,6 +619,11 @@ def collect_papers(cfg: dict, stamp: str) -> dict:
         f"  → 한글 제목: 원제 {titles['original']}건, 번역 {titles['translated']}건"
         + (f", 남은 것 {titles['remaining']}건은 다음 실행에서" if titles["remaining"] else "")
     )
+
+    months = add_months(items)
+    if months["filled"]:
+        print(f"  → 발행 월 {months['filled']}건을 채웠습니다."
+              + (f" (아직 없는 것 {months['remaining']}건)" if months["remaining"] else ""))
 
     terms = settings.get("relevance_terms", [])
     before = len(items)

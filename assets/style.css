@@ -619,3 +619,5 @@ a:focus-visible, button:focus-visible {
 }
 
 
+
+.entry__authors { color: var(--ink-soft); }

@@ -429,13 +429,21 @@ def render_cluster(cluster: dict, topics: list[dict] | None = None) -> str:
 
 
 def render_entry(item: dict, topics: list[dict] | None = None) -> str:
+    # 저자 · 학술지 · 2026.09 순서로 보여줍니다.
     bits = []
     if item.get("authors"):
-        bits.append(esc(", ".join(item["authors"])))
+        names = item["authors"]
+        shown_names = ", ".join(names[:3])
+        if len(names) > 3:
+            shown_names += f" 외 {len(names) - 3}인"
+        bits.append(f'<span class="entry__authors">{esc(shown_names)}</span>')
     if item.get("venue"):
         bits.append(f'<em>{esc(item["venue"])}</em>')
-    if item.get("year"):
-        bits.append(esc(item["year"]))
+    when = esc(item.get("year", ""))
+    if when and item.get("month"):
+        when += "." + esc(item["month"])
+    if when:
+        bits.append(when)
     meta = " · ".join(b for b in bits if b)
 
     # 한글 제목이 있으면 그것을 앞에 세우고 원제를 아래에 둡니다.
@@ -656,9 +664,13 @@ def build_studies(cfg: dict, papers: dict) -> None:
         for item in items:
             grouped.setdefault(item.get("added", "기타"), []).append(item)
 
+        def published(it: dict) -> tuple[str, str]:
+            return (it.get("year", "") or "0000", it.get("month", "") or "00")
+
         sections = []
         for stamp in sorted(grouped, reverse=True):
-            rows = "".join(render_entry(item, topics) for item in grouped[stamp])
+            batch = sorted(grouped[stamp], key=published, reverse=True)
+            rows = "".join(render_entry(item, topics) for item in batch)
             sections.append(f"""<section class="section" data-group="{esc(stamp)}">
   <div class="section__head"><h2>{esc(stamp)} 수집</h2>
   <span class="section__more">{len(grouped[stamp])}편</span></div>
