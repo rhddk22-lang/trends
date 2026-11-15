@@ -1,6 +1,492 @@
 {
-  "updated": "2026-11-10",
+  "updated": "2026-11-16",
   "items": [
+    {
+      "title": "An Analysis of University Students’ Educational Needs for Generative AI Literacy and Its Implications for Higher Education: A Case Study of K University",
+      "venue": "The Journal of Korean Association of Computer Education",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Heeeun Lee",
+        "Jinhwan Kim"
+      ],
+      "doi": "10.32431/kace.2026.29.10.008",
+      "url": "https://doi.org/10.32431/kace.2026.29.10.008",
+      "query": "현대시 교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "대학생의 생성형 AI 리터러시 교육 요구 분석과 대학 교육의 시사점: K대학 사례를 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Marine Healing and Literary Turn: Healing Experiences and Textual Production of German Writers Staying in Norderney",
+      "venue": "Cultural Interaction Studies of Sea Port Cities",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Yun-Hee Won"
+      ],
+      "doi": "10.35158/cisspc.2026.10.38.81",
+      "url": "https://doi.org/10.35158/cisspc.2026.10.38.81",
+      "query": "시 텍스트 교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "해양 치유와 문학적 전환: 노르더나이에 머무는 독일 작가들의 치유 경험과 문학 작품 창작",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "A Study on Korean Language Education for Learners for Settlement Purposes: Focusing on Learner Categorization and Curriculum Analysis",
+      "venue": "Studies on Humanities and Social Sciences",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Junghyun Mun"
+      ],
+      "doi": "10.62783/shss.8.5.3",
+      "url": "https://doi.org/10.62783/shss.8.5.3",
+      "query": "국어과 교육과정",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "정주 목적 학습자를 위한 한국어교육 방향 연구: 학습자 유형 분류 및 교육과정 분석을 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "The Effects of International Students’ Participation in Pansori on Intercultural Communication Competence: The Mediating Role of Intercultural Sensitivity",
+      "venue": "Studies on Humanities and Social Sciences",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Minjeong Oh"
+      ],
+      "doi": "10.62783/shss.8.5.19",
+      "url": "https://doi.org/10.62783/shss.8.5.19",
+      "query": "상호문화 교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "외국인 유학생의 판소리 참여가 문화 간 의사소통 능력에 미치는 영향: 문화 간 민감성의 매개 역할",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "The Effects of Lack of Occupational Information and Economic Hardship on Job-Seeking Preparation Behaviors among College Students with Multicultural Backgrounds: The Moderating Effect of Perceived Family Financial Status",
+      "venue": "JOURNAL OF THE KOREA CONTENTS ASSOCIATION",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Mi-Jeoung Park",
+        "Young-Min Lee"
+      ],
+      "doi": "10.5392/jkca.2026.26.10.1124",
+      "url": "https://doi.org/10.5392/jkca.2026.26.10.1124",
+      "query": "다문화 문학교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "다문화 배경 대학생의 직업정보 부족과 경제적 어려움이 취업준비행동에 미치는 영향: 가정형편 인식의 조절효과",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "The Relationship among Marital Conflict, Marital Satisfaction, and Depression in Multicultural Mothers of Infants",
+      "venue": "Korea Journal of Child Care and Education",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Young Mi Kim"
+      ],
+      "doi": "10.37918/kce.2026.10.161.37",
+      "url": "https://doi.org/10.37918/kce.2026.10.161.37",
+      "query": "다문화 문학교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "영아기 자녀를 둔 다문화 가정 어머니의 부부갈등, 결혼만족도 및 우울 간의 관계",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Clinical Practice Adaptation Experiences among Nursing Students from Multicultural Backgrounds: A Focus Group Interview Study",
+      "venue": "Global Venture Research Institute",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Hye-Sun Shin"
+      ],
+      "doi": "10.54794/enesg.2026.6.9.469",
+      "url": "https://doi.org/10.54794/enesg.2026.6.9.469",
+      "query": "다문화 문학교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "다문화 간호대학생의 임상실습 적응 경험: 포커스 그룹 인터뷰",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Research Trends on Multicultural Acceptance among Early Childhood Teachers and Pre-Service Early Childhood Teachers: A Review of KCI-Indexed Journal Articles in Korea from 2016 to 2025",
+      "venue": "한국영유아보육학",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Seong Hee Gong",
+        "Hee Yeon Cho"
+      ],
+      "doi": "10.37918/kce.2026.10.161.85",
+      "url": "https://doi.org/10.37918/kce.2026.10.161.85",
+      "query": "다문화교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "영유아교사 및 예비영유아교사의 다문화수용성에 관한 연구동향 분석: 2016∼2025년 국내 등재학술지 논문을 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "An Analysis of the Composition of Korean Learning Content in ‘Modu-ui Hangugeo’(Korean for All) : Focusing on Elementary-Level Content",
+      "venue": "Journal of the Edutainment",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Mi-Ji Kim"
+      ],
+      "doi": "10.36237/koedus.8.5.199",
+      "url": "https://doi.org/10.36237/koedus.8.5.199",
+      "query": "이주배경 학생 교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "이주배경 학생 한국어 학습 플랫폼‘모두의 한국어’ 콘텐츠 구성 분석 : 초등 콘텐츠를 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Political Resocialization as a Journey toward Democratic Subjectivity: A Constructivist Grounded Theory Study of North Korean Defectors",
+      "venue": "Seoul National University Open Repository (Seoul National University)",
+      "year": "2026",
+      "month": "01",
+      "authors": [
+        "김다희"
+      ],
+      "doi": "",
+      "url": "https://dcollection.snu.ac.kr/common/orgView/000000193750",
+      "query": "북한이탈주민 교육",
+      "lang": "ko",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "국문",
+      "title_ko": "민주적 주체성으로 나아가는 여정으로서의 정치적 재사회화: 북한 탈북자들에 대한 구성주의적 근거 이론 연구",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Poetry and Poet",
+      "venue": "Routledge eBooks",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "Firāq Gorakhpūrī"
+      ],
+      "doi": "10.4324/9781042016310-8",
+      "url": "https://doi.org/10.4324/9781042016310-8",
+      "query": "poetry education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "시와 시인",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Poetry, later life learning and productive aging reconsidered: An integrative literature review of poetry in the lives of older adults",
+      "venue": "Educational Gerontology",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Edwin Creely"
+      ],
+      "doi": "10.1080/03601277.2026.2761620",
+      "url": "https://doi.org/10.1080/03601277.2026.2761620",
+      "query": "poetry education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "시, 후기 생애 학습 및 생산적 노년의 재고: 고령자의 삶에서 시에 대한 통합적 문헌 고찰",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Poetry for Estonian Peasants. Friedrich Nikolai Russow’s volume of translated poetry Ued kandlekeled (New Harp‑Strings 1854)",
+      "venue": "Interlitteraria",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "Maris Saagpakk"
+      ],
+      "doi": "10.12697/il.2026.31.1.13",
+      "url": "https://doi.org/10.12697/il.2026.31.1.13",
+      "query": "poetry education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "에스토니아 농민을 위한 시. 프리드리히 니콜라이 루소(Friedrich Nikolai Russow)의 번역 시집 'Ued kandlekeled'(새로운 하프 현, 1854년)",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "The Significance of Using Hip Hop Pedagogy as a Teaching Method in Poetry at a Selected School in Gauteng",
+      "venue": "Springer eBooks",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "Lerato Jerome Mosebi"
+      ],
+      "doi": "10.1007/978-3-032-27646-9_4",
+      "url": "https://doi.org/10.1007/978-3-032-27646-9_4",
+      "query": "poetry pedagogy",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "가우텡의 한 학교에서 시 수업의 교수법으로 힙합 교육학을 사용하는 것의 의의",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "(Self) Translating Urgent Poetry in Collaboration",
+      "venue": "Routledge eBooks",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "María Laura Spoturno"
+      ],
+      "doi": "10.4324/9781003465287-6",
+      "url": "https://doi.org/10.4324/9781003465287-6",
+      "query": "poetry pedagogy",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "(자체) 협업을 통한 긴급한 시 번역",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Intercultural adaptation of international students in Chinese higher education: a systematic literature review of challenges and support mechanisms",
+      "venue": "Frontiers in Education",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Jiang Qiwei",
+        "Esayas Teshome Taddese",
+        "Wu Yujia",
+        "Bereket Merkine Gebresilase"
+      ],
+      "doi": "10.3389/feduc.2026.1966589",
+      "url": "https://doi.org/10.3389/feduc.2026.1966589",
+      "query": "intercultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "중국 고등교육기관의 유학생을 위한 문화 간 적응: 도전 과제 및 지원 메커니즘에 대한 체계적 문헌 고찰",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Context of Peacebuilding Education in the Philippines: A Literature Review on Communication Skills, Critical Consciousness, and Intercultural Competencies of Teachers and Students",
+      "venue": "International Journal of Research and Innovation in Social Science",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Anderson P. Pico",
+        "Patricia F. Ginaga",
+        "Nicole F. Raynera",
+        "April Joy D. Remerata"
+      ],
+      "doi": "10.47772/ijriss.2026.101000232",
+      "url": "https://doi.org/10.47772/ijriss.2026.101000232",
+      "query": "intercultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "필리핀의 평화 구축 교육의 맥락: 교사와 학생의 의사소통 능력, 비판적 의식, 문화 간 역량에 대한 문헌 고찰",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Integrating Ethics and Professionalism in Intercultural Competencies in Medical Education",
+      "venue": "",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "Cindy Sinclair",
+        "Amanvir Virdi",
+        "Dayana Davoudi",
+        "Amel Sassi"
+      ],
+      "doi": "10.1370/afm.24.s1.8518",
+      "url": "https://doi.org/10.1370/afm.24.s1.8518",
+      "query": "intercultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "의학 교육에서 윤리와 전문성을 문화 간 역량에 통합",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Rethinking competence in internationalised higher education: a framework of situated literary cultural mediation",
+      "venue": "Higher Education",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Shahazwan Mat Yusoff",
+        "Anwar Farhan Mohamad Marzaini",
+        "Lijie Hao"
+      ],
+      "doi": "10.1007/s10734-026-01808-w",
+      "url": "https://doi.org/10.1007/s10734-026-01808-w",
+      "query": "intercultural education literary text",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "국제화된 고등교육에서 역량에 대한 재고: 상황적 문학 문화 중재의 틀",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Современные исследования использования художественного текста в обучении русскому языку",
+      "venue": "Filologiya va pedagogika",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "Замира Вафаева"
+      ],
+      "doi": "10.68668/fvp/252",
+      "url": "https://doi.org/10.68668/fvp/252",
+      "query": "intercultural education literary text",
+      "lang": "ru",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "러시아어 교육에서 문학 텍스트 사용에 관한 현대 연구",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Children, displacement, and the Other: School education and multicultural discourse in contemporary Polish literature for young readers",
+      "venue": "Children's literature, culture, and cognition",
+      "year": "2026",
+      "month": "08",
+      "authors": [
+        "Dorota Michułka"
+      ],
+      "doi": "10.1075/clcc.20.01mic",
+      "url": "https://doi.org/10.1075/clcc.20.01mic",
+      "query": "multicultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "아동, 이주, 그리고 타자: 현대 폴란드 아동 문학의 학교 교육과 다문화 담론",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Leading Meaning-Making: A Multimodal Children's Literature and Recipe-Based Framework for Multilingual and Multicultural Early Childhood Education",
+      "venue": "",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "Ioanna Kaliakatsou",
+        "Vasiliki Skounaki"
+      ],
+      "doi": "10.56365/namz2566",
+      "url": "https://doi.org/10.56365/namz2566",
+      "query": "multicultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "의미 형성을 주도하는 방법: 다언어 및 다문화 영유아 교육을 위한 다중모드 아동 문학과 레시피 기반 프레임워크",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Pancasila Education and Multicultural Citizenship: Philosophical Foundations and Curricular Implications for Elementary Education",
+      "venue": "Dinamika Jurnal Ilmiah Pendidikan Dasar",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "Sri Wahyuni",
+        "Dewa Bagus Sanjaya",
+        "I Nengah Suastika"
+      ],
+      "doi": "10.30595/dinamika.v18i2.31013",
+      "url": "https://doi.org/10.30595/dinamika.v18i2.31013",
+      "query": "multicultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "판차실라 교육과 다문화 시민권: 초등교육을 위한 철학적 기초와 교육과정적 시사점",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "THEORETICAL FOUNDATIONS OF DEVELOPING INTERCULTURAL COMMUNICATIVE COMPETENCE AMONG SECONDARY SCHOOL LEARNERS",
+      "venue": "Центральноазиатский журнал образования и инноваций",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Feruza Doniyor qizi Imamberdiyeva",
+        "Samadova SJ."
+      ],
+      "doi": "10.70413/cajei-v05-i10-a10061",
+      "url": "https://doi.org/10.70413/cajei-v05-i10-a10061",
+      "query": "intercultural competence literature teaching",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "중등 학교 학습자들 사이의 문화 간 의사소통 능력 개발의 이론적 기초",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Teaching German Short Stories in the Foreign Language Classroom: Literary Reading and Intercultural Learning with Peter Bichsel’s “Kindergeschichten”",
+      "venue": "Singular Journal of Pedagogical Language Literature and Cultural Studies",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Misnawaty Usman",
+        "Ambo Dalle",
+        "Ernawati"
+      ],
+      "doi": "",
+      "url": "https://journal-singular.net/index.php/main/article/view/73",
+      "query": "intercultural competence literature teaching",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문",
+      "title_ko": "외국어 교실에서 독일 단편 소설 가르치기: 페터 비헬(Peter Bichsel)의 '킨더게쉬히텐(Kindergeschichten)'을 통한 문학 읽기와 문화 간 학습",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Reexamining Korea’s Academic Literacy Policy Through the Active View of Reading: Focusing on Elementary Korean Language Arts Curriculum",
+      "venue": "Studies on humanities and social sciences",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Jihyang Kim"
+      ],
+      "doi": "10.62783/shss.8.5.21",
+      "url": "https://doi.org/10.62783/shss.8.5.21",
+      "query": "Korean language arts curriculum",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-16",
+      "group": "영문"
+    },
     {
       "title": "A Comparative Analysis of the Standard Korean Language Curriculum, the CEFR, and the ACTFL",
       "venue": "The Journal of Yeongju Language &amp; Literature",
@@ -34,7 +520,9 @@
       "lang": "",
       "source": "Crossref",
       "added": "2026-11-10",
-      "group": "국문"
+      "group": "국문",
+      "title_ko": "다문화 가정 부모의 행복 증진을 위한 문화향유 지원 과정에 대한 현장 연구",
+      "title_ko_source": "원제"
     },
     {
       "title": "Typology of Ideal Parents Perceived by Adolescents from Migration Backgrounds in Jeju: A Q-Methodology Study",
@@ -149,7 +637,9 @@
       "source": "OpenAlex",
       "added": "2026-11-09",
       "group": "국문",
-      "month": "09"
+      "month": "09",
+      "title_ko": "KSL 학습자의 국어과 진입을 위한 교육과정 연계 방안 연구",
+      "title_ko_source": "원제"
     },
     {
       "title": "Action Research on Digital Literacy Instruction in an Elementary School Special Class Integrated with the Korean Language",
