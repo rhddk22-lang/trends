@@ -1,6 +1,631 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-23",
   "items": [
+    {
+      "title": "Reflections and Challenges in Thirty Years of Korean Literary Education Research - A Qualitative Coding-Based Trend and Network Analysis of KLER, Issues 1-89 -",
+      "venue": "Korean Literature Education Research",
+      "year": "2026",
+      "month": "06",
+      "authors": [
+        "Jae-Chan Jeong",
+        "In-Chan CHOI",
+        "Eun-Seong Yoo",
+        "Yun-Hee Lee"
+      ],
+      "doi": "10.37192/kler.91.9",
+      "url": "https://doi.org/10.37192/kler.91.9",
+      "query": "현대시 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "문학교육학 연구 30년의 성찰과 과제 - 『문학교육학』 1호~89호 논문의 질적 코딩 기반 트렌드 및 관계망 분석 -",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Emphasis on Digital Citizenship and Modern Poetry Education : Focusing on Neil Postman’s Philosophy of Education",
+      "venue": "Citizen and Humanities",
+      "year": "2026",
+      "month": "02",
+      "authors": [
+        "JunHyeong Park"
+      ],
+      "doi": "10.22842/kgucfh.2026.50.123",
+      "url": "https://doi.org/10.22842/kgucfh.2026.50.123",
+      "query": "현대시 교육",
+      "lang": "ko",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "디지털 시민성의 대두와 현대시 교육 : 닐 포스트먼의 교육철학을 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Modern Poetry Education in Korean (KSL) Curriculum : A literary approach to cultural integration and identity",
+      "venue": "",
+      "year": "2025",
+      "month": "01",
+      "authors": [
+        "Soo-yeon Oh"
+      ],
+      "doi": "10.31827/eklc.2025.18.2.4",
+      "url": "https://doi.org/10.31827/eklc.2025.18.2.4",
+      "query": "현대시 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "한국어(KSL) 교육과정에서의 현대시 교육 - 문화적 통합과 정체성 확립을 위한 문학적 접근",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "A Study on Modern Poetry Education for Ethical Coexistence with Animals",
+      "venue": "어문학",
+      "year": "2024",
+      "month": "12",
+      "authors": [
+        "Ho-gyeong Yun"
+      ],
+      "doi": "10.37967/emh.2024.12.166.387",
+      "url": "https://doi.org/10.37967/emh.2024.12.166.387",
+      "query": "현대시 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "동물과의 윤리적 공존을 위한 현대시 교육 연구",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "A Study on a Poetry Writing Education Method Based on Affective Data Extraction through Deterritorialization",
+      "venue": "Hallyu Culture Research",
+      "year": "2026",
+      "month": "07",
+      "authors": [
+        "hanra Park"
+      ],
+      "doi": "10.66634/khallyu.2026.07.31.08",
+      "url": "https://doi.org/10.66634/khallyu.2026.07.31.08",
+      "query": "시 창작 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "탈영토화를 통한 정서 데이터 추출에 기반한 시 쓰기 교육 방법 연구",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "A Study on Poetry Education Using AI Affective Data : Focusing on the Intersections Between the Virtual and the Real",
+      "venue": "Barun Academy of History",
+      "year": "2026",
+      "month": "02",
+      "authors": [
+        "hanra Park"
+      ],
+      "doi": "10.55793/jkhc.2026.30.335",
+      "url": "https://doi.org/10.55793/jkhc.2026.30.335",
+      "query": "시 창작 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "AI 정서 데이터 활용 시 교육 연구: 가상과 현실의 교차점에 초점",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "A Study on Poetry Creation Education through the Capacity for Falsehood",
+      "venue": "",
+      "year": "2025",
+      "month": "10",
+      "authors": [
+        "Hanra Park"
+      ],
+      "doi": "10.37736/kjlr.2025.10.16.5.07",
+      "url": "https://doi.org/10.37736/kjlr.2025.10.16.5.07",
+      "query": "시 창작 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "허위 능력(Capacity for Falsehood)을 통한 시 창작 교육에 관한 연구",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "A content analysis of Korean picturebooks on food: The cultural patterns of dietary life and literary functions",
+      "venue": "The Journal of Korea Open Association for Early Childhood Education",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Suyeon Ryu",
+        "Yunhyun Park",
+        "Jeonghee Seo",
+        "Minju Kim"
+      ],
+      "doi": "10.20437/koaece31-5-17",
+      "url": "https://doi.org/10.20437/koaece31-5-17",
+      "query": "시 창작 교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "음식을 다룬 한국 그림책의 내용 분석: 식생활의 문화적 패턴과 문학적 기능",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "A Study on Modern Poetry Education in the 4th National Curriculum Period - Focusing on Theory of Structure and Mentalism -",
+      "venue": "Korean Literature Education Research",
+      "year": "2026",
+      "month": "06",
+      "authors": [
+        "Min-Kyu Kang"
+      ],
+      "doi": "10.37192/kler.91.1",
+      "url": "https://doi.org/10.37192/kler.91.1",
+      "query": "시 텍스트 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "제4차 국정교과과정의 현대시 교육 연구 - 구조주의와 정신주의 이론을 중심으로 -",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Gagopa: The Inteweaving and Convergence of Poetic and Musical Modes of Reading - A Cross Reading of Lee Eun-sang’s Sijo and Kim Dong-jin’s Gagog -",
+      "venue": "Korean Literature Education Research",
+      "year": "2026",
+      "month": "06",
+      "authors": [
+        "Chang-Won Kim"
+      ],
+      "doi": "10.37192/kler.91.3",
+      "url": "https://doi.org/10.37192/kler.91.3",
+      "query": "문학교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "&lt;가고파&gt;, 시 읽기와 노래 읽기의 교직과 융합 - 이은상 시ㆍ김동진 곡 &lt;가고파(전ㆍ후)&gt;의 교차 읽기 -",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "A Study on the Utilization of Park Mok-wol’s Poetry and Its Potential for Literary Education: Focusing on the Works Included in the 2022 Revised Korean Literature Curriculum",
+      "venue": "The Journal of Human Studies",
+      "year": "2025",
+      "month": "06",
+      "authors": [
+        "Jung-Hwa Kang"
+      ],
+      "doi": "10.33638/jhs.67.1",
+      "url": "https://doi.org/10.33638/jhs.67.1",
+      "query": "국어과 교육과정",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "박목월 시의 활용 양상과 문학교육의 가능성 고찰 -2022 개정 국어과 교육과정 반영 고등학교 『문학』 교과서 수록 작품을 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "A Study on the Improvement of Korean Language Curriculum : Based on the comparison of the 2022 revised Korean Language Course with the Common Curriculum",
+      "venue": "Cultural Convergence Society",
+      "year": "2025",
+      "month": "06",
+      "authors": [
+        "Society of culture convergence",
+        "Wan Kim"
+      ],
+      "doi": "10.61131/cc.2025.6.1.95",
+      "url": "https://doi.org/10.61131/cc.2025.6.1.95",
+      "query": "국어과 교육과정",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "한국어 교육과정 개선 방안 연구 - 2022 개정 국어과 공통 교육과정과의 비교를 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "An Analysis of the Sub-elements of the Core Competencies of the Korean Language Subject in the 2022 Revised Special Education Basic Curriculum: Focusing on 5-6th Grade Achievement Standards",
+      "venue": "Korean Journal of Special Education",
+      "year": "2025",
+      "month": "06",
+      "authors": [
+        "The Korean Society of Special Education",
+        "Eun Young Kang",
+        "Pyung‐Gang Jung",
+        "Kyoung-Ock Park"
+      ],
+      "doi": "10.15861/kjse.2025.60.1.243",
+      "url": "https://doi.org/10.15861/kjse.2025.60.1.243",
+      "query": "국어과 교육과정",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "2022 개정 특수교육 기본 교육과정 국어과 핵심역량 하위요소 분석 연구: 초등학교 5-6학년 성취기준을 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Analyzing AI Education as Digital Media in “Media Communication” Textbooks under the Revised 2022 Korean Language Curriculum",
+      "venue": "",
+      "year": "2025",
+      "month": "04",
+      "authors": [
+        "Jinyoung Olivia Choi",
+        "Bo-ra Song",
+        "Jeong-Seon Choi",
+        "Su-Ji Lee"
+      ],
+      "doi": "10.37736/kjlr.2025.04.16.2.01",
+      "url": "https://doi.org/10.37736/kjlr.2025.04.16.2.01",
+      "query": "국어과 교육과정",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "2022 개정 국어과 교육과정 [매체 의사소통] 교과서의 디지털 매체로서의 인공지능 교육 내용 분석",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "A Study on the Lower Secondary School Language Education Curriculum in Korea and Cambodia",
+      "venue": "Education Research Institute Chungbuk National University",
+      "year": "2024",
+      "month": "12",
+      "authors": [
+        "Sreynoch Ly"
+      ],
+      "doi": "10.55152/kerj.45.3.167",
+      "url": "https://doi.org/10.55152/kerj.45.3.167",
+      "query": "국어과 교육과정",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "한국과 캄보디아의 중학교 국어과 교육과정",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "The Awareness of the Development Illustrations and Electronic Works for the Subject of Korean of 2022 Revised Basic Curriculum Special Education",
+      "venue": "Korean Journal of Special Education",
+      "year": "2024",
+      "month": "09",
+      "authors": [
+        "김정기"
+      ],
+      "doi": "10.15861/kjse.2024.59.2.321",
+      "url": "https://doi.org/10.15861/kjse.2024.59.2.321",
+      "query": "국어과 교육과정",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "2022 개정 특수교육 기본 교육과정 국어과 교과용도서 삽화 및 전자 저작물 개발 과정에 대한 인식",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "A comparative analysis of the placement of cultural education in ACTFL, CEFR, and the Korean Standard Curriculum: Focusing on Intercultural Communicative Competence",
+      "venue": "Foreign Languages Education",
+      "year": "2026",
+      "month": "06",
+      "authors": [
+        "Kim Jeehye"
+      ],
+      "doi": "10.15334/fle.2026.33.2.369",
+      "url": "https://doi.org/10.15334/fle.2026.33.2.369",
+      "query": "상호문화 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "ACTFL, CEFR 및 한국 표준 교육과정에서 문화 교육의 위치에 대한 비교 분석: 문화 간 의사소통 능력에 초점",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "Analyzing Othering Discourses of Foreign Nationals in the Digital Public Sphere: Focusing on a Learner Education Model for Critical Intercultural Communication",
+      "venue": "커뮤니케이션학 연구",
+      "year": "2026",
+      "month": "02",
+      "authors": [
+        "Hyunju Woo"
+      ],
+      "doi": "10.23875/kca.34.1.4",
+      "url": "https://doi.org/10.23875/kca.34.1.4",
+      "query": "상호문화 교육",
+      "lang": "ko",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "디지털 공론장에서 외국인에 대한 타자화 담론 분석: 비판적 문화 간 커뮤니케이션을 위한 학습자 교육 모델에 초점",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "A Study on Intercultural Education Approaches in Korean Language Classrooms-A Study on Intercultural Education Approaches for Korean Language Learners",
+      "venue": "",
+      "year": "2023",
+      "month": "12",
+      "authors": [
+        "The Korean Society of Bilingualism",
+        "Hyemin Go"
+      ],
+      "doi": "10.17296/korbil.2023..94.1",
+      "url": "https://doi.org/10.17296/korbil.2023..94.1",
+      "query": "상호문화 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "한국어 교실에서의 상호문화 감수성 함양을 위한 교육 방안 효과 검증 연구",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "A Study on the Implementation Aspects of the Achievement Standard for ‘Self-Reflection and Understanding of others’ in t he 2022 Revised Curriculum - Focusing on High School Literature Textbooks",
+      "venue": "Korean Literary Theory and Criticism",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Jiyun Jeon"
+      ],
+      "doi": "10.20461/kltc.2026.10.110.311",
+      "url": "https://doi.org/10.20461/kltc.2026.10.110.311",
+      "query": "타자 이해 교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "2022 개정 교육과정의 ‘자아 성찰과 타자 이해’ 성취기준 구현 양상 연구 -고등학교 『문학』 교과서를 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "다문화 청소년의 사회적 위축과 비행의 관계에서 우울과 공격성의 순차매개효과",
+      "venue": "Journal of Emotional &amp; Behavioral Disorders",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "미나 권",
+        "진숙 이"
+      ],
+      "doi": "10.33770/jebd.42.3.23",
+      "url": "https://doi.org/10.33770/jebd.42.3.23",
+      "query": "다문화 문학교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-23",
+      "group": "국문"
+    },
+    {
+      "title": "다문화 청소년의 내재화 문제 잠재프로파일과 예측요인: 그릿과 또래지지를 중심으로",
+      "venue": "Journal of Emotional &amp; Behavioral Disorders",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "은주 전"
+      ],
+      "doi": "10.33770/jebd.42.3.16",
+      "url": "https://doi.org/10.33770/jebd.42.3.16",
+      "query": "다문화 문학교육",
+      "lang": "",
+      "source": "Crossref",
+      "added": "2026-11-23",
+      "group": "국문"
+    },
+    {
+      "title": "Korean Language Education for Children of North Korean Refugees Born in Third Countries: Current Practices and Challenges Based on In-depth Interviews with Educational Practitioners",
+      "venue": "",
+      "year": "2025",
+      "month": "05",
+      "authors": [
+        "Minkyung Kim",
+        "Bora Lee",
+        "Seonsuk Ryu"
+      ],
+      "doi": "10.18209/iakle.2025.36.2.63",
+      "url": "https://doi.org/10.18209/iakle.2025.36.2.63",
+      "query": "북한이탈주민 교육",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "국문",
+      "title_ko": "제3국 출생 북한이탈주민 자녀를 대상으로 한 한국어교육의 현황 및 과제 - 교육 기관 담당자 심층 면담을 통한 실증적 분석",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "Reconceptualizing Poetry Pedagogy through the Experiential Learning–Based Poetry Writing Model (ELPWM): A Vocational Education Perspective from Indonesia",
+      "venue": "International Research Journal on Advanced Science Hub",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Andi Asrifan",
+        "La Sunra",
+        "K. J. Vargheese",
+        "Akhtem A. Dzhelilov"
+      ],
+      "doi": "10.47392/irjash.2026.041",
+      "url": "https://doi.org/10.47392/irjash.2026.041",
+      "query": "poetry education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문",
+      "title_ko": "경험 학습 기반 시 쓰기 모델(ELPWM)을 통한 시 교육의 재개념화: 인도네시아의 직업교육 관점",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "A Case Study of a Liberal Education Course for the Contemporary Reinterpretation of Classics : Focusing on the Integration of Modern Korean Poetry and Co-duction",
+      "venue": "The Journal of General Education",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Seon-yul Baek"
+      ],
+      "doi": "10.24173/jge.2026.10.31.1",
+      "url": "https://doi.org/10.24173/jge.2026.10.31.1",
+      "query": "poetry education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문",
+      "title_ko": "명저의 현대적 재해석을 위한 교양교육 수업 사례 연구 : 한국 현대시와 공동-추론 활용을 중심으로",
+      "title_ko_source": "원제"
+    },
+    {
+      "title": "East-West transnationalism: A comparative analysis of Sapardi and Snyder's eco poetry for BIPA green pedagogy",
+      "venue": "Prosiding Konferensi Internasional Kesusasteraan",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Hani Sholihah",
+        "Ernalida Ernalida",
+        "Astrid Yulinda Putri",
+        "Khalidatun Nuzula"
+      ],
+      "doi": "10.68634/kik.v35i.190",
+      "url": "https://doi.org/10.68634/kik.v35i.190",
+      "query": "poetry pedagogy",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문",
+      "title_ko": "동서 간 초국가주의: BIPA 녹색 교육을 위한 사파르디(Sapardi)와 스나이더(Snyder)의 생태 시에 대한 비교 분석",
+      "title_ko_source": "기계번역"
+    },
+    {
+      "title": "FOSTERING INTERCULTURAL COMMUNICATIVE COMPETENCE IN ENGLISH LANGUAGE EDUCATION",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Suyunova Fotima Oybekovna",
+        "Sarimsokov Sirojiddin Shoyzoqovich"
+      ],
+      "doi": "10.5281/zenodo.24289901",
+      "url": "https://doi.org/10.5281/zenodo.24289901",
+      "query": "intercultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문"
+    },
+    {
+      "title": "Mapping global and intercultural learning in Latin American Higher Education: A situational archetypes practice-oriented model",
+      "venue": "OpenCommons - UConn (University of Connecticut)",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Kelly Henao Romero",
+        "Indira van der Zande",
+        "Robert J Coelen"
+      ],
+      "doi": "",
+      "url": "https://digitalcommons.lib.uconn.edu/jcihe/vol18/iss6/9",
+      "query": "intercultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문"
+    },
+    {
+      "title": "THE ROLE OF ORIGINAL ENGLISH TEXTS IN THE FORMATION OF INTERCULTURAL COMMUNICATION IN LANGUAGE FACULTIES OF HIGHER EDUCATIONAL INSTITUTIONS",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Jala Gadir gizi Samadova"
+      ],
+      "doi": "10.5281/zenodo.24423219",
+      "url": "https://doi.org/10.5281/zenodo.24423219",
+      "query": "intercultural education literary text",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문"
+    },
+    {
+      "title": "From Exclusivism to Inclusivism: Reactualizing Multiculturalism-Based Islamic Education",
+      "venue": "Jurnal Edukasi",
+      "year": "2026",
+      "month": "10",
+      "authors": [
+        "Mustamar Iqbal Siregar Iqbal",
+        "Lathifah Hanum",
+        "Khairi Maulidya"
+      ],
+      "doi": "10.60132/edu.v4i5.814",
+      "url": "https://doi.org/10.60132/edu.v4i5.814",
+      "query": "multicultural literature education",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문"
+    },
+    {
+      "title": "THE ROLE OF INTERACTIVE TEACHING METHODS IN DEVELOPING INTERCULTURAL COMMUNICATIVE COMPETENCE: ADVANTAGES OF THE CASE STUDY METHOD",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Gunay Aliyeva"
+      ],
+      "doi": "10.5281/zenodo.24422695",
+      "url": "https://doi.org/10.5281/zenodo.24422695",
+      "query": "intercultural competence literature teaching",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문"
+    },
+    {
+      "title": "Methods for Developing Intercultural Communicative Compe-tence in English Language Teaching",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Farangiz Odilova"
+      ],
+      "doi": "10.5281/zenodo.24334062",
+      "url": "https://doi.org/10.5281/zenodo.24334062",
+      "query": "intercultural competence literature teaching",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문"
+    },
+    {
+      "title": "When social interaction becomes an algorithm: AI-mediated education, intercultural competence, and the risks to democratic schooling",
+      "venue": "Frontiers in Psychology",
+      "year": "2026",
+      "month": "11",
+      "authors": [
+        "Vassiliki Plıogou",
+        "Sophia Tromara"
+      ],
+      "doi": "10.3389/fpsyg.2026.1906935",
+      "url": "https://doi.org/10.3389/fpsyg.2026.1906935",
+      "query": "intercultural competence literature teaching",
+      "lang": "en",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문"
+    },
+    {
+      "title": "Peace and Unification Education in Geography under the 2022 Revised National Curriculum: A Semantic Network Analysis of the Curriculum and Textbooks",
+      "venue": "Journal of the Association of Korean Geographers",
+      "year": "2026",
+      "month": "09",
+      "authors": [
+        "Hyejin Kim",
+        "Chul-Ki Cho",
+        "Yunmi Lee"
+      ],
+      "doi": "10.25202/jakg.15.3.5",
+      "url": "https://doi.org/10.25202/jakg.15.3.5",
+      "query": "unification education Korea",
+      "lang": "ko",
+      "source": "OpenAlex",
+      "added": "2026-11-23",
+      "group": "영문",
+      "title_ko": "2022 개정 교육과정 지리 교과의 평화·통일교육: 교육과정과 교과서의 언어네트워크 분석을 중심으로",
+      "title_ko_source": "원제"
+    },
     {
       "title": "An Analysis of University Students’ Educational Needs for Generative AI Literacy and Its Implications for Higher Education: A Case Study of K University",
       "venue": "The Journal of Korean Association of Computer Education",
